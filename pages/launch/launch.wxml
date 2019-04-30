@@ -1,0 +1,48 @@
+<!-- pages/participate/participate.wxml -->
+<!-- <view class='search'>
+  <view class='box'>
+    <image src="../../images/search.gif" mode="widthFix"></image>
+    <input type='text' placeholder='输入拼团主题'></input>
+  </view>
+</view> -->
+<view class="flex order-status" bindtap='changeOil'>
+  <view class="order-status-item  {{num==1?' order-status-item-active':''}}" data-num='1'>全部</view>
+  <view class="order-status-item   {{num==2?' order-status-item-active':''}}" data-num='2'>
+    正在拼团
+  </view>
+  <view class="order-status-item   {{num==3?' order-status-item-active':''}}" data-num='3'>
+    满员完结
+  </view>
+  <view class="order-status-item   {{num==4?' order-status-item-active':''}}" data-num='4'>
+    未满终止
+  </view>
+</view>
+<view bindtouchstart="start" bindtouchend="end" data-s="1" data-e="4">
+  <view class="order-wrapper" style="height:100%" hidden="{{!order}}">
+    <navigator class="order-item" open-type='navigate' wx:for="{{order}}" wx:key="item" url="../launchDetail/launchDetail?proid={{item.id}}&userid={{userId}}">
+      <view class="order-seller flex">
+        <view class="seller-avatar flex">
+          <view>发布时间：{{item.create_time}}</view>
+        </view>
+        <!-- <text class="item-status">编辑</text> -->
+      </view>
+      <view class="order-detail flex">
+        <image class="order-img" src='{{item.img}}'></image>
+        <view class="order-text-wrapper">
+          <view class="order-title ellipsis">{{item.title}}</view>
+          <view class="order-price">团购价￥{{item.price}}  单买价￥{{item.oneprice}}</view>
+          <view class="order-price"></view>
+        </view>
+      </view>
+      <view class="orderNum-wrapper">
+        <view>
+          <image src='../../images/ren.gif' mode='widthFix'></image>
+          {{item.nums}}人参团
+          <image src='../../images/bag.gif' mode='widthFix'></image>
+          {{item.num}}人单买
+        </view>
+        <view class="btn">{{item.msg}}</view>
+      </view>
+    </navigator>
+  </view>
+</view>

@@ -1,0 +1,82 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/ckztd/ckztd",
+    "pages/buy/buy",
+    "pages/certification/certification",
+    "pages/tgm/tgm",
+    "pages/ptxq/ptxq",
+    "pages/personal/personal",
+    "pages/orderManagement/orderManagement",
+    "pages/orderDetail/orderDetail",
+    "pages/helpCenter/helpCenter",
+    "pages/webContainer/webContainer",
+    "pages/paymentDetails/paymentDetails",
+    "pages/test/test",
+    "pages/order/order",
+    "pages/launch/launch",
+    "pages/cash/cash",
+    "pages/ddm/ddm",
+    "pages/goodsImg/goodsImg",
+    "pages/myOrder/myOrder",
+    "pages/releaseCertification/releaseCertification",
+    "pages/seller/seller",
+    "pages/set_message/set_message",
+    "pages/teamBuy/teamBuy",
+    "pages/updateLogistics/updateLogistics",
+    "pages/wallet/wallet",
+    "pages/withdrawal/withdrawal",
+    "pages/zffy/zffy",
+    "pages/address/address",
+    "pages/launchDetail/launchDetail",
+    "pages/load_pro/load_pro",
+    "pages/information/information",
+    "pages/fans/fans",
+    "pages/focus/focus",
+    "pages/add_address/updata_address",
+    "pages/add_address/add_address",
+    "pages/invite/invite",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "蚁拼",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#593A25",
+    "selectedColor": "#FFD45A",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./images/foot1.jpg",
+        "selectedIconPath": "./images/foot1_1.jpg"
+      },
+      {
+        "pagePath": "pages/load_pro/load_pro",
+        "text": "列表",
+        "iconPath": "./images/foot2.jpg",
+        "selectedIconPath": "./images/foot2_1.jpg"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "我的",
+        "iconPath": "./images/foot3.jpg",
+        "selectedIconPath": "./images/foot3_1.jpg"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "我的",
+        "iconPath": "./images/foot3.jpg",
+        "selectedIconPath": "./images/foot3_1.jpg"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

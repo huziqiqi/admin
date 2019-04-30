@@ -1,0 +1,50 @@
+<!-- pages/paymentDetails/paymentDetails.wxml -->
+<view class="classification-wrapper flex" bindtap='changeOil'>
+  <view class="classification-item {{type==0?'  classification-item-active':''}}" data-type='0'>
+    全部
+  </view>
+  <view class="classification-item{{type==1?'  classification-item-active':''}}" data-type='1'>
+    拼团买
+  </view>
+  <view class="classification-item{{type==2?'  classification-item-active':''}}" data-type='2'>
+    单独买
+  </view>
+</view>
+<view class="flex header">
+  <picker class='item' mode="date" fields="month" start="1990-01-01" bindchange='bindChange'>
+    <view>{{date[0]}}</view>
+    <text>{{date[1]}}月</text>
+    <image mode='widthFix' src='../../images/icon14.png'></image>
+  </picker>
+  <view class='item {{state==4?"item-active":""}}' data-state="4" bindtap='changeOil2'>
+    <!-- <view style="height:44rpx">123</view>
+    <text>销售额</text> -->
+    <view style="height:22rpx"></view>
+    <text>已成交</text>
+    <view style="height:22rpx"></view>
+  </view>
+  <view class='item {{state==6?"item-active":""}}' data-state="6" bindtap='changeOil2'>
+    <view style="height:22rpx"></view>
+    <text>已退款</text>
+    <view style="height:22rpx"></view>
+  </view>
+  <!-- <view class='item {{state==3?"item-active":""}}' data-state="3" bindtap='changeOil2'>
+    <view>230</view>
+    <text>扣返佣</text>
+  </view> -->
+</view>
+<view class='list-wrapper'>
+  <view class='flex list-item' wx:for="{{items}}" wx:key="item">
+    <image class='avatar' mode='widthFix' src='{{item.headimgurl?item.headimgurl:"../../images/avan.gif"}}'></image>
+    <view class='text-wrapper'>
+      <view class='flex' style='margin-bottom: 10rpx;'>
+        <text class='name'>{{item.nickname}}-{{item.msg}}</text>
+        <text class='money'>{{item.price}}</text>
+      </view>
+      <view class='flex'>
+        <text class='orderNum'>订单号：{{item.order_num}}</text>
+        <text class='time'>{{item.create_time}}</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,20 @@
+<!-- pages/cash/cash.wxml -->
+<view class='tx'>
+  <view>
+    累计提现：
+    <text>{{num}}笔</text>
+  </view>
+  <view>
+    累计提现金额：
+    <text>￥{{allprice}}元</text>
+  </view>
+</view>
+<view class='txtj'>
+  <view wx:for="{{product}}" wx:key="item">
+    <view>
+      提现到 - 微信号：18197246380
+      <text class='rt'>-{{item.price}}</text>
+    </view>
+    <text>{{item.create_time}}</text>
+  </view>
+</view>

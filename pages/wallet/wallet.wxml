@@ -1,0 +1,37 @@
+<!-- pages/wallet/wallet.wxml -->
+<view class='wallet'>
+  <image src='../../images/top.jpg' mode='widthFix'></image>
+  <text class='tx'>可提现</text>
+  <text class='money'>￥{{item.amount}}</text>
+  <navigator hover-class='no' url='../withdrawal/withdrawal?amount={{item.amount}}'>提现</navigator>
+  <view>
+    <view>
+      交易中
+      <text>￥{{item.dealprice}}</text>
+    </view>
+    <view>
+      销售总额
+      <text>￥{{item.allprice}}</text>
+    </view>
+    <view>
+      已退款
+      <text>￥{{item.tkprice}}</text>
+    </view>
+  </view>
+</view>
+<view class='tgxx'>
+  <navigator hover-class="no" url="../zffy/zffy">
+    返佣金额
+    <image src="../../images/right.gif" class='rt' mode='widthFix'></image>
+    <text class="price">{{item.price}}</text>
+  </navigator>
+  <navigator hover-class="no" url='../cash/cash?id={{userId}}'>
+    已提现
+    <text class="price">{{item.alreadyprice}}</text>
+    <image src="../../images/right.gif" class='rt' mode='widthFix'></image>
+  </navigator>
+  <navigator url="../paymentDetails/paymentDetails">
+    <view hover-class="weui-cell_active">收支明细</view>
+    <image src="../../images/right.gif" class='rt' mode='widthFix'></image>
+  </navigator>
+</view>

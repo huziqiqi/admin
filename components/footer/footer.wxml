@@ -1,0 +1,28 @@
+<!-- components/footer/footer.wxml -->
+<view style="height:3rem;"></view>
+<view class="foot">
+  <view>
+    <navigator url="../index/index" open-type="switchTab" hover-class="other-navigator-hover">
+      <image src="../../images/{{curIndex == '0' ? 'foot1_1' : 'foot1'}}.jpg" mode='widthFix'></image>
+      <text>首页</text>
+    </navigator>
+  </view>
+  <view>
+    <navigator url="../load_pro/load_pro" open-type="switchTab" hover-class="other-navigator-hover">
+      <image src="../../images/{{curIndex == '1' ? 'foot2_1' : 'foot2'}}.jpg" mode='widthFix'></image>
+      <text>发布</text>
+    </navigator>
+  </view>
+  <view>
+    <navigator url='../order/order' open-type="switchTab" hover-class="other-navigator-hover">
+      <image src="../../images/{{curIndex == '2' ? 'foot3_1' : 'foot3'}}.jpg" mode='widthFix'></image>
+      <text>我参与的</text>
+    </navigator>
+  </view>
+  <view>
+    <navigator url="../personal/personal" open-type="switchTab" hover-class="other-navigator-hover">
+      <image src="../../images/{{curIndex == '3' ? 'foot4_1' : 'foot4'}}.jpg" mode='widthFix'></image>
+      <text>我的</text>
+    </navigator>
+  </view>
+</view>

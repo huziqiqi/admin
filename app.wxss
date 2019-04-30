@@ -1,0 +1,32 @@
+/**app.wxss**/
+
+radio .wx-radio-input {
+  border-radius: 3rpx;
+  height: 26rpx;
+  width: 26rpx;
+  margin-top: -4rpx;
+}
+
+.lf {
+  float: left;
+}
+
+.rt {
+  float: right;
+}
+
+.clear::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.flex {
+  display: flex;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

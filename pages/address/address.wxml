@@ -1,0 +1,25 @@
+<!-- pages/address/address.wxml -->
+<radio-group style="margin-bottom: 100rpx;">
+  <view wx:for="{{address}}" wx:key="item" wx:if="{{item}}" class='address'>
+    <view bindtap="chooseAddress" data-item="{{item}}">
+      {{item.sname}}
+      <text class='rt'>{{item.tel}}</text>
+      <view>{{item.provinces+item.address}}</view>
+    </view>
+    <view class='radio  clear'>
+      <view bindtap="defaddress" data-item="{{item}}" class="lt">
+        <radio color='#FBDA01' checked="{{item.isfalse==1}}"></radio>
+        设为默认地址
+      </view>
+      <view class='rt text' bindtap="delAddress" data-index="{{index}}" data-id="{{item.id}}">
+        删除
+      </view>
+      <navigator class='rt' url='../add_address/updata_address?id={{item.id}}&type={{type}}&isfalse={{item.isfalse}}' hover-class='no' class='rt'>
+        编辑
+      </navigator>
+    </view>
+  </view>
+</radio-group>
+<navigator url='../add_address/add_address?type={{type}}&userId={{userId}}' hover-class='no' class='bottom'>
+  添加新地址
+</navigator>

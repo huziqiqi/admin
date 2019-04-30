@@ -1,0 +1,20 @@
+/* pages/components/notData/notData.wxss */
+.notData{
+  text-align: center;
+  margin-top: 40rpx;
+}
+.notData image{
+  display: block;
+  width: 400rpx;
+  height: 400rpx;
+  margin: 0 auto;
+}
+.notData view{
+  font-size: 32rpx;
+  color: #c8cac5;
+}
+.notData navigator{
+  font-size: 28rpx;
+  color: #009966;
+  margin-top: 10rpx;
+}

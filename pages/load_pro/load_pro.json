@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "发布拼团尚品",
+  "usingComponents": {
+    "footer": "../../components/footer/footer",
+    "tips": "../../components/tips/tips"
+  }
+}

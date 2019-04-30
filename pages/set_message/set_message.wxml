@@ -1,0 +1,56 @@
+<form bindsubmit="submit">
+  <!-- pages/set_message/set_message.wxml -->
+  <view class='clear upload'>
+    <view class='lf'>上传拼团商品</view>
+    <image src='../../images/wsj.jpg' mode='widthFix'></image>
+    <view class='rt'>设置拼团信息</view>
+  </view>
+  <view class='list'>
+    <navigator bindtap="address">
+      <image src='../../images/local.jpg' mode='widthFix'></image>
+      <text wx:if="{{isAddress}}">定位活动地址（优先推荐给附近的人）</text>
+      <text wx:else>{{city+address}}</text>
+      <image src='../../images/right.gif' mode='widthFix' class='rt'></image>
+    </navigator>
+  </view>
+  <view class='list'>
+    <view class='clear'>
+      <text class='lf'>配送方式</text>
+      <view class='rt'>
+        <radio-group name="isshop" bindchange="radioChange">
+          到店自提
+          <radio color='#FBDA01' value="2" checked="{{isshop}}"></radio>
+          物流额配送
+          <radio color='#FBDA01' value="1"></radio>
+        </radio-group>
+      </view>
+    </view>
+    <view class='clear' hidden="{{isAddressid}}">
+      <text class='lf'>添加自提点</text>
+      <!-- <navigator class='rt ccyctext' style="text-align: {{addressName?'left':'right'}}" url="../address/address?type=2" open-type="navigate">      <navigator class='rt ccyctext' style="text-align: {{addressName?'left':'right'}}" url="../address/address?type=2" open-type="navigate"> -->
+      <navigator class='rt ccyctext' url="../address/address?type=2" open-type="navigate">
+        {{addressName?addressName:"请选择自提点信息"}}
+        <image src='../../images/right.gif' mode='widthFix'></image>
+      </navigator>
+    </view>
+  </view>
+  <view class='list'>
+    <view class='clear'>
+      <text class='lf'>单买返佣</text>
+      <input class='rt' type='number' placeholder='用户单独买商品时所获佣金' name="onefanli"></input>
+    </view>
+    <view class='clear'>
+      <text class='lf'>团购返佣</text>
+      <input class='rt' type='number' placeholder='用户拼团买商品时所获佣金' name="fanli"></input>
+    </view>
+  </view>
+  <view class='mark'>
+    <view>
+      <image src='../../images/gt.jpg' mode='widthFix'></image>
+      返给客户的佣金将于本拼团活动结束后统一在您的商品销
+售额中扣除
+    </view>
+    <button form-type="submit" class='next'>确认发布</button>
+  </view>
+</form>
+<tips msg="{{msg}}"></tips>

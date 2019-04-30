@@ -1,0 +1,130 @@
+<!-- pages/goodsDetail/goodsDetail.wxml -->
+<swiper class="banner" indicator-dots="true" indicator-color="rgba(255, 255, 255, .7)" indicator-active-color="#FDD901" autoplay="true" circular="true">
+  <swiper-item wx:for="{{item.imgs}}" wx:key="item">
+    <image mode="widthFix" src="{{item}}"></image>
+  </swiper-item>
+</swiper>
+<view class='price clear'>
+  <view class='lf'>
+    ￥{{item.price}}
+    <view class='rt'>
+      {{item.num}}人已参与拼团
+      <text>单买价￥{{item.oneprice}}</text>
+    </view>
+  </view>
+  <view class='tui-countdown-content rt' wx:for="{{countDownList}}" wx:key="countDownList">
+    <view>距结束仅剩</view>
+    <text class='tui-conutdown-box'>{{item.day}}</text>
+    天
+    <text class='tui-conutdown-box'>{{item.hou}}</text>
+    :
+    <text class='tui-conutdown-box'>{{item.min}}</text>
+    :
+    <text class='tui-conutdown-box tui-countdown-bg'>{{item.sec}}</text>
+  </view>
+</view>
+<view class='share'>
+  <view>
+    团购返佣 ￥
+    <text>{{item.fanli}}</text>
+  </view>
+  <view>
+    单买返佣 ￥
+    <text>{{item.onefanli}}</text>
+  </view>
+</view>
+<view class='title clear'>
+  <text class='lf'>{{item.title}}</text>
+  <view class='rt'>
+    <image src='../../images/share.jpg' mode='widthFix'></image>
+    <view>分享</view>
+  </view>
+</view>
+<view class='nr'>
+  <text>{{item.info}}</text>
+</view>
+<view class='tgxx'>
+  <navigator hover-class="no" url='../ckztd/ckztd'>
+    <image src='../../images/icon1.gif' mode='widthFix'></image>
+    仅到店自提
+    <!-- <image src="../../images/right.gif" class='rt' mode='widthFix'></image> -->
+  </navigator>
+  <navigator hover-class="no">
+    <image src='../../images/icon2.gif' mode='widthFix'></image>
+    {{item.city}}{{item.address}}
+    <!-- <image src="../../images/right.gif" class='rt' mode='widthFix'></image> -->
+  </navigator>
+  <!-- <navigator>
+    <image src='../../images/icon3.gif' mode='widthFix'></image>
+    <view hover-class="weui-cell_active" data-reply-phone="18282957326" bindtap="phoneCall">
+      18282957326（王佳丽）
+    </view>
+    <image src="../../images/right.gif" class='rt' mode='widthFix'></image>
+  </navigator> -->
+  <navigator>
+    <image src='../../images/icon4.gif' mode='widthFix'></image>
+    拼购截止时间：{{item.end_time}}
+  </navigator>
+</view>
+<view class='yh'>
+  <view>
+    <text>{{item.hits}}</text>
+    浏览(人)
+  </view>
+  <view>
+    <text>{{item.num}}</text>
+    已参团(人)
+  </view>
+  <view>
+    <text>1</text>
+    单买人数
+  </view>
+  <view>
+    <text>1</text>
+    分享人数
+  </view>
+  <view>
+    <text>92</text>
+    分享佣金
+  </view>
+  <view>
+    <text>￥1</text>
+    销售总额
+  </view>
+</view>
+<view class='jl'>
+  <view class='tit'>参与记录</view>
+  <!-- <view class='pm'>
+    <text>NO.01</text>
+    <view>
+      <image src="../../images/avan.gif" mode='widthFix'></image>
+      小丸子
+    </view>
+    <view>+1</view>
+    <text>2019-01-17 12:37</text>
+  </view>
+  <view class='pm'>
+    <text>NO.02</text>
+    <view>
+      <image src="../../images/avan.gif" mode='widthFix'></image>
+      小丸子
+    </view>
+    <view>+1</view>
+    <text>2019-01-17 12:37</text>
+  </view> -->
+</view>
+<view style='height:100rpx;'></view>
+<view class='gz clear'>
+  <!-- <navigator url='../index/index' class='lf' open-type="redirect">
+    <image src='../../images/team.gif' mode='widthFix'></image>
+    <text>修改团购</text>
+  </navigator> -->
+  <navigator bindtap="stoppt" class='rt black'>
+    <image src='../../images/team2.gif' mode='widthFix'></image>
+    <text>终止团购</text>
+  </navigator>
+  <navigator open-type="navigate" url='../orderManagement/orderManagement?proid={{proid}}' class='rt'>
+    <image src='../../images/team3.gif' mode='widthFix'></image>
+    <text>订单管理</text>
+  </navigator>
+</view>

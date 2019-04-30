@@ -1,0 +1,15 @@
+<!-- pages/ckztd/ckztd.wxml -->
+<view class='address'>
+  <view>
+    西安市未央区龙首村未央印象城8栋
+    <image src='../../images/address.gif' mode='widthFix' class='rt'></image>
+  </view>
+  <view>
+    西安市未央区龙首村未央印象城8栋
+    <image src='../../images/address.gif' mode='widthFix' class='rt'></image>
+  </view>
+  <view>
+    西安市未央区龙首村未央印象城8栋
+    <image src='../../images/address.gif' mode='widthFix' class='rt'></image>
+  </view>
+</view>

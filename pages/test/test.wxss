@@ -1,0 +1,5 @@
+/* pages/test/test.wxss */
+map {
+  width: 94%;
+  margin: 10rpx 3%;
+}

@@ -1,0 +1,31 @@
+<!-- pages/add_address/add_address.wxml -->
+<form bindsubmit="formSubmit">
+  <view class="addresses">
+    <view class="clear">
+      <text class="lf">收货人：</text>
+      <input type="text" placeholder="请输入收货人姓名" name="sname" value="{{sname}}" class="rt" />
+    </view>
+    <view class="clear">
+      <text class="lf">手机：</text>
+      <input type="numbert" placeholder="请输入手机号码" name="tel" value="{{tel}}" class="rt" />
+    </view>
+    <view class="clear">
+      <text class="lf">省市区：</text>
+      <picker mode="region" bindchange="bindRegionChange" name="provinces" value="{{region}}" custom-item="{{customItem}}" class='rt'>
+        <view class="picker">{{region[0]}}{{region[1]}}{{region[2]}}</view>
+      </picker>
+    </view>
+    <view class="clear">
+      <text class="lf">详细地址：</text>
+      <input type="text" placeholder="请输入您的详细地址" name="address" value="{{address}}" class="rt" />
+    </view>
+    <view class="clear"></view>
+  </view>
+  <button bindtap="getUserAddress" class="btn_login" style="background:rgb(9,187,7);color:#fff;">
+    获取微信地址
+  </button>
+  <button wx:if="{{!isAdd}}" class="btn_login" style="margin-top:10rpx;" formType="submit">
+    确认添加
+  </button>
+</form>
+<tips msg="{{msg}}"></tips>

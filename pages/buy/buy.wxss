@@ -1,0 +1,104 @@
+/* pages/buy/buy.wxss */
+page{
+  background: #F6F7F9;
+}
+.buy .clear{
+  border: 1px solid #F4F4F4;
+  border-right: 0;
+  border-left: 0;
+  padding: 20rpx;
+}
+.buy .clear image{
+  width: 22%;
+}
+.buy .clear>view{
+  width: 75%;
+}
+.buy .clear>view view{
+  line-height: 40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; 
+  font-size: 26rpx;
+  color: #444;
+  margin: 10rpx 0 10rpx;
+}
+.buy .clear>view text{
+  font-size: 28rpx;
+  color: #444;
+}
+.stepper {
+	width: 72px;
+	height: 26px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin:14rpx auto;
+}
+.stepper text {
+	width: 20px;
+	line-height: 26px;
+	text-align: center;
+	float: left;
+}
+.stepper input {
+	width: 30px;
+	line-height: 26px;
+	height: 20px;
+	float: left;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 12px;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+.stepper .normal{
+	color: black;
+}
+.stepper .disabled{
+	color: #ccc;
+}
+.list{
+  line-height: 85rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #606060;
+  border-bottom: 1px solid #F2F2F2;
+}
+.buy{
+  border-bottom: 20rpx solid #F6F7F9;
+  background: #fff;
+}
+.yellow{
+  color: #f0d309;
+}
+.list image{
+  width: 20rpx;
+  vertical-align: middle;
+}
+.list .bz,.list textarea{
+  width: 80%;
+}
+.list textarea{
+  height: 150rpx;
+}
+.list::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.pay button{
+  width: 90%;
+  background: #222222;
+  font-size: 32rpx;
+  color: #fcd903;
+  line-height: 90rpx;
+  margin-top: 20rpx;
+}
+
+
+
+
+

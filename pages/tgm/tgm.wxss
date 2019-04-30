@@ -1,0 +1,12 @@
+/* pages/canvas/canvas.wxss */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 999px;
+}
+
+image {
+  width: 100%;
+}
+
+/* 画布绘制过程不能隐藏 但是又不能被用户看见 所以定位在用户看不到地方 */

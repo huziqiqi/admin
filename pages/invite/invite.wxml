@@ -1,0 +1,7 @@
+<!-- pages/ckztd/ckztd.wxml -->
+<view class='address'>
+  <view wx:for="{{items}}" bindtap="chooseAddress" data-item="{{item}}">
+    {{item.provinces+item.address}}
+    <image src='../../images/address.gif' mode='widthFix' class='rt'></image>
+  </view>
+</view>

@@ -1,0 +1,2 @@
+<view class="inner" bind:tap="customMethod">{{innerText}}</view>
+<slot></slot>

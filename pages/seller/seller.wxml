@@ -1,0 +1,51 @@
+<!-- pages/seller/seller.wxml -->
+<view class='tdzy'>
+  <image src="{{user.headimgurl?user.headimgurl:avan}}" mode="widthFix"></image>
+  <text>{{user.nickname}}</text>
+  <view>
+    <view>
+      {{num}}
+      <text>已发布</text>
+    </view>
+    <view>
+      {{user.fansnum}}
+      <text>关注</text>
+    </view>
+    <view>
+      {{user.hits}}
+      <text>访问</text>
+    </view>
+  </view>
+</view>
+<view class="product">
+  <view wx:for="{{product}}" wx:key="item">
+    <navigator hover-class="no" url="../ptxq/ptxq?id={{item.id}}">
+      <text class='nr'>{{item.title}}</text>
+      <view class='times'>
+        <text>{{item.create_time}}</text>
+        <image src="../../images/eye.gif" mode="widthFix"></image>
+        {{item.hits}}人已浏览
+      </view>
+      <view class='nr_img'>
+        <view wx:for="{{item.img}}" wx:key="item" wx:if="{{index<3}}">
+          <image src='{{item}}' mode="widthFix"></image>
+        </view>
+      </view>
+      <view class='address'>
+        <image src="../../images/address.jpg" mode="widthFix"></image>
+        {{item.address}}
+      </view>
+    </navigator>
+  </view>
+</view>
+<view style='height:100rpx;'></view>
+<view class='gz clear'>
+  <navigator class='lf' open-type="navigateBack">
+    <image src='../../images/foot1.jpg' mode='widthFix'></image>
+    <text>首页</text>
+  </navigator>
+  <view bindtap="isGuanZhu">
+    <text class='rt' wx:if="{{isGuanZhu==2}}" data-type="{{isGuanZhu}}">关注TA</text>
+    <text class='rt' wx:if="{{isGuanZhu!=2}}" data-type="{{isGuanZhu}}">取消关注</text>
+  </view>
+</view>

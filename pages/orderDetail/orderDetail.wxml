@@ -1,0 +1,76 @@
+<!-- pages/orderDetail/orderDetail.wxml -->
+<view class='goods section'>
+  <view class='title order-status'>{{item.msg}}</view>
+  <view class='flex'>
+    <image style='width: 200rpx;margin-right: 20rpx;' mode='widthFix' src='{{item.img}}'></image>
+    <view class='text-wrapper'>
+      <view class='name ellipsis'>{{item.group_name}}</view>
+      <view class='price flex' style='justify-content: space-between;'>
+        ￥{{item.price}} x{{item.nums}}
+        <image style='width: 20rpx;height: 20rpx;' mode='widthFix' src='../../images/icon05.jpg'></image>
+      </view>
+      <view class='money'>已付￥{{item.allprice}}</view>
+    </view>
+  </view>
+</view>
+<view class='section'>
+  <view class='title' style='color: #333;padding-bottom: 10rpx;'>已成团-待自提</view>
+  <view class='order-information-wrapper'>
+    <view class='item flex'>
+      订单号：
+      <view>{{item.order_num}}</view>
+    </view>
+    <view class='item flex'>
+      订单状态：
+      <view>已发货</view>
+    </view>
+    <view class='item flex'>
+      已发货：
+      <view>{{item.consignee}}</view>
+    </view>
+    <view class='item flex'>
+      手机号：
+      <view>{{item.consignee_phone}}</view>
+    </view>
+    <view class='item flex'>
+      配送方式：
+      <view wx:if="{{item.iszt==1}}">到店自提</view>
+      <view wx:if="{{item.iszt==2}}">快递</view>
+    </view>
+    <view class='item flex'>
+      <view wx:if="{{item.iszt==1}}">自提地址：</view>
+      <view wx:if="{{item.iszt==2}}">快递地址：</view>
+      <view>{{item.consignee_address}}</view>
+    </view>
+    <view class='item flex'>
+      备注：
+      <view>星期二来提</view>
+    </view>
+    <view class='item flex'>
+      购买时间：
+      <view>{{item.paytime}}</view>
+    </view>
+    <view class='item flex'>
+      数量：
+      <view>{{item.nums}}</view>
+    </view>
+    <view class='item flex'>
+      单价：
+      <view>￥{{item.price}}</view>
+    </view>
+    <view class='item flex'>
+      总价：
+      <view>￥{{item.nums*item.price}}</view>
+    </view>
+    <view class='item flex'>
+      实付：
+      <view>￥{{item.allprice}}</view>
+    </view>
+    <view class='item flex'>
+      支付方式：
+      <view>微信（在线支付）</view>
+    </view>
+  </view>
+</view>
+<view class="btn" wx:if="{{item.iszt==1}}" bindtap='theGoods'>确认已自提</view>
+<view class="btn" wx:if="{{item.iszt==2}}" bindtap='theGoods'>确认已收货</view>

@@ -1,0 +1,29 @@
+/* components/footer/footer.wxss */
+.foot {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: #fff;
+  border-top: 1px solid #e4e4e4;
+}
+
+.foot view {
+  width: 25%;
+  padding: 10rpx 0;
+  position: relative;
+}
+
+.foot view image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.foot view text {
+  display: block;
+  font-size: 22rpx;
+  color: #222;
+}

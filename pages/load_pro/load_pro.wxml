@@ -1,0 +1,89 @@
+<!-- pages/load_pro/load_pro.wxml -->
+<form bindsubmit="sumb">
+  <view class='clear upload' name="imgs">
+    <view class='lf'>上传拼团商品</view>
+    <image src='../../images/point.jpg' mode='widthFix'></image>
+    <view class='rt'>设置拼团信息</view>
+  </view>
+  <view class="fileList">
+    <view class="file" data-index="1">
+      <view class="item">
+        <view>
+          <view class="box">
+            <block wx:for="{{shopImg}}" wx:key="index">
+              <view class="imgbox vertical-top" style="display:inline-block;vertical-align:top">
+                <image src="{{item}}" data-imgsrc="{{item}}" mode='widthFix' data-imgtype="shopImg" bindtap='removeImg'></image>
+              </view>
+            </block>
+            <view class="fileList vertical-middle">
+              <view class="file">
+                <view data-imgtype="shopImg" bindtap='file'>
+                  <image src="/images/addImg.jpg" style="width:150rpx;height:150rpx"></image>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='list'>
+    <view class='clear'>
+      <text class='lf'>拼团标题</text>
+      <input class='rt' type='text' name="title"></input>
+    </view>
+    <view class='clear'>
+      <text class='lf'>拼团活动介绍</text>
+      <textarea class='rt' name="info"></textarea>
+    </view>
+  </view>
+  <view class='list'>
+    <view class='clear'>
+      <text class='lf'>类目</text>
+      <picker bindchange="bindPickerChange" name="cateid" range="{{array}}" range-key="title" class='rt'>
+        <view class="picker">
+          {{array[index].title}}
+          <image src="../../images/right.gif" mode="widthFix" class='rt'></image>
+        </view>
+      </picker>
+    </view>
+    <view class='clear'>
+      <text class='lf'>规格</text>
+      <picker bindchange="bindUnitPickerChange" name="deck" range="{{unit}}" range-key="name" class='rt'>
+        <view class="picker">
+          {{unit[uindex].name}}
+          <image src="../../images/right.gif" mode="widthFix" class='rt'></image>
+        </view>
+      </picker>
+    </view>
+    <view class='clear'>
+      <text class='lf'>单买价格</text>
+      <input class='rt' type='number' placeholder='请填写单独买价格（元）' name="oneprice"></input>
+    </view>
+    <view class='clear'>
+      <text class='lf'>拼团价格</text>
+      <input class='rt' type='number' placeholder='请填写拼团买价格（元）' name="price"></input>
+    </view>
+    <view class='clear'>
+      <text class='lf'>成团人数</text>
+      <input class='rt' type='number' name="nums" placeholder='请填写成团人数（人）' name="nums"></input>
+    </view>
+    <view class='clear'>
+      <text class='lf'>库存</text>
+      <input class='rt' type='number' placeholder='请填写库存量' name="stock"></input>
+    </view>
+  </view>
+  <view class='list'>
+    <view class='clear'>
+      <text class='lf'>拼团截止时间</text>
+      <picker mode="date" value="{{date}}" name="end_time" start="2015-09-01" bindchange="bindDateChange" class='rt'>
+        <view>
+          {{date}}
+          <image src="../../images/right.gif" mode="widthFix" class='rt'></image>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <button form-type="submit" class='next'>下一步</button>
+</form>
+<footer curIndex="1"></footer>

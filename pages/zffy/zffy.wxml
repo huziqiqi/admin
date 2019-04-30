@@ -1,0 +1,30 @@
+<!-- pages/zffy/zffy.wxml -->
+<view class="flex order-status" bindtap="changeOil">
+  <text class="order-status-item {{type==1?'order-status-item-active':''}}" data-type="1">已成团</text>
+  <text class="order-status-item {{type==2?'order-status-item-active':''}}" data-type="2">已单买</text>
+  <text class="order-status-item {{type==3?'order-status-item-active':''}}" data-type="3">未成团</text>
+</view>
+<view class='team' wx:for="{{items}}" wx:key="item">
+  <view class='name'>
+    <image class='avatar' mode='widthFix' src='{{item.headimgurl?item.headimgurl:"../../images/avan.gif"}}'></image>
+    {{item.nickname}}
+    <text class='rt'>{{item.msg}}</text>
+  </view>
+  <view class='clear'>
+    <view class='lf'>{{item.group_name}}</view>
+    <text class='rt'>+{{item.price}}</text>
+  </view>
+  <text>{{item.create_time}}</text>
+</view>
+<!-- <view class='team'>
+  <view class='name'>
+    <image src='../../images/avan.gif' mode='widthFix'></image>
+    樱桃丸子
+    <text class='rt'>已成团-已返佣</text>
+  </view>
+  <view class='clear'>
+    <view class='lf'>海泉湾温泉十周年感恩惠民大放送！限时低至3.5折=99元抢1大1小温…</view>
+    <text class='rt'>+6.0</text>
+  </view>
+  <text>2019-01-21 15:28:24</text>
+</view> -->

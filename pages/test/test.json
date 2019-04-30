@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "component-test": "../../components/test/test",
+    "footer": "../../components/footer/footer"
+
+  }
+}

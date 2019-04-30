@@ -1,0 +1,5 @@
+<!-- pages/components/tips/tips.wxml -->
+<view class="tips" style="display: {{toggle == false ? 'none' : 'block'}}">
+  <image src='../../images/close.png' mode='widthFix'></image>
+  <view>{{msg}}</view>
+</view>

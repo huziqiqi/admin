@@ -1,0 +1,7 @@
+<!-- pages/helpCenter/helpCenter.wxml -->
+<view class="wrap">
+  <navigator class="list-item flex" hover-class='none' open-type='navigate' wx:for="{{infos}}" wx:if="{{item}}" wx:key="item" url="../webContainer/webContainer?url={{item.infolink}}">
+    <text>{{item.title}}</text>
+    <image mode='widthFix' class="vertical-middle" src='../../images/icon13.jpg'></image>
+  </navigator>
+</view>

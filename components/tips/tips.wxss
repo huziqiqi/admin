@@ -1,0 +1,23 @@
+/* pages/components/tips/tips.wxss */
+.tips{
+  background: rgba(0, 0, 0, .65);
+  width: 178rpx;
+  padding: 30rpx 10rpx;
+  position: fixed;
+  left: 50%;
+  top: 20%;
+  margin-left: -99rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  z-index: 99;
+  transition: all .5s;
+}
+.tips image{
+  display: block;
+  width: 102rpx;
+  margin: 0 auto 10rpx;
+}
+.tips view{
+  color: #FFF;
+  font-size: 24rpx;
+}

@@ -1,0 +1,64 @@
+/* pages/withdrawal/withdrawal.wxss */
+page {
+  background: #f5f5f5;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.section {
+  display: block;
+  background: #FFF;
+  padding: 20rpx;
+}
+
+.history {
+  font-size: 26rpx;
+  justify-content: space-between;
+  padding-bottom: 20rpx;
+}
+
+.history text {
+  color: #999;
+}
+
+.box {
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 30rpx 0;
+}
+
+.money {
+  font-size: 30rpx;
+  color: #333;
+  align-items: center;
+  margin-top: 50rpx;
+}
+
+.money input {
+  display: block;
+  flex: 1;
+  font-size: 50rpx;
+  color: #333;
+  margin-left: 10rpx;
+}
+
+.lines {
+  font-size: 30rpx;
+  color: #999;
+  padding-top: 20rpx;
+}
+
+.submitForm {
+  background: #222;
+  color: #fbda00;
+  line-height: 90rpx;
+  font-size: 32rpx;
+  width: 100%;
+  margin: 40rpx 0 20rpx;
+}
+
+.tips {
+  font-size: 28rpx;
+  color: #333;
+  margin-top: 30rpx;
+}

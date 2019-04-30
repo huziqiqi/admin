@@ -1,0 +1,14 @@
+<!-- pages/updateLogistics/updateLogistics.wxml -->
+<form bindsubmit='submitForm'>
+  <view class="input flex">
+    <view>选择物流公司：</view>
+    <picker class='text' bindchange="bindPickerChange" style='flex: 1;' range='{{logistics}}' range-key="name">
+      {{logistics[logisticsArr].name}}
+    </picker>
+  </view>
+  <view class="input flex">
+    <view>物流单号：</view>
+    <input type='text' class='text' name="logistics_num" placeholder='请输入物流单号'></input>
+  </view>
+  <button class="submitForm" form-type='submit'>确认上传</button>
+</form>

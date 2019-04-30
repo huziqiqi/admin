@@ -1,0 +1,61 @@
+/* pages/address/address.wxss */
+
+page {
+  background: #F6F7F9;
+}
+
+.rt {
+  float: right;
+}
+
+.lt {
+  float: left;
+}
+
+.clear {
+  clear: both;
+
+}
+
+.address {
+  background: #fff;
+  margin: 20rpx 0;
+  font-size: 28rpx;
+  color: #444;
+  padding: 20rpx;
+  line-height: 55rpx;
+
+}
+
+.address navigator,
+.address .text {
+  display: inline-block;
+  line-height: 35rpx;
+  font-size: 24rpx;
+  width: 80rpx;
+  text-align: center;
+  color: #606060;
+  border: 1px solid #F6F6F6;
+  margin-top: 20rpx;
+}
+
+.address navigator {
+  margin-right: 20rpx;
+}
+
+.radio {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #333333;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  color: #fbda00;
+  text-align: center;
+}

@@ -1,0 +1,44 @@
+/* pages/goodsImg/goodsImg.wxss */
+page{
+  background: #f5f5f5;
+}
+.banner{
+  position: relative;
+}
+.banner-item{
+  display: block;
+  width: 100%;
+}
+.indicator{
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 20rpx;
+  width: 170rpx;
+  margin-left: -45rpx;
+  text-align: center;
+  background: rgba(0, 0, 0, .5);
+  color: #FFF;
+  font-size: 28rpx;
+  line-height: 50rpx;
+}
+.img-list{
+  margin: 0 20rpx;
+  flex-wrap: wrap;
+}
+.item{
+  flex: 0 0 160rpx;
+  height: 160rpx;
+  margin: 20rpx 20rpx 0 0;
+  background: #FFF;
+  align-items: center;
+  overflow: hidden;
+}
+.item:nth-of-type(4n){
+  margin-right: 0;
+}
+.item image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}

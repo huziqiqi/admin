@@ -1,0 +1,56 @@
+<!--pages/buy/buy.wxml-->
+<view class='buy'>
+ <view class='clear'>
+  <image src='../../images/ptxq.jpg' mode='widthFix' class='lf'></image>
+  <view class='rt'>
+    <view>MINIPLUS鲜花包月生日礼物送女友爱人朋友
+同城速递包邮 订一个月 周六收花</view>
+    <text>￥120</text>
+  </view>
+ </view>
+  <view class='list'>
+    数量： 
+    <!-- 主容器 -->
+    <view class="stepper rt">
+      <!-- 减号 -->
+      <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
+      <!-- 数值 -->
+      <input type="number" bindchange="bindManual" value="{{num}}" />
+      <!-- 加号 -->
+      <text class="normal" bindtap="bindPlus">+</text>
+    </view>
+  </view>
+</view>
+<view class='buy'>
+  <view class='list'>
+    小计： <text class='rt yellow'>￥240</text>
+  </view>
+</view>
+<view class='buy'>
+  <view class='list'>
+    配送方式： <text class='rt'>到店自提</text>
+  </view>
+  <view class='list'>
+    自提地址： 
+    <picker class='rt' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        {{array[index]}}
+        <image src='../../images/bottom.gif' mode='widthFix'></image>
+      </view>
+    </picker>
+  </view>
+</view>
+<view class='buy'>
+  <view class='list'>
+    姓名： <view class='bz rt'>张三</view>
+  </view>
+  <view class='list'>
+    手机： <view class='bz rt'>18982044565</view>
+  </view>
+  <view class='list'>
+    备注： <textarea class='rt'></textarea>
+  </view>
+</view>
+<view class="pay">
+    <button bindtap="pay">￥240 微信支付</button>
+</view>

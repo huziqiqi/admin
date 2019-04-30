@@ -1,0 +1,72 @@
+<!-- pages/personal/personal.wxml -->
+<navigator class="user flex" hover-class='none' open-type='navigate' url='../information/information'>
+  <view class="user-information flex">
+    <image class="user-avatar" mode='widthFix' src='{{user.avatar}}'></image>
+    <view class="user-text-wrapper">
+      <view class="user-name">{{user.userName}}</view>
+      <view class="certification" catchtap='navigate'>立即认证</view>
+    </view>
+  </view>
+  <image class="icon" mode='widthFix' src='../../images/icon05.jpg'></image>
+</navigator>
+<view class="my-list-wrapper flex">
+  <navigator class="my-list-item" hover-class='none' open-type='navigate' url='../wallet/wallet?userId={{userId}}'>
+    <image class="my-list-item-image" mode='widthFix' src='../../images/icon06.jpg'></image>
+    <text class="my-list-item-text">我的钱包</text>
+  </navigator>
+  <navigator class="my-list-item" hover-class='none' open-type='navigate' url='../fans/fans?userId={{userId}}'>
+    <image class="my-list-item-image" mode='widthFix' src='../../images/icon07.jpg'></image>
+    <text class="my-list-item-text">我的粉丝</text>
+  </navigator>
+  <navigator class="my-list-item" hover-class='none' open-type='navigate' url='../focus/focus?userId={{userId}}'>
+    <image class="my-list-item-image" mode='widthFix' src='../../images/icon08.jpg'></image>
+    <text class="my-list-item-text">我的关注</text>
+  </navigator>
+</view>
+<view class="my-create-order-wrapper clear">
+  <view class="title">我发起的拼团</view>
+  <navigator class="my-create-order-item lf" hover-class='none' open-type='navigate' url='../launch/launch?num=2'>
+    <image class="my-create-order-item-image" mode='widthFix' src='../../images/icon09.jpg'></image>
+    <text class="my-create-order-item-text">正在拼团</text>
+  </navigator>
+  <navigator class="my-create-order-item lf" hover-class='none' open-type='navigate' url='../launch/launch?num=3'>
+    <image class="my-create-order-item-image" mode='widthFix' src='../../images/icon10.jpg'></image>
+    <text class="my-create-order-item-text">满员完结</text>
+  </navigator>
+  <navigator class="my-create-order-item lf" hover-class='none' open-type='navigate' url='../launch/launch?num=4'>
+    <image class="my-create-order-item-image" mode='widthFix' src='../../images/icon11.jpg'></image>
+    <text class="my-create-order-item-text">未满终止</text>
+  </navigator>
+  <navigator class="my-create-order-item lf" hover-class='none' open-type='navigate' url='../launch/launch?num=1'>
+    <image class="my-create-order-item-image" mode='widthFix' src='../../images/icon12.jpg'></image>
+    <text class="my-create-order-item-text">全部拼团</text>
+  </navigator>
+</view>
+<view class='list'>
+  <navigator class="list-item flex" hover-class='none' open-type='navigate' url='../zffy/zffy'>
+    <text>我的转发返佣</text>
+    <view class="flex" style='align-items: center;'>
+      <text class="vertical-middle" style='font-size: 24rpx;color: #606060;margin-right: 25rpx;'>
+        <!-- 已赚6元 -->
+      </text>
+      <image mode='widthFix' class="vertical-middle" src='../../images/icon13.jpg'></image>
+    </view>
+  </navigator>
+  <navigator class="list-item flex" hover-class='none' open-type='switchTab' url='../order/order'>
+    <text>我参与的拼团</text>
+    <image mode='widthFix' class="vertical-middle" src='../../images/icon13.jpg'></image>
+  </navigator>
+  <navigator class="list-item flex" hover-class='none' open-type='navigate' url='../myOrder/myOrder'>
+    <text>我的单买订单</text>
+    <image mode='widthFix' class="vertical-middle" src='../../images/icon13.jpg'></image>
+  </navigator>
+  <navigator class="list-item flex" hover-class='none' open-type='navigate' url='../address/address?type=1&userId={{userId}}'>
+    <text>地址管理</text>
+    <image mode='widthFix' class="vertical-middle" src='../../images/icon13.jpg'></image>
+  </navigator>
+  <navigator class="list-item flex" hover-class='none' open-type='navigate' url='../helpCenter/helpCenter'>
+    <text>帮助中心</text>
+    <image mode='widthFix' class="vertical-middle" src='../../images/icon13.jpg'></image>
+  </navigator>
+</view>
+<footer curIndex="3"></footer>

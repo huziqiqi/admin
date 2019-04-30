@@ -1,0 +1,27 @@
+/* pages/ckztd/ckztd.wxss */
+page{
+  background: #F6F7F9;
+}
+.address view{
+  line-height: 90rpx;
+  font-size: 28rpx;
+  color: #444444;
+  padding: 0 10px;
+  border: 1px solid #F6F7F9;
+  background: #fff;
+}
+.address view image{
+  width: 20rpx;
+  margin-top: 30rpx;
+}
+
+
+
+
+
+
+
+
+
+
+

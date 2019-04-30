@@ -1,0 +1,32 @@
+/* pages/certification/certification.wxss */
+page{
+  background: #f5f5f5;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.section{
+  background: #FFF;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+  line-height: 50rpx;
+}
+.title{
+  color: #f1d30b;
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+}
+.text{
+  color: #606060;
+  font-size: 26rpx;
+}
+.btn{
+  display: block;
+  height: 90rpx;
+  background: #222;
+  color: #fcd903;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+}

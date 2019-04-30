@@ -1,0 +1,45 @@
+/* pages/add_address/add_address.wxss */
+page{
+  background: #F6F7F9;
+}
+.addresses>view{
+	background: #fff;
+	margin: 10px 0;
+	padding: 0 10px;
+	font-size: 13px;
+	line-height: 40px;
+}
+.addresses text{
+	width: 25%;
+	color: #333;
+}
+.addresses .rt{
+  margin-top: 14rpx;
+}
+.addresses input{
+	border: 0;
+	outline: 0;
+	line-height: 35px;
+	color: #999;
+	width: 75%;
+}
+.addresses radio{
+  margin-top: 0;
+}
+.btn_login{
+	display: block;
+	border: 0;
+	outline: 0;
+	line-height: 70rpx;
+	color: #fbda01;
+	font-size: 30rpx;
+	text-align: center;
+	border-radius: 45px;
+  margin-top: 40rpx;
+	width: 90%;
+	background: #333333;
+}
+.addresses picker{
+  width: 75%;
+  color: #999;
+}

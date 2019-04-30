@@ -1,0 +1,9 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "我参与的拼团",
+
+  "usingComponents": {
+    "footer": "../../components/footer/footer",
+    "notData": "../../components/notData/notData"
+  }
+}

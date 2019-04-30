@@ -1,0 +1,24 @@
+<!-- pages/certification/certification.wxml -->
+<view class="section">
+  <view class="title">用户认证特权</view>
+  <view class='text'>
+    <view>
+      认证用户可以发布拼团，专属商品分享链接。可以设置分销金额，提现销售额。可以实时对发布的商品进行管理修改。认证用户可以发布拼团，专属商品分享链接。可以设置分销金额，提现销售额。可以实时对发布的商品进行管理修改。
+    </view>
+    <view>认证用户可以发布拼团，专属商品分享链接。可以设置分销金额，提现销售额。可以实时对发布的商品进行管理修改。</view>
+  </view>
+</view>
+<view class="section">
+  <view class="title">简单两步，完成认证</view>
+  <view class='text'>
+    <view>1.填写材料并支付认证金额</view>
+    <view>2.1-2个工作日内完成审核</view>
+    <view>3.如有疑问，联系客服</view>
+  </view>
+</view>
+<view class="btn" hover-class='none' bindtap="jump">发布认证</view>
+<view class="flex text" style='align-items: center;line-hegiht: initial;justify-content: center;margin-top: 40rpx;' bindtap="check">
+  <image style='width: 30rpx; height: 30rpx;margin-right: 10rpx;' mode="widthFix" src="{{ischeck==1?'../../images/check.jpg':'../../images/check0.png'}}"></image>
+  我已阅读并同意
+  <text style='color: #f1d30b;'>《蚁拼服务协议》</text>
+</view>

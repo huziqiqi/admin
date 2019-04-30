@@ -1,0 +1,10 @@
+<!-- pages/test/test.wxml -->
+<text>pages/test/test.wxml</text>
+<view>
+  <!-- 以下是对一个自定义组件的引用 -->
+  <component-test inner-text="Some aaa     text"></component-test>
+</view>
+<footer curIndex="0"></footer>
+<footer curIndex="1"></footer>
+<footer curIndex="2"></footer>
+<footer curIndex="3"></footer>

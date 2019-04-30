@@ -1,0 +1,13 @@
+<!-- pages/information/information.wxml -->
+<view class="input flex" style='margin-top: 20rpx;'>
+  <text>头像</text>
+  <image mode='widthFix' style='widthFix' src='{{user.avatar}}'></image>
+</view>
+<view class="input flex">
+  <text>昵称</text>
+  <view>{{user.userName}}</view>
+</view>
+<view class="input flex">
+  <text>手机号</text>
+  <view>18291810382</view>
+</view>

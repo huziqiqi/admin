@@ -1,0 +1,67 @@
+<form bindsubmit="sumbit">
+  <!-- pages/ddm/ddm.wxml -->
+  <view class='ddm'>
+    <view class='clear'>
+      <image src='{{item.img}}' mode='widthFix' class='lf'></image>
+      <view class='rt'>
+        <view>{{item.title}}</view>
+        <text>￥{{item.price}}</text>
+      </view>
+    </view>
+    <view class='list' hidden="{{!isone}}">
+      数量：
+      <!-- 主容器 -->
+      <view class="stepper rt">
+        <!-- 减号 -->
+        <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
+        <!-- 数值 -->
+        <input type="number" bindchange="bindManual" value="{{num}}" />
+        <!-- 加号 -->
+        <text class="normal" bindtap="bindPlus">+</text>
+      </view>
+    </view>
+  </view>
+  <view class='ddm'>
+    <view class='list'>
+      小计：
+      <text class='rt yellow'>￥{{item.price*num}}</text>
+    </view>
+  </view>
+  <view class='ddm'>
+    <view class='list'>
+      <text class='lf'>配送方式</text>
+      <view class='rt'>
+        <radio-group name="isshop" bindchange="radioChange">
+          <view wx:if="{{item.isshop==1}}">到店自提</view>
+          <view wx:if="{{item.isshop==2}}">物流额配送</view>
+          <!-- <radio color='#FBDA01' value="2" checked="true"></radio>
+          <radio color='#FBDA01' value="1"></radio> -->
+        </radio-group>
+      </view>
+    </view>
+    <view class='list' wx:if="{{item.isshop==1}}">自提地址：{{address}}</view>
+  </view>
+  <view class='ddm'>
+    <view class='list' wx:if="{{item.isshop==1}}">
+      姓名：
+      <input class=' bz rt' type="text" name="consignee" />
+    </view>
+    <view class='list' wx:if="{{item.isshop==1}}">
+      手机：
+      <input class=' bz rt' type="number" name="consignee_phone" />
+      <!-- <view class='bz rt'>18982044565</view> -->
+    </view>
+    <navigator hover-class='none' wx:if="{{item.isshop==2}}" open-type='navigate' url='../address/address?type=1&userId={{userId}}'>
+      <view class="list">地址管理
+    {{addressName}}</view>
+    </navigator>
+    <view class='list'>
+      备注：
+      <textarea class='rt' name="remark"></textarea>
+    </view>
+  </view>
+  <view class="pay">
+    <!-- <button bindtap="pay">￥{{item.price*num}} 微信支付</button> -->
+    <button form-type="submit">￥{{item.price*num}} 微信支付</button>
+  </view>
+</form>

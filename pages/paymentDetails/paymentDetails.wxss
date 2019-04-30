@@ -1,0 +1,90 @@
+/* pages/paymentDetails/paymentDetails.wxss */
+.classification-item{
+  flex: 1;
+  font-size: 30rpx;
+  color: #444;
+  border-bottom: 1px solid #FFF;
+  text-align: center;
+  line-height: 100rpx;
+}
+.classification-item-active{
+  color: #f1d30b;
+  border-bottom-color: #f1d30b;
+}
+.list-wrapper{
+  padding: 0 20rpx;
+}
+.list-item{
+  padding: 30rpx 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+.avatar{
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+.text-wrapper{
+  flex: 1;
+}
+.flex{
+  justify-content: space-between;
+  align-items: center;
+}
+.name{
+  color: #333;
+  font-size: 26rpx;
+}
+.money{
+  color: #f1d30b;
+  font-size: 30rpx;
+}
+.orderNum, .time{
+  font-size: 26rpx;
+  color: #999;
+}
+.header{
+  background: #f7f7f7;
+  padding-bottom: 20rpx;
+}
+.item{
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  position: relative;
+}
+.item::after{
+  display: block;
+  content: '';
+  width: 1px;
+  height: 50rpx;
+  background: #DDD;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -25rpx;
+}
+.item image{
+  display: inline-block;
+  vertical-align: middle;
+  width: 18rpx;
+  margin-left: 4rpx;
+}
+.item view{
+  color: #333;
+  font-size: 34rpx;
+}
+.item text{
+  color: #666;
+  font-size: 26rpx;
+}
+.item:last-of-type::after{
+  display: none;
+}
+.item-active{
+  background: #FFF;
+}
+.item-active view,
+.item-active text{
+  color: #f1d30b;
+}

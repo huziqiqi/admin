@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "发布拼团商品",
+  "usingComponents": {
+    "tips": "../../components/tips/tips"
+  }
+}

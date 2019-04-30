@@ -1,0 +1,15 @@
+<!-- pages/fans/fans.wxml -->
+<view class='fans'>
+  <view class='fans-item flex' wx:for="{{fans}}" wx:key="item" wx:if="{{isGuanZhu==1}}">
+    <image class='fans-avatar' mode='widthFix' src='{{item.headimgurl}}'></image>
+    <view class='text-wrapper flex'>
+      <view class='text'>
+        <view class='name'>{{item.nickname}}</view>
+        <view class='introduction'>粉丝{{item.fansnum}} | 已发布{{item.num}}</view>
+      </view>
+      <view class='focus on' bindtap="isGuanZhu">
+        <text wx:if="{{isGuanZhu!=2}}" data-id="{{item.id}}">取消关注</text>
+      </view>
+    </view>
+  </view>
+</view>

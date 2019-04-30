@@ -1,0 +1,5 @@
+<!--pages/components/notData/notData.wxml-->
+<view class='notData' wx:if='{{toggle}}'>
+  <image mode='widthFix' src='../../images/notData.png'></image>
+  <view>暂无数据</view>
+</view>

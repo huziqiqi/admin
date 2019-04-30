@@ -1,0 +1,14 @@
+<!--pages/goodsImg/goodsImg.wxml-->
+<view class='banner'>
+  <swiper autoplay="true" circular="true" style='height: 500rpx;' bindchange="indexChange">
+    <swiper-item wx:for="{{banner}}">
+      <image class='banner-item' mode="widthFix" src="{{item}}"></image>
+    </swiper-item>
+  </swiper>
+  <view class='indicator'>{{curIndex}}/{{banner.length}}</view>
+</view>
+
+<view class='img-list flex'>
+  <view class='item flex' wx:for="{{updateImgArr}}"><image mode='widthFix' src='{{item}}'></image></view>
+  <view class='item' bindtap='updateImg'><image mode='widthFix' src='../../images/addImg.jpg'></image></view>
+</view>

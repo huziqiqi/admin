@@ -1,0 +1,94 @@
+/* pages/wallet/wallet.wxss */
+.wallet image {
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.wallet text {
+  display: block;
+  color: #333333;
+  text-align: center;
+}
+
+.wallet navigator {
+  width: 150rpx;
+  line-height: 50rpx;
+  color: #fbda00;
+  border-radius: 3px;
+  font-size: 30rpx;
+  background: #333333;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wallet .tx {
+  font-size: 32rpx;
+}
+
+.wallet .money {
+  font-size: 60rpx;
+  margin: 20rpx 0;
+  font-weight: 700;
+}
+
+.wallet>view {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #EFEFEF;
+  text-align: center;
+  margin-top: 20rpx;
+  border-bottom: 20rpx solid #F5F5F5;
+}
+
+.wallet>view>view {
+  width: 33%;
+  box-sizing: border-box;
+  border-right: 1px dashed #E2E2E2;
+  margin: 20rpx 0;
+  color: #999999;
+}
+
+.wallet>view>view text {
+  margin-top: 10rpx;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.tgxx {
+  padding: 0 3%;
+}
+
+.tgxx navigator {
+  display: block;
+  border-bottom: 1px solid #EEEEEE;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  color: #555555;
+  padding: 0 20rpx;
+}
+
+.tgxx image {
+  width: 30rpx;
+  vertical-align: middle;
+  margin-right: 30rpx;
+}
+
+.tgxx .rt {
+  width: 15rpx;
+  margin-right: 0;
+  margin-top: 30rpx;
+}
+
+.tgxx navigator view {
+  display: inline-block;
+}
+
+navigator {
+  position: relative;
+}
+
+.price {
+  position: absolute;
+  right: 70rpx;
+  bottom: 0;
+}
