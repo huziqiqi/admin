@@ -18,7 +18,7 @@
   </view>
 </view>
 <view bindtouchstart="start" bindtouchend="end" data-s="1" data-e="4">
-  <view class="order-wrapper" style="height:100%" hidden="{{!order}}">
+  <view class="order-wrapper" style="height:80%" hidden="{{!order}}">
     <navigator class="order-item" open-type='navigate' wx:for="{{order}}" wx:key="item" url="../launchDetail/launchDetail?proid={{item.id}}&userid={{userId}}">
       <view class="order-seller flex">
         <view class="seller-avatar flex">

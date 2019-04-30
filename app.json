@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/ckztd/ckztd",
     "pages/buy/buy",
+    "pages/ckztd/ckztd",
     "pages/certification/certification",
     "pages/tgm/tgm",
     "pages/ptxq/ptxq",

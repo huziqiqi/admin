@@ -8,7 +8,7 @@
   <view class="order-status-item{{num==5?' order-status-item-active':''}}" data-num='5'>已完成</view>
   <view class="order-status-item{{num==6?' order-status-item-active':''}}" data-num='6'>退款</view>
 </view>
-<view style="height:100%; margin-top:1px;" bindtouchstart="start" bindtouchend="end" data-s="0" data-e="6">
+<view style="height:80%; margin-top:1px;" bindtouchstart="start" bindtouchend="end" data-s="0" data-e="6">
   <!-- <view wx:if="{{toggle}}" style="height:990rpx; ;background:#fff; margin-top:20rpx;box-sizing:border-box">
     <image src='../../images/notData.png' mode="widthFix" style="width:100% ;margin-top:100rpx"></image>
   </view> -->

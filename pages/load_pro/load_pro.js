@@ -188,6 +188,7 @@ Page({
     let that = this;
     wx.uploadFile({
       url: getApp().url + '/product/uploads',
+      // url: "http://yipin.xazbwl.com/product/uploads",
       filePath: filePath,
       formData: null,
       name: 'file',

@@ -25,10 +25,23 @@ Page({
       },
       method: "POST",
       success: (res) => {
-        this.setData({
-          fans: res.data.data.fans,
-          userId: getApp().userId
-        })
+        if (res.data.code==301) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: "none"
+          })
+          setTimeout(() => {
+            wx.navigateBack({
+              deita: 1
+            })
+          }, 1500);
+        } else {
+          this.setData({
+            fans: res.data.data.fans,
+            userId: getApp().userId
+          })
+        }
+        
       }
     })
   },

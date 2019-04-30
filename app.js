@@ -70,7 +70,8 @@ App({
     })
   },
 
-
+  shopImg: [],
+  shopImgArr: [],
   globalData: {
     userInfo: null
   }

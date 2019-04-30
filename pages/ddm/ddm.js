@@ -63,7 +63,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
     if (!this.data.isone) {
       wx.setNavigationBarTitle({
         title: "拼团买"
@@ -90,7 +89,6 @@ Page({
     }
     wx.request({
       url: getApp().url + "/groupBuying",
-      // url: "https://api.huziqiqi.top/?service=App.WeChat.WxPay",
       data: {
         userId: this.data.userId,
         groupId: this.data.groupId,
