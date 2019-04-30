@@ -22,7 +22,7 @@ Page({
       },
       method: "POST",
       success: (res) => {
-        if (res.data.code == 301) {
+       if (res.data.code == 301) {
           wx.showToast({
             title: res.data.msg,
             icon: "none"
