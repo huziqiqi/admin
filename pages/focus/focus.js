@@ -37,8 +37,7 @@ Page({
             fans: res.data.data.follow,
             userId: opt.userId
           })
-        }
-       
+        }     
       }
     })
   },
