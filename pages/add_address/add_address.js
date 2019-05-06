@@ -164,7 +164,6 @@ Page({
         if (res.authSetting['scope.address']) {
           wx.chooseAddress({
             success: (res) => {
-
               var region = [res.provinceName, res.cityName, res.countyName]
               this.setData({
                 sname: res.userName,
@@ -184,10 +183,10 @@ Page({
               success: (res) => {
                 var region = [res.provinceName, res.cityName, res.countyName]
                 this.setData({
-                  userName: res.userName,
-                  userPhone: res.telNumber,
+                  sname: res.userName,
+                  tel: res.telNumber,
                   region,
-                  userAddress: res.detailInfo
+                  address: res.detailInfo
                 })
               }
             })

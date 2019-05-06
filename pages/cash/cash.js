@@ -28,15 +28,15 @@ Page({
       method: "POST",
       success: (res) => {
         if (res.data.data.num == 0) {
-          wx.showToast({
-            title: "暂无提现记录",
-            icon: "none"
-          })
-          setTimeout(() => {
-            wx.navigateBack({
-              deita: 1
-            })
-          }, 1500);
+          // wx.showToast({
+          //   title: "暂无提现记录",
+          //   icon: "none"
+          // })
+          // setTimeout(() => {
+          //   wx.navigateBack({
+          //     deita: 1
+          //   })
+          // }, 1500);
         } else {
           let product
           this.data.pages > 1 ? product = this.data.product.concat(res.data.data.txlists) : product = res.data.data.txlists

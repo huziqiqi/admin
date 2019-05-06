@@ -34,6 +34,10 @@
   </view> -->
 </view>
 <view class='list-wrapper'>
+
+ <view wx:if="{{!items[0]}}" style="height:100%;background:#fff; margin-top:20rpx;box-sizing:border-box">
+   <image src='../../images/notData.png' mode="widthFix" style="width:100% ;margin-top:100rpx"></image>
+ </view> 
   <view class='flex list-item' wx:for="{{items}}" wx:key="item">
     <image class='avatar' mode='widthFix' src='{{item.headimgurl?item.headimgurl:"../../images/avan.gif"}}'></image>
     <view class='text-wrapper'>

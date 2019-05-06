@@ -18,7 +18,10 @@
   </view>
 </view>
 <view bindtouchstart="start" bindtouchend="end" data-s="1" data-e="4">
-  <view class="order-wrapper" style="height:80%" hidden="{{!order}}">
+ <view wx:if="{{!order[0]}}" style="height:990rpx; ;background:#fff; margin-top:20rpx;box-sizing:border-box">
+   <image src='../../images/notData.png' mode="widthFix" style="width:100% ;margin-top:100rpx"></image>
+ </view>
+  <view wx:else class="order-wrapper" style="height:80%" hidden="{{!order}}">
     <navigator class="order-item" open-type='navigate' wx:for="{{order}}" wx:key="item" url="../launchDetail/launchDetail?proid={{item.id}}&userid={{userId}}">
       <view class="order-seller flex">
         <view class="seller-avatar flex">

@@ -15,7 +15,7 @@
         <!-- 减号 -->
         <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
         <!-- 数值 -->
-        <input type="number" bindchange="bindManual" value="{{num}}" />
+        <input type="number" bindchange="bindManual" value="{{num}}" style="height:0rpx;line-height:0rpx;padding-top:-6px;" />
         <!-- 加号 -->
         <text class="normal" bindtap="bindPlus">+</text>
       </view>
@@ -33,13 +33,23 @@
       <view class='rt'>
         <radio-group name="isshop" bindchange="radioChange">
           <view wx:if="{{item.isshop==1}}">到店自提</view>
-          <view wx:if="{{item.isshop==2}}">物流额配送</view>
+          <view wx:if="{{item.isshop==2}}">物流配送</view>
           <!-- <radio color='#FBDA01' value="2" checked="true"></radio>
           <radio color='#FBDA01' value="1"></radio> -->
         </radio-group>
       </view>
     </view>
-    <view class='list' wx:if="{{item.isshop==1}}">自提地址：{{address}}</view>
+    <view class='list' wx:if="{{item.isshop==1}}"  style="line-height:50rpx">自提地址：{{address}}</view>
+          <navigator hover-class='none' wx:if="{{item.isshop==2}}" open-type='navigate' url='../address/address?type=1&userId={{userId}}'>
+        <view class="list list1">
+          <view>{{sname}}</view>
+          <view>
+            {{tel}}
+            <image mode='widthFix' class="rt" style='width: 20rpx;margin-left: 10rpx; margin-top:20rpx;' src='../../images/right.gif'></image>
+          </view>
+          <view>{{addressName}}</view>
+        </view>
+      </navigator>
   </view>
   <view class='ddm'>
     <view class='list' wx:if="{{item.isshop==1}}">
@@ -51,10 +61,6 @@
       <input class=' bz rt' type="number" name="consignee_phone" />
       <!-- <view class='bz rt'>18982044565</view> -->
     </view>
-    <navigator hover-class='none' wx:if="{{item.isshop==2}}" open-type='navigate' url='../address/address?type=1&userId={{userId}}'>
-      <view class="list">地址管理
-    {{addressName}}</view>
-    </navigator>
     <view class='list'>
       备注：
       <textarea class='rt' name="remark"></textarea>

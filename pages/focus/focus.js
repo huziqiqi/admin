@@ -14,34 +14,35 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (opt) {
-    wx.request({
-      url: getApp().url + "//user.myfans/glist",
-      data: {
-        userId: wx.getStorageSync('user').id
-      },
-      method: "POST",
-      success: (res) => {
-       if (res.data.code == 301) {
-          wx.showToast({
-            title: res.data.msg,
-            icon: "none"
-          })
-        setTimeout(() => {
-          wx.navigateBack({
-            deita: 1
-          })
-        }, 1500);
-        }else{
-          this.setData({
-            fans: res.data.data.follow,
-            userId: opt.userId
-          })
-        }     
-      }
-    })
+  onLoad: function () {
+    this.request()
   },
-
+request(){
+  wx.request({
+    url: getApp().url + "/user.myfans/glist",
+    data: {
+      userId: wx.getStorageSync('user').id
+    },
+    method: "POST",
+    success: (res) => {
+      if (res.data.code == 301) {
+        //   wx.showToast({
+        //     title: res.data.msg,
+        //     icon: "none"
+        //   })
+        // setTimeout(() => {
+        //   wx.navigateBack({
+        //     deita: 1
+        //   })
+        // }, 1500);
+      } else {
+        this.setData({
+          fans: res.data.data.follow,
+        })
+      }
+    }
+  })
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -58,11 +59,9 @@ Page({
       method: "POST",
       success: (res) => {
         wx.showToast({
-          title: res.data.data.msg
+          title: res.data.msg
         })
-        this.setData({
-          isGuanZhu: 2
-        })
+       this.request()
       }
     })
 

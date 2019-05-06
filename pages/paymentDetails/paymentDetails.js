@@ -14,7 +14,8 @@ Page({
     date: temp,
     type: 0,
     pages: 1,
-    state: 4
+    state: 4,
+    items:[]
   },
 
   bindChange(e) {
@@ -51,8 +52,10 @@ Page({
     let date = this.data.date.join('-')
     wx.request({
       url: getApp().url + "//user.myprice/orderlist",
+      // url: "http://yipin.xazbwl.com/user.myprice/orderlist",
       data: {
         userId: wx.getStorageSync('user').id,
+        // userId:11,
         type: this.data.type,
         state: this.data.state,
         date,

@@ -34,15 +34,16 @@
     </view>
     <!-- <image src='../../images/bottom.gif' mode='widthFix' class="{{showView?'s':'hide'}}" bindtap='show'></image> -->
   </view>
-  <view class='tgxx'>
+  <view class='tgxx' >
     <navigator hover-class="no">
       <image src='../../images/icon1.gif' mode='widthFix'></image>
       仅到店自提
     </navigator>
-    <navigator hover-class="no">
+    <navigator hover-class="no" style="line-height:50rpx" >
       <image src='../../images/icon2.gif' mode='widthFix'></image>
       {{item.city+item.address}}
     </navigator>
+
     <!-- <navigator>
       <image src='../../images/icon3.gif' mode='widthFix'></image>
       <view hover-class="weui-cell_active" data-reply-phone="18282957326" bindtap="phoneCall">

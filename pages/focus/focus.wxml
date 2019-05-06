@@ -1,5 +1,8 @@
 <!-- pages/fans/fans.wxml -->
 <view class='fans'>
+ <view wx:if="{{!fans[0]}}" style="height:990rpx; ;background:#fff; margin-top:20rpx;box-sizing:border-box">
+   <image src='../../images/notData.png' mode="widthFix" style="width:100% ;margin-top:100rpx"></image>
+ </view>
   <view class='fans-item flex' wx:for="{{fans}}" wx:key="item" wx:if="{{isGuanZhu==1}}">
     <image class='fans-avatar' mode='widthFix' src='{{item.headimgurl}}'></image>
     <view class='text-wrapper flex'>

@@ -1,6 +1,7 @@
 /* pages/cash/cash.wxss */
 page{
   background: #F6F7F8;
+  height: 100%;
 }
 .tx{
   display: flex;

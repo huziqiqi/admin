@@ -56,12 +56,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (opt) {
+console.log(opt);
 
     wx.request({
       url: getApp().url + "//vippage",
       data: {
         userId: wx.getStorageSync('user').id,
-        postedId: opt.postedId
+        // userId:2,
+        postedId: parseInt(opt.postedId) 
       },
       method: "POST",
       success: (res) => {

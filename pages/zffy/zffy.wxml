@@ -4,6 +4,9 @@
   <text class="order-status-item {{type==2?'order-status-item-active':''}}" data-type="2">已单买</text>
   <text class="order-status-item {{type==3?'order-status-item-active':''}}" data-type="3">未成团</text>
 </view>
+ <view wx:if="{{!items[0]}}" style="height:990rpx; ;background:#fff; margin-top:20rpx;box-sizing:border-box">
+   <image src='../../images/notData.png' mode="widthFix" style="width:100% ;margin-top:100rpx"></image>
+ </view>
 <view class='team' wx:for="{{items}}" wx:key="item">
   <view class='name'>
     <image class='avatar' mode='widthFix' src='{{item.headimgurl?item.headimgurl:"../../images/avan.gif"}}'></image>

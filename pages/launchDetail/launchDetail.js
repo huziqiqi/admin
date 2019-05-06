@@ -28,6 +28,10 @@ Page({
       method: "POST",
       success: (res) => {
         let data = res.data.data.info
+
+        for (let j = 0; j < res.data.data.info.imgs.length; j++) {
+          data.imgs[j] = data.imgs[j].replace('http://yipin.xazbwl.com', getApp().url)
+        }
         this.setData({
           item: data,
           userId: opt.userid,

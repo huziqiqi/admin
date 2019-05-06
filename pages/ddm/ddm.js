@@ -131,9 +131,15 @@ Page({
             icon: 'success'
           })
           let timer = setTimeout(function () {
-            wx.navigateTo({
-              url: '../wddd/wddd',
-            })
+            if (that.data.isone) {
+              wx.redirectTo({
+                url: "../myOrder/myOrder"
+              })
+            } else {
+              wx.switchTab({
+                url: "../order/order"
+              })
+            }  
             clearTimeout(timer);
           }, 1000);
         } else {

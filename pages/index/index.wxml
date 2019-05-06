@@ -21,7 +21,7 @@
     <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
       <view class="picker">
         {{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}
-        <image src="../../images/sj.jpg" mode="widthFix"></image>
+        <image src="../../images/sj.jpg"style="right:80rpx;"  mode="widthFix"></image>
       </view>
     </picker>
   </view>
@@ -30,11 +30,11 @@
       <picker bindchange="bindRegionChange" value="{{dindex}}" range="{{dist}}">
         <view class="picker">
           {{dist[dindex]}}
-          <image src="../../images/sj.jpg" mode="widthFix"></image>
+          <!-- <image src="../../images/sj.jpg" mode="widthFix"></image> -->
         </view>
       </picker>
     </view>
-    <image src="../../images/sj.jpg" mode="widthFix"></image>
+    <image src="../../images/sj.jpg"  style="right:80rpx;" mode="widthFix"></image>
   </view>
 </view>
 <view class="product">
@@ -49,7 +49,7 @@
       <view class='times'>
         <image src="../../images/eye.gif" mode="widthFix"></image>
         {{item.hits}}人已浏览
-        <text>{{item.time}}</text>
+        <text>{{item.create_time}}</text>
       </view>
       <view hover-class="no">
         <text class='nr'>{{item.title}}</text>

@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/teamBuy/teamBuy",
     "pages/buy/buy",
     "pages/ckztd/ckztd",
     "pages/certification/certification",
@@ -22,7 +23,6 @@
     "pages/releaseCertification/releaseCertification",
     "pages/seller/seller",
     "pages/set_message/set_message",
-    "pages/teamBuy/teamBuy",
     "pages/updateLogistics/updateLogistics",
     "pages/wallet/wallet",
     "pages/withdrawal/withdrawal",

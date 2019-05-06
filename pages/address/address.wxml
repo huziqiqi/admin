@@ -1,4 +1,7 @@
 <!-- pages/address/address.wxml -->
+ <view wx:if="{{!address[0]}}" style="height:100%;background:#fff; margin-top:20rpx;box-sizing:border-box">
+   <image src='../../images/notData.png' mode="widthFix" style="width:100% ;margin-top:100rpx"></image>
+ </view>
 <radio-group style="margin-bottom: 100rpx;">
   <view wx:for="{{address}}" wx:key="item" wx:if="{{item}}" class='address'>
     <view bindtap="chooseAddress" data-item="{{item}}">

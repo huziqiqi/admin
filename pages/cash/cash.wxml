@@ -9,6 +9,9 @@
     <text>￥{{allprice}}元</text>
   </view>
 </view>
+ <view wx:if="{{!product[0]}}" style="height:86%;background:#fff; margin-top:20rpx;box-sizing:border-box">
+   <image src='../../images/notData.png' mode="widthFix" style="width:100% ;margin-top:100rpx"></image>
+ </view>
 <view class='txtj'>
   <view wx:for="{{product}}" wx:key="item">
     <view>

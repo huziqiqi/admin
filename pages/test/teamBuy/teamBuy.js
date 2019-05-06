@@ -8,6 +8,24 @@ Page({
     index: 0,
     txtOrderCode: ''
   },
+  onLoad(opt){
+    wx.request({
+      url: getApp().url + "//group",
+      data: {
+        userId: wx.getStorageSync('user').id,
+        groupId: opt.id,
+        type: 1
+      },
+      method: "POST",
+      success: (res) => {
+        this.setData({
+          item: res.data.data.pro,
+          address: opt.address,
+          groupId: opt.id
+        })
+      }
+    })
+  },
   bindPickerChange: function (e) {
     this.setData({
       index: e.detail.value

@@ -1,7 +1,6 @@
 // pages/participate/participate.js
 var app = App
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -26,6 +25,8 @@ Page({
   changeOil(e) {
     this.setData({
       num: parseInt(e.target.dataset.num),
+
+      items: []
     })
     this.request()
   },
@@ -44,7 +45,8 @@ Page({
       let num = parseInt(this.data.num += 1)
       this.setData({
         pages: 1,
-        num
+        num,
+        items: []
       })
       this.request()
     }
@@ -52,7 +54,8 @@ Page({
       let num = parseInt(this.data.num -= 1)
       this.setData({
         pages: 1,
-        num
+        num,
+        items:[]
       })
       this.request()
     }
@@ -68,10 +71,10 @@ Page({
       method: "POST",
       success: (res) => {
         if (res.data.data.num == 0) {
-          wx.showToast({
-            title: "暂时没有参团记录",
-            icon: "none"
-          })
+          // wx.showToast({
+          //   title: "暂时没有参团记录",
+          //   icon: "none"
+          // })
         } else {
           let items
           this.data.pages > 1 ? items = this.data.items.concat(res.data.data.list) : items = res.data.data.list

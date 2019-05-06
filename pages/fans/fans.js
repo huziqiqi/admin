@@ -8,7 +8,7 @@ Page({
     fans: [],
     isGuanZhu: "",
     userId: "",
-    postedId: 1,
+    postedId:"",
   },
 
   /**
@@ -26,19 +26,19 @@ Page({
       method: "POST",
       success: (res) => {
         if (res.data.code==301) {
-          wx.showToast({
-            title: res.data.msg,
-            icon: "none"
-          })
-          setTimeout(() => {
-            wx.navigateBack({
-              deita: 1
-            })
-          }, 1500);
+          // wx.showToast({
+          //   title: res.data.msg,
+          //   icon: "none"
+          // })
+          // setTimeout(() => {
+          //   wx.navigateBack({
+          //     deita: 1
+          //   })
+          // }, 1500);
         } else {
           this.setData({
             fans: res.data.data.fans,
-            userId: getApp().userId
+            userId: wx.getStorageSync('user').id
           })
         }
         
@@ -52,25 +52,27 @@ Page({
 
   },
   isGuanZhu(e) {
+    console.log(e);
+    console.log(e.currentTarget.dataset.pid);    
     let isGuanZhu
     let url
     if (e.target.dataset.type == 2) {
-      url = getApp().url + "//guanZhu"
+      url = getApp().url + "/guanZhu"
       isGuanZhu = 1
-      this.guanZhu(url, isGuanZhu)
+      this.guanZhu(url, isGuanZhu, e.currentTarget.dataset.pid)
     } else {
-      url = getApp().url + "//cancelZhu"
+      url = getApp().url + "/cancelZhu"
       isGuanZhu = 2
-      this.guanZhu(url, isGuanZhu)
+      this.guanZhu(url, isGuanZhu, e.currentTarget.dataset.pid)
     }
 
   },
-  guanZhu(url) {
+  guanZhu(url,isGuanzhu,pid) {
     wx.request({
       url: url,
       data: {
         userId: this.data.userId,
-        postedId: this.data.postedId,
+        postedId:pid,
       },
       method: "POST",
       success: (res) => {
