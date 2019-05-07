@@ -2,20 +2,20 @@
 <form bindsubmit='submitForm'>
   <view class="input flex">
     <text>姓名</text>
-    <input type='text' placeholder='请输入姓名'></input>
+    <input type='text' name="name" placeholder='请输入姓名'></input>
   </view>
   <view class="input flex" style='margin-bottom: 40rpx;'>
     <text>身份证号</text>
-    <input type='text' placeholder='请输入身份证号'></input>
+    <input type='text' name="cardnum" placeholder='请输入身份证号'></input>
   </view>
   <view class="input flex">
     <text>手机</text>
-    <input type='text' placeholder='请输入联系方式'></input>
+    <input type='text' name="tel" placeholder='请输入联系方式'></input>
   </view>
-  <view class="input flex" style='margin-bottom: 50rpx;'>
+  <!-- <view class="input flex" style='margin-bottom: 50rpx;'>
     <text>验证码</text>
     <input type='text' placeholder='请输入验证码'></input>
     <button class='getCode' bindtap='getCode'>获取验证码</button>
-  </view>
-  <button class="submitForm" form-type='submit'>支付认证费用￥120</button>
+  </view> -->
+  <button class="submitForm" form-type='submit'>支付认证费用￥{{rzfy}}</button>
 </form>

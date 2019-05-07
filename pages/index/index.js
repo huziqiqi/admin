@@ -30,12 +30,16 @@ Page({
     isShow: false
   },
   onLoad: function (options) {
+    console.log(wx.getLaunchOptionsSync());
     if (options.scene) {
       var parentId = options.scene.split("&")[0].split("%3D")[1];
+      console.log(parentId);
     } else if (options.userId) {
       var parentId = options.userId
+      console.log(parentId);
     } else {
       var parentId = 0
+      console.log(parentId);
     }
     wx.hideTabBar()
     that = this

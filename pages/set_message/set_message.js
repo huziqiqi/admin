@@ -74,9 +74,15 @@ Page({
   },
   radioChange(e) {
     let isAddressid
-    e.detail.value == 2 ? isAddressid = false : isAddressid = true
+    e.detail.value == 1 ? isAddressid = false : isAddressid = true
+    if (e.detail.value == 1 ) {
+    var  addressId =null
+      var addressName=null
+    }
     this.setData({
       isAddressid,
+      addressId,
+      addressName
     })
   },
   submit(e) {
@@ -103,7 +109,7 @@ Page({
             lng: this.data.lng,
             fanli: e.detail.value.fanli,
             onefanli: e.detail.value.onefanli,
-            isshop: e.detail.value.isshop,
+            delivery: e.detail.value.isshop,
             addressid: this.data.addressId,
           },
           method: "POST",

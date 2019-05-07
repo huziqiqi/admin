@@ -53,6 +53,7 @@ Page({
       success: (res) => {
         this.setData({
           item: res.data.data.pro,
+          addArr:res.data.data.address,
           address: opt.address,
           groupId: opt.id
         })
@@ -75,39 +76,62 @@ Page({
     })
   },
   sumbit(e) {
+    
     let addressid = null
     let pick_up = null
     let consignee = null
     let consignee_phone = null
-    if (this.data.item.isshop == 2) {
+    if (this.data.item.delivery == 2) {
       //物流
       addressid = this.data.addressId
+      wx.request({
+        url: getApp().url + "/groupBuying",
+        data: {
+          userId: this.data.userId,
+          groupId: this.data.groupId,
+          num: this.data.num,
+          remark: e.detail.value.remark,
+          addressid,
+          type: this.data.type
+        },
+        method: "POST",
+        success: (res) => {
+          this.pay(res.data.data)
+          // wx.navigateTo({
+          //   url: '../myOrder/myOrder'
+          // })
+        }
+      })
+
+
     } else {
-      pick_up = this.data.address
+      console.log(this.data.addArr[0].id);
+      
+      pick_up = this.data.addArr[0].id
       consignee = e.detail.value.consignee
       consignee_phone = e.detail.value.consignee_phone
+      wx.request({
+        url: getApp().url + "/groupBuying",
+        data: {
+          userId: this.data.userId,
+          groupId: this.data.groupId,
+          num: this.data.num,
+          remark: e.detail.value.remark,
+          pick_up,
+          consignee,
+          consignee_phone,
+          type: this.data.type
+        },
+        method: "POST",
+        success: (res) => {
+          this.pay(res.data.data)
+          // wx.navigateTo({
+          //   url: '../myOrder/myOrder'
+          // })
+        }
+      })
     }
-    wx.request({
-      url: getApp().url + "/groupBuying",
-      data: {
-        userId: this.data.userId,
-        groupId: this.data.groupId,
-        num: this.data.num,
-        remark: e.detail.value.remark,
-        addressid,
-        pick_up,
-        consignee,
-        consignee_phone,
-        type: this.data.type
-      },
-      method: "POST",
-      success: (res) => {
-        this.pay(res.data.data)
-        // wx.navigateTo({
-        //   url: '../myOrder/myOrder'
-        // })
-      }
-    })
+   
   },
   pay: function (res) {
     const that = this;

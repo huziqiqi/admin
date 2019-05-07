@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/releaseCertification/releaseCertification",
     "pages/teamBuy/teamBuy",
     "pages/buy/buy",
     "pages/ckztd/ckztd",
@@ -20,7 +21,6 @@
     "pages/ddm/ddm",
     "pages/goodsImg/goodsImg",
     "pages/myOrder/myOrder",
-    "pages/releaseCertification/releaseCertification",
     "pages/seller/seller",
     "pages/set_message/set_message",
     "pages/updateLogistics/updateLogistics",

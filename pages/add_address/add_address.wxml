@@ -21,10 +21,10 @@
     </view>
     <view class="clear"></view>
   </view>
-  <button bindtap="getUserAddress" class="btn_login" style="background:rgb(9,187,7);color:#fff;">
+  <button bindtap="getUserAddress" class="btn_login lf" style="background:rgb(9,187,7);color:#fff;">
     获取微信地址
   </button>
-  <button wx:if="{{!isAdd}}" class="btn_login" style="margin-top:10rpx;" formType="submit">
+  <button wx:if="{{!isAdd}}" class="btn_login lf" style="" formType="submit">
     确认添加
   </button>
 </form>

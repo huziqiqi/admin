@@ -37,7 +37,6 @@ Page({
       },
       method: "POST",
       success: (res) => {
-
         if (res.data.data.num == 0) {
           wx.showToast({
             title: "暂无单买记录",

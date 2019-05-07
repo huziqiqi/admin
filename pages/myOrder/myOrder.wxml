@@ -7,7 +7,7 @@
   <view class="order-status-item  {{num==4?' order-status-item-active':''}}" data-num='4'>已完成</view>
 </view>
 <view style="height:100%" bindtouchstart="start" bindtouchend="end" data-s="0" data-e="4">
-<view wx:if="{{items!=[]}}" style="height:100%; ;background:#fff; margin-top:20rpx;box-sizing:border-box">
+<view wx:if="{{!items[0]}}" style="height:100%; ;background:#fff; margin-top:20rpx;box-sizing:border-box">
   <image src='../../images/notData.png' mode="widthFix" style="width:100% ;margin-top:100rpx"></image>
 </view>
   <view class="order-wrapper">

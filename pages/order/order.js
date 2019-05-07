@@ -14,7 +14,8 @@ Page({
   onLoad() {
     wx.hideTabBar()
     this.setData({
-      userId: wx.getStorageSync('user').id
+      userId: wx.getStorageSync('user').id,
+      user: wx.getStorageSync("userInfo")
     })
   },
   navigate(e) {

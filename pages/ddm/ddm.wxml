@@ -32,31 +32,31 @@
       <text class='lf'>配送方式</text>
       <view class='rt'>
         <radio-group name="isshop" bindchange="radioChange">
-          <view wx:if="{{item.isshop==1}}">到店自提</view>
-          <view wx:if="{{item.isshop==2}}">物流配送</view>
+          <view wx:if="{{item.delivery==1}}">到店自提</view>
+          <view wx:if="{{item.delivery==2}}">物流配送</view>
           <!-- <radio color='#FBDA01' value="2" checked="true"></radio>
           <radio color='#FBDA01' value="1"></radio> -->
         </radio-group>
       </view>
     </view>
-    <view class='list' wx:if="{{item.isshop==1}}"  style="line-height:50rpx">自提地址：{{address}}</view>
-          <navigator hover-class='none' wx:if="{{item.isshop==2}}" open-type='navigate' url='../address/address?type=1&userId={{userId}}'>
+    <view class='list' wx:if="{{item.delivery==1}}"  style="line-height:50rpx">自提地址：{{addArr[0].address}}</view>
+      <navigator hover-class='none' wx:if="{{item.delivery==2}}" open-type='navigate' url='../address/address?type=1&userId={{userId}}'>
         <view class="list list1">
           <view>{{sname}}</view>
           <view>
             {{tel}}
-            <image mode='widthFix' class="rt" style='width: 20rpx;margin-left: 10rpx; margin-top:20rpx;' src='../../images/right.gif'></image>
+            <image mode='widthFix' class="rt" style='width: 15rpx;margin-left: 10rpx; margin-top:20rpx;' src='../../images/right.gif'></image>
           </view>
           <view>{{addressName}}</view>
         </view>
       </navigator>
   </view>
   <view class='ddm'>
-    <view class='list' wx:if="{{item.isshop==1}}">
+    <view class='list' wx:if="{{item.delivery==1}}">
       姓名：
       <input class=' bz rt' type="text" name="consignee" />
     </view>
-    <view class='list' wx:if="{{item.isshop==1}}">
+    <view class='list' wx:if="{{item.delivery==1}}">
       手机：
       <input class=' bz rt' type="number" name="consignee_phone" />
       <!-- <view class='bz rt'>18982044565</view> -->
