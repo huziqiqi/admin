@@ -36,6 +36,33 @@ Component({
         isShow:false
       })
     },
+
+    fxjs() {
+      var e = wx.getLaunchOptionsSync()   // var parentId = options.scene.split("&")[0].split("%3D")[1];
+
+      if (e) {
+        var pid = e.query.userid
+        var proid = e.query.proid
+        if (wx.getStorageSync('user')) {
+         
+          wx.navigateTo({
+            url: "../ptxq/ptxq?id=" + proid
+          })
+        } else {
+          this.fxjs()
+        }
+        // console.log(1);
+      }
+      // else if (options.userId) {
+      //   var parentId = options.userid
+      //   console.log(parentId);
+      //   console.log(2);
+      // } 
+      // else {
+
+      // }
+    },
+
     bindGetUserInfo() {
       let that = this;
       if (!wx.getStorageSync('user')) {
@@ -67,6 +94,7 @@ Component({
                         },
                         success: function (res) {
                           if (res.data.code==200) {
+                            that.fxjs()
                             that.setData({
                               isShow: true
                             }) 

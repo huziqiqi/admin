@@ -51,12 +51,25 @@ Page({
       },
       method: "POST",
       success: (res) => {
-        this.setData({
-          item: res.data.data.pro,
-          addArr:res.data.data.address,
-          address: opt.address,
-          groupId: opt.id
-        })
+       if (res.data.code==200) {
+         this.setData({
+           item: res.data.data.pro,
+           addArr: res.data.data.address,
+           address: opt.address,
+           groupId: opt.id
+         })
+       } else {
+         wx.showModal({
+           title: '提示',
+           content: res.data.msg,
+           showCancel: false,
+           complete(){
+             wx.navigateBack({
+               delta:1
+             })
+           }
+         })
+       }
       }
     })
   },
@@ -96,17 +109,21 @@ Page({
         },
         method: "POST",
         success: (res) => {
-          this.pay(res.data.data)
-          // wx.navigateTo({
-          //   url: '../myOrder/myOrder'
-          // })
+          if (res.data.code == 200) {
+            this.pay(res.data.data)
+          } else {
+            wx.showModal({
+              title: '提示',
+              content: res.data.msg,
+              showCancel: false
+            })
+          }
         }
       })
 
 
     } else {
-      console.log(this.data.addArr[0].id);
-      
+      console.log(this.data.addArr[0].id);  
       pick_up = this.data.addArr[0].id
       consignee = e.detail.value.consignee
       consignee_phone = e.detail.value.consignee_phone
@@ -124,7 +141,15 @@ Page({
         },
         method: "POST",
         success: (res) => {
-          this.pay(res.data.data)
+          if (res.data.code==200) {
+            this.pay(res.data.data)            
+          } else {
+            wx.showModal({
+              title: '提示',
+              content: res.data.msg,
+              showCancel: false
+            })
+          }
           // wx.navigateTo({
           //   url: '../myOrder/myOrder'
           // })

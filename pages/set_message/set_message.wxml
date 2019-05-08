@@ -37,11 +37,11 @@
   <view class='list'>
     <view class='clear'>
       <text class='lf'>单买返佣</text>
-      <input class='rt' type='number' placeholder='用户单独买商品时所获佣金' name="onefanli"></input>
+      <input class='rt' type='digit' placeholder='用户单独买商品时所获佣金' name="onefanli"></input>
     </view>
     <view class='clear'>
       <text class='lf'>团购返佣</text>
-      <input class='rt' type='number' placeholder='用户拼团买商品时所获佣金' name="fanli"></input>
+      <input class='rt' type='digit' placeholder='用户拼团买商品时所获佣金' name="fanli"></input>
     </view>
   </view>
   <view class='mark'>

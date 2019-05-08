@@ -47,7 +47,7 @@
             {{tel}}
             <image mode='widthFix' class="rt" style='width: 15rpx;margin-left: 10rpx; margin-top:20rpx;' src='../../images/right.gif'></image>
           </view>
-          <view>{{addressName}}</view>
+          <view>12{{addressName}}</view>
         </view>
       </navigator>
   </view>

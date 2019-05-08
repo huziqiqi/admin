@@ -21,10 +21,18 @@ Page({
       },
       method: "POST",
       success: (res) => {
-        this.setData({
-          item: res.data.data,
-          oid: options.oid
-        })
+       if (res.data.code==200) {
+         this.setData({
+           item: res.data.data,
+           oid: options.oid
+         })
+       } else {
+         wx.showModal({
+           title: '提示',
+           content: res.data.msg,
+           showCancel: false
+         })
+       }
       }
     })
   },

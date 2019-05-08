@@ -308,3 +308,18 @@ button {
     background: #009966;
     color: #FFF;
 }
+
+.list .clear input.rt {}
+
+input {
+    cursor: auto;
+    display: block;
+    height: 1.4rem;
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: UICTFontTextStyleBody;
+    min-height: 1.4rem;
+    margin-top: 0rpx;
+
+}

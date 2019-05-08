@@ -30,26 +30,66 @@ Page({
     isShow: false
   },
   onLoad: function (options) {
-    console.log(wx.getLaunchOptionsSync());
-    if (options.scene) {
-      var parentId = options.scene.split("&")[0].split("%3D")[1];
-      console.log(parentId);
-    } else if (options.userId) {
-      var parentId = options.userId
-      console.log(parentId);
-    } else {
-      var parentId = 0
-      console.log(parentId);
-    }
     wx.hideTabBar()
     that = this
     this.setData({
       isShow: wx.getStorageSync('user') ? true : false,
     })
-    // if (wx.getStorageSync('user')) {
-    //   getApp().userId = wx.getStorageSync('user').id
-    // }
+    if (wx.getStorageSync('user')) {
+      this.fxjs(wx.getLaunchOptionsSync())
+    }
     this.request()
+
+  },
+  fxjs(){
+    var e = wx.getLaunchOptionsSync()   // var parentId = options.scene.split("&")[0].split("%3D")[1];
+    console.log(e);   
+    if (e.query.proid) {   
+      var pid = e.query.userid
+      var proid = e.query.proid
+      if (wx.getStorageSync('user')) {
+        // if (!wx.getStorageSync('optarr')[0]) {
+        //   var optarr =[]
+        //   let opt = {}
+        //   opt.userid = pid
+        //   opt.proid = proid
+        //   optarr.push(opt)
+        //   wx.setStorageSync('optarr', optarr);
+
+        // } else {
+        //   var optarr = wx.getStorageSync('optarr')
+        //   for (let i = 0; i < optarr.length; i++) {
+        //     const element = optarr[i];
+        //     if (element.proid == proid) {
+        //       console.log(element.proid);
+        //       console.log(proid);              
+        //       element.userid = pid
+        //       return false
+        //     } else {
+        //       let opt = {}
+        //       opt.userid = pid
+        //       opt.proid = proid
+        //       optarr.push(opt)
+        //       wx.setStorageSync('optarr', optarr);
+        //     }
+        //   }
+        // }
+        wx.navigateTo({
+          url: "../ptxq/ptxq?id=" + proid
+        })
+      }else{
+        this.fxjs(e)
+      }
+      // console.log(1);
+    } 
+    // else if (options.userId) {
+    //   var parentId = options.userid
+    //   console.log(parentId);
+    //   console.log(2);
+    // } 
+    // else {
+     
+    // }
   },
   bindViewTap: function () {
     wx.navigateTo({

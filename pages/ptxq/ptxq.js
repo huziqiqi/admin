@@ -86,7 +86,7 @@ Page({
     }
     return {
       title: '自定义转发标题',
-      path: '/pages/ptxq/ptxq',
+      path: '/pages/index/index?userid=' + wx.getStorageSync('user').id+'proid='+this.item.id,
       imageUrl: "https://ss3.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=2a5524e6e8cd7b89f66c3c833f244291/1e30e924b899a901b25a7f1a13950a7b0208f5ab.jpg"
     }
   },
@@ -254,8 +254,12 @@ Page({
         ctx.rect(0, 0, 376, 750)
         ctx.setFillStyle('#fff')
         ctx.fill()
-        ctx.drawImage(res[0].path, 15, 15, 345, 345)
+        ctx.setFillStyle('#000')
+        ctx.setFontSize(20)
+        ctx.fillText("爱蚁拼", 135, 30);
+        ctx.drawImage(res[0].path, 15, 40, 345, 345)
         ctx.drawImage(res[1].path, 210, 470, 125, 125)
+     
         ctx.setTextAlign('left')
         ctx.setTextBaseline("top")
         ctx.setFillStyle('#000')
@@ -299,7 +303,9 @@ Page({
         ctx.lineTo(360, 435 + (b - 1) * 25)
         ctx.setFillStyle('#aaa')
         ctx.setFontSize(20)
+
         ctx.fillText("长按识别小程序码", 15, 490 + (b - 1) * 25);
+
         ctx.setFillStyle('#f00')
         ctx.setFontSize(24)
         ctx.fillText("￥" + that.data.price, 15, 390 + (b - 1) * 25);

@@ -35,9 +35,12 @@
 </view>
 <view class='title clear'>
   <text class='lf'>{{item.title}}</text>
-  <view class='rt'>
-    <image src='../../images/share.jpg' mode='widthFix'></image>
-    <view>分享</view>
+  <view  class='rt'>
+    <button  open-type="share" style="padding-left:0rpx;padding-right:0rpx;box-sizing:border-box;font-size:24rpx">
+<image src='../../images/share.jpg' mode='widthFix'></image>
+<view>分享</view>
+    </button>
+    
   </view>
 </view>
 <view class='nr'>

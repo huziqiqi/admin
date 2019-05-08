@@ -2,7 +2,7 @@
 <form bindsubmit="formSubmit">
   <view class="addresses">
     <view class="clear">
-      <text class="lf">收货人：</text>
+      <text class="lf">联系人：</text>
       <input type="text" placeholder="请输入收货人姓名" name="sname" value="{{sname}}" class="rt" />
     </view>
     <view class="clear">

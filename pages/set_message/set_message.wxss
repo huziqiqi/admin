@@ -1,130 +1,136 @@
 /* pages/load_pro/load_pro.wxss */
 .upload {
-  font-size: 30rpx;
-  line-height: 80rpx;
-  height: 80rpx;
-  overflow: hidden;
-  display: flex;
-  justify-content: space-between;
-  color: #333;
-  text-align: center;
-  background: #fff;
-  border-bottom: 20rpx solid #F5F5F5;
+    font-size: 30rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    color: #333;
+    text-align: center;
+    background: #fff;
+    border-bottom: 20rpx solid #F5F5F5;
 
 }
 
 .upload .lf {
-  background: #fff;
+    background: #fff;
 }
 
 .upload .rt {
-  color: #fbda00;
-  background: #222;
+    color: #fbda00;
+    background: #222;
 }
 
 .upload image {
-  width: 6.5%;
+    width: 6.5%;
 }
 
 .upload view {
-  width: 47%;
+    width: 47%;
 }
 
 .fileList {
-  background: #F5F5F5;
-  text-align: center;
+    background: #F5F5F5;
+    text-align: center;
 }
 
 .fileList image {
-  width: 100%;
+    width: 100%;
 }
 
 .list {
-  font-size: 28rpx;
-  padding: 0 20rpx;
-  color: #444444;
-  line-height: 100rpx;
-  border-bottom: 20rpx solid #F5F5F5
+    font-size: 28rpx;
+    padding: 0 20rpx;
+    color: #444444;
+    line-height: 100rpx;
+    border-bottom: 20rpx solid #F5F5F5
 }
 
 .list .lf {
-  width: 25%;
+    width: 25%;
 }
 
 .list .clear input.rt {
-  margin-top: 16rpx;
+    margin-top: 16rpx;
 }
 
 .list .clear>.rt {
-  width: 72%;
+    width: 72%;
 }
 
 .list navigator.rt {
-  width: 72%;
-  text-align: right;
-  color: #FDD901;
+    width: 72%;
+    text-align: right;
+    color: #FDD901;
 }
 
 .list navigator.rt>image {
-  width: 15rpx !important;
-  vertical-align: middle;
-  margin-top: 0;
-  margin-left: 20rpx;
+    width: 15rpx !important;
+    vertical-align: middle;
+    margin-top: 0;
+    margin-left: 20rpx;
 }
 
 .list .clear {
-  border-bottom: 1px solid #EAEAEA;
+    border-bottom: 1px solid #EAEAEA;
 }
 
 .list .clear:last-child {
-  border: 0;
+    border: 0;
 }
 
 .list navigator image:first-child {
-  width: 28rpx;
+    width: 28rpx;
 }
 
 .ccyytext {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 
 }
 
 .list image {
-  width: 15rpx;
-  margin-top: 40rpx;
+    width: 15rpx;
+    margin-top: 40rpx;
 }
 
 .next {
-  width: 94%;
-  margin: 40rpx auto;
-  border-radius: 5px;
-  background: #222222;
-  color: #fcd903;
-  font-size: 28rpx;
-  line-height: 90rpx;
-  text-align: center;
+    width: 94%;
+    margin: 40rpx auto;
+    border-radius: 5px;
+    background: #222222;
+    color: #fcd903;
+    font-size: 28rpx;
+    line-height: 90rpx;
+    text-align: center;
 }
 
 radio .wx-radio-input {
-  border-radius: 100%;
-  margin: 0 20rpx;
+    border-radius: 100%;
+    margin: 0 20rpx;
 }
 
 .mark view {
-  font-size: 26rpx;
-  color: #999999;
-  line-height: 40rpx;
-  padding: 20rpx;
+    font-size: 26rpx;
+    color: #999999;
+    line-height: 40rpx;
+    padding: 20rpx;
 }
 
 .mark view image {
-  width: 30rpx;
+    width: 30rpx;
 }
 
 .ccyctext {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list .clear input.rt {
+   margin-top:0rpx;
+   line-height: 100rpx;
+  height: 100rpx;
 }
