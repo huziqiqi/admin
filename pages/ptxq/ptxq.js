@@ -255,11 +255,9 @@ Page({
         ctx.setFillStyle('#fff')
         ctx.fill()
         ctx.setFillStyle('#000')
-        ctx.setFontSize(20)
-        ctx.fillText("爱蚁拼", 135, 30);
-        ctx.drawImage(res[0].path, 15, 40, 345, 345)
-        ctx.drawImage(res[1].path, 210, 470, 125, 125)
-     
+        ctx.setFontSize(16)
+        ctx.fillText("爱蚁拼", 165, 33);
+        ctx.drawImage(res[0].path, 15, 55, 345, 345)
         ctx.setTextAlign('left')
         ctx.setTextBaseline("top")
         ctx.setFillStyle('#000')
@@ -284,7 +282,7 @@ Page({
           var test = "";
           var empty = [];
           for (var a = 0; a < rowPart.length; a++) {
-            if (ctx.measureText(test).width < 345) {
+            if (ctx.measureText(test).width < 220) {
               test += rowPart[a];
             } else {
               break;
@@ -296,19 +294,43 @@ Page({
           row = rowCut;
         }
         for (var b = 0; b < row.length; b++) {
-          ctx.fillText(row[b], 15, 365 + b * 25, 345);
+          ctx.fillText(row[b], 15, 425 + b * 25, 220);
         }
-        ctx.moveTo(15, 435 + (b - 1) * 25)
-        ctx.lineTo(15, 435 + (b - 1) * 25)
-        ctx.lineTo(360, 435 + (b - 1) * 25)
-        ctx.setFillStyle('#aaa')
-        ctx.setFontSize(20)
+        // ctx.setFillStyle('#af0d1d')
+        var x=250
+        var y=428
+        
+        ctx.drawImage(res[1].path, x+5, y+5, 90, 90)  
+        ctx.setFillStyle('#f2001c')
+        ctx.setFontSize(9)   
+        ctx.fillText("扫描或长按二维码", x+14, y-8);
 
-        ctx.fillText("长按识别小程序码", 15, 490 + (b - 1) * 25);
+        ctx.moveTo(x, y+10)
+        ctx.lineTo(x, y+10)
+        ctx.lineTo(x, y)
+        ctx.lineTo(x+10,y)
 
-        ctx.setFillStyle('#f00')
+        ctx.moveTo(x+90, y)
+        ctx.lineTo(x+90, y)
+        ctx.lineTo(x+100, y)
+        ctx.lineTo(x + 100,y+10)
+
+        ctx.moveTo(x + 90, y + 100)
+        ctx.lineTo(x+90, y+100)
+        ctx.lineTo(x+100, y+100)
+        ctx.lineTo(x+100, y+90)
+
+        ctx.moveTo(x+10, y+100)
+        ctx.lineTo(x+10, y+100)
+        ctx.lineTo(x, y+100)
+        ctx.lineTo(x, y+90)
+        ctx.setStrokeStyle('#f2001c')
+        ctx.setFillStyle('#fdd501')
         ctx.setFontSize(24)
-        ctx.fillText("￥" + that.data.price, 15, 390 + (b - 1) * 25);
+        ctx.fillText("团购价￥" + that.data.item.price, 15, 460 + (b - 1) * 25);       
+        ctx.setFillStyle('#a5a5a5')
+        ctx.setFontSize(18)
+        ctx.fillText("单买价￥" + that.data.item.oneprice, 15,500 + (b - 1) * 25);
         ctx.stroke()
         ctx.draw()
       })

@@ -40,44 +40,16 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "分享进入",
+					"name": "分享进入id=64",
 					"pathName": "pages/index/index",
-					"query": "id=1&oid=61",
+					"query": "userid=9&proid=64",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "分享进入",
+					"name": "分享进入id=65",
 					"pathName": "pages/index/index",
-					"query": "userid=1&proid=61",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "分享进入",
-					"pathName": "pages/ptxq/ptxq",
-					"query": "userid=1&proid=58",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "分享进入",
-					"pathName": "pages/index/index",
-					"query": "userid=1&proid=58",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "分享进入",
-					"pathName": "pages/ptxq/ptxq",
-					"query": "userid=1&proid=38",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "分享进入",
-					"pathName": "pages/index/index",
-					"query": "userid=1&proid=38",
+					"query": "userid=9&proid=65",
 					"scene": null
 				}
 			]

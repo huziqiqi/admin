@@ -40,7 +40,7 @@ Component({
     fxjs() {
       var e = wx.getLaunchOptionsSync()   // var parentId = options.scene.split("&")[0].split("%3D")[1];
 
-      if (e) {
+      if (e.query.proid) {
         var pid = e.query.userid
         var proid = e.query.proid
         if (wx.getStorageSync('user')) {

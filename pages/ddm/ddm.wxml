@@ -39,31 +39,31 @@
         </radio-group>
       </view>
     </view>
-    <view class='list' wx:if="{{item.delivery==1}}"  style="line-height:50rpx">自提地址：{{addArr[0].address}}</view>
+    <view class='list' wx:if="{{item.delivery==1}}"  style="line-height:50rpx;margin:15rpx 0;">自提地址：{{addArr[0].address}}</view>
       <navigator hover-class='none' wx:if="{{item.delivery==2}}" open-type='navigate' url='../address/address?type=1&userId={{userId}}'>
         <view class="list list1">
-          <view>{{sname}}</view>
+          <view>{{add.sname}}</view>
           <view>
-            {{tel}}
+            {{add.tel}}
             <image mode='widthFix' class="rt" style='width: 15rpx;margin-left: 10rpx; margin-top:20rpx;' src='../../images/right.gif'></image>
           </view>
-          <view>12{{addressName}}</view>
+          <view>{{add.provinces+add.address}}</view>
         </view>
       </navigator>
   </view>
   <view class='ddm'>
     <view class='list' wx:if="{{item.delivery==1}}">
       姓名：
-      <input class=' bz rt' type="text" name="consignee" />
+      <input class=' bz rt' type="text" name="consignee" placeholder="请输入用户名" />
     </view>
     <view class='list' wx:if="{{item.delivery==1}}">
       手机：
-      <input class=' bz rt' type="number" name="consignee_phone" />
+      <input class=' bz rt' type="number" name="consignee_phone" placeholder="请输入手机号" />
       <!-- <view class='bz rt'>18982044565</view> -->
     </view>
     <view class='list'>
       备注：
-      <textarea class='rt' name="remark"></textarea>
+      <textarea class='rt' name="remark" ></textarea>
     </view>
   </view>
   <view class="pay">

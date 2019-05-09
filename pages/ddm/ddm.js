@@ -18,6 +18,8 @@ Page({
     type: ""
   },
   onLoad(opt) {
+    console.log(wx.getLaunchOptionsSync().query );
+    
     let isone
     if (opt.isone == "true") {
       isone = true
@@ -88,12 +90,14 @@ Page({
       index: e.detail.value
     })
   },
-  sumbit(e) {
-    
+  sumbit(e) {    
     let addressid = null
     let pick_up = null
     let consignee = null
     let consignee_phone = null
+    if (this.data.groupId == wx.getLaunchOptionsSync().query.proid) {
+      var parentid = wx.getLaunchOptionsSync().query.userid     
+    }
     if (this.data.item.delivery == 2) {
       //物流
       addressid = this.data.addressId
@@ -105,7 +109,8 @@ Page({
           num: this.data.num,
           remark: e.detail.value.remark,
           addressid,
-          type: this.data.type
+          type: this.data.type,
+          parentid
         },
         method: "POST",
         success: (res) => {
@@ -123,22 +128,27 @@ Page({
 
 
     } else {
-      console.log(this.data.addArr[0].id);  
+      // console.log(this.data.addArr[0].id);  
       pick_up = this.data.addArr[0].id
       consignee = e.detail.value.consignee
-      consignee_phone = e.detail.value.consignee_phone
+      consignee_phone = parseInt(e.detail.value.consignee_phone)
+    
       wx.request({
         url: getApp().url + "/groupBuying",
         data: {
           userId: this.data.userId,
-          groupId: this.data.groupId,
+          groupId: parseInt(this.data.groupId),
           num: this.data.num,
           remark: e.detail.value.remark,
           pick_up,
           consignee,
           consignee_phone,
-          type: this.data.type
+          type: parseInt(this.data.type),
+          parentid
         },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+        }, 
         method: "POST",
         success: (res) => {
           if (res.data.code==200) {
@@ -218,7 +228,8 @@ Page({
       success: (res) => {
         this.setData({
           addressId: res.data.id,
-          addressName: res.data.provinces + res.data.address
+          addressName: res.data.provinces + res.data.address,
+          add: res.data
         })
       }
     })

@@ -42,12 +42,18 @@ Page({
 
   },
   fxjs(){
-    var e = wx.getLaunchOptionsSync()   // var parentId = options.scene.split("&")[0].split("%3D")[1];
+    var e = wx.getLaunchOptionsSync() // var parentId = options.scene.split("&")[0].split("%3D")[1];
     console.log(e);   
     if (e.query.proid) {   
       var pid = e.query.userid
       var proid = e.query.proid
       if (wx.getStorageSync('user')) {
+        let opt = {}
+        opt.userid = pid
+        opt.proid = proid
+        // optarr.push(opt)
+        wx.setStorageSync('opt', opt);
+
         // if (!wx.getStorageSync('optarr')[0]) {
         //   var optarr =[]
         //   let opt = {}
@@ -55,7 +61,6 @@ Page({
         //   opt.proid = proid
         //   optarr.push(opt)
         //   wx.setStorageSync('optarr', optarr);
-
         // } else {
         //   var optarr = wx.getStorageSync('optarr')
         //   for (let i = 0; i < optarr.length; i++) {
@@ -87,8 +92,7 @@ Page({
     //   console.log(parentId);
     //   console.log(2);
     // } 
-    // else {
-     
+    // else {     
     // }
   },
   bindViewTap: function () {

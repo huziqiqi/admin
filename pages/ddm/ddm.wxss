@@ -108,10 +108,11 @@ page {
     clear: both;
 }
 
-.list input{
-  height: 85rpx;
-  line-height: 85rpx;
+.list input {
+    height: 85rpx;
+    line-height: 85rpx;
 }
+
 .pay button {
     width: 90%;
     background: #222222;
@@ -142,4 +143,8 @@ page {
 
 .list1 {
     line-height: 60rpx;
+}
+
+textarea:-webkit-input-placeholder{
+    margin-top: 10rpx;
 }
