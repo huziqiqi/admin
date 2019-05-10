@@ -47,9 +47,9 @@
 				},
 				{
 					"id": -1,
-					"name": "分享进入id=65",
+					"name": "分享进入id=67",
 					"pathName": "pages/index/index",
-					"query": "userid=9&proid=65",
+					"query": "userid=9&proid=67",
 					"scene": null
 				}
 			]

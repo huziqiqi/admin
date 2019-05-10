@@ -58,6 +58,9 @@
         </view>
       </view>
     </navigator>
+    <view class=""style="height:100rpx">
+      
+    </view>
   </view>
 </view>
 <footer curIndex="2"></footer>

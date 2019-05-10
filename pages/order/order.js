@@ -42,7 +42,7 @@ Page({
   },
   end(e) {
     let val = e.changedTouches[0].clientX - this.data.clientX
-    if (val < -50 && val > -300 && e.currentTarget.dataset.e != this.data.num) {
+    if (val < -100 && val > -300 && e.currentTarget.dataset.e != this.data.num) {
       let num = parseInt(this.data.num += 1)
       this.setData({
         pages: 1,
@@ -51,7 +51,7 @@ Page({
       })
       this.request()
     }
-    if (0 < 300 && val > 50 && e.currentTarget.dataset.s != this.data.num) {
+    if (0 < 300 && val > 100 && e.currentTarget.dataset.s != this.data.num) {
       let num = parseInt(this.data.num -= 1)
       this.setData({
         pages: 1,

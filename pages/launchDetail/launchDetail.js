@@ -28,7 +28,9 @@ Page({
       method: "POST",
       success: (res) => {
         let data = res.data.data.info
-
+       
+       
+        
         for (let j = 0; j < res.data.data.info.imgs.length; j++) {
           data.imgs[j] = data.imgs[j].replace('http://yipin.xazbwl.com', getApp().url)
         }
@@ -38,6 +40,7 @@ Page({
           proid: opt.proid,
           actEndTimeList: [data.end_time]
         })
+        console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
       }
     })
     let endTimeList = [];
@@ -58,7 +61,8 @@ Page({
     }
     return {
       title: '自定义转发标题',
-      path: '/pages/index/index?userid=' + wx.getStorageSync('user').id+'proid='+this.item.id,
+      
+      path: '/pages/index/index?userid=' + wx.getStorageSync('user').id+'&proid='+this.data.item.id,
       imageUrl: "https://ss3.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=2a5524e6e8cd7b89f66c3c833f244291/1e30e924b899a901b25a7f1a13950a7b0208f5ab.jpg"
     }
   },

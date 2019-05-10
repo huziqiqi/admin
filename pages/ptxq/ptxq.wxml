@@ -43,13 +43,13 @@
       <image src='../../images/icon2.gif' mode='widthFix'></image>
       {{item.city+item.address}}
     </navigator>
-    <!-- <navigator>
+    <navigator>
       <image src='../../images/icon3.gif' mode='widthFix'></image>
       <view hover-class="weui-cell_active" data-reply-phone="18282957326" bindtap="phoneCall">
         18282957326（王佳丽）
       </view>
-      <image src="../../images/right.gif" class='rt' mode='widthFix'></image>
-    </navigator> -->
+      <!-- <image src="../../images/right.gif" class='rt' mode='widthFix'></image> -->
+    </navigator>
     <navigator hover-class="no">
       <image src='../../images/icon4.gif' mode='widthFix'></image>
       拼购截止时间：{{item.end_time}}

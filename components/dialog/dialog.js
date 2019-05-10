@@ -36,15 +36,12 @@ Component({
         isShow:false
       })
     },
-
     fxjs() {
       var e = wx.getLaunchOptionsSync()   // var parentId = options.scene.split("&")[0].split("%3D")[1];
-
       if (e.query.proid) {
         var pid = e.query.userid
         var proid = e.query.proid
-        if (wx.getStorageSync('user')) {
-         
+        if (wx.getStorageSync('user')) {         
           wx.navigateTo({
             url: "../ptxq/ptxq?id=" + proid
           })

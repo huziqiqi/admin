@@ -34,10 +34,9 @@
     </view>
     <view class='clear' style="line-height:100rpx;">
       <text class='lf'>拼团活动介绍</text>
-      <view class='clear' style="line-height:40rpx;">
+      <view class='clear' style="line-height:40rpx;margin-left:-4rpx;">
         <textarea class='rt' name="info" style="padding-top:15rpx;"  placeholder='请填写拼团标题'></textarea>      
       </view>
-
     </view>
   </view>
   <view class='list'>

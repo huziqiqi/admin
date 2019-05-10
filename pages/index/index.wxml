@@ -38,6 +38,9 @@
   </view>
 </view>
 <view class="product">
+ <view wx:if="{{!product[0]}}" style="height:100%; ;background:#fff; margin-top:20rpx;box-sizing:border-box">
+   <image src='../../images/notData.png' mode="widthFix" style="width:100% ;margin-top:100rpx"></image>
+ </view>
   <view wx:for="{{product}}" wx:key="item" class='clear'>
     <image src="{{item.headimgurl?item.headimgurl:'../../images/avan.gif'}}" class='lf'></image>
     <view class='rt' bindtap="toPtxq" data-id="{{item.id}}">
@@ -81,5 +84,7 @@
 <!-- <view style="height:2rem;line-height:2rem;font-size:24rpx;text-align: center;">
 暂无更新数据
 </view> -->
+ <!-- <view class='contentView' style='padding-bottom:{{btuBottom}}'></view> -->
+ 
 <footer curIndex="0"></footer>
 <dialog  id='dialog' cur='1' isShow='{{isShow}}' parentId="{{parentId}}"  bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>

@@ -86,9 +86,14 @@ Page({
     })
   },
   submit(e) {
+    console.log( getApp());
+    
     wx.getStorage({
       key: "opt",
       success: (res) => {
+        if (e.detail.value.isshop==1) {
+        var addressid=  this.data.addressId
+        } 
         wx.request({
           url: getApp().url + "//addPro",
           data: {
@@ -110,11 +115,14 @@ Page({
             fanli: e.detail.value.fanli,
             onefanli: e.detail.value.onefanli,
             delivery: e.detail.value.isshop,
-            addressid: this.data.addressId,
+            addressid,
           },
           method: "POST",
           success: (res) => {
             if (res.data.code == 200) {
+              wx.setStorageSync('opt', {});
+              wx.setStorageSync('shdz', {});
+
               wx.navigateTo({
                 url: "../launch/launch"
               })

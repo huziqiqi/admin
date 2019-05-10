@@ -11,11 +11,11 @@
   <view class="input flex">
     <text>手机</text>
     <input type='text' name="tel" placeholder='请输入联系方式'></input>
-  </view>
-  <!-- <view class="input flex" style='margin-bottom: 50rpx;'>
+  </view>  
+  <view class="input flex" style='margin-bottom: 50rpx;'>
     <text>验证码</text>
     <input type='text' placeholder='请输入验证码'></input>
     <button class='getCode' bindtap='getCode'>获取验证码</button>
-  </view> -->
+  </view>
   <button class="submitForm" form-type='submit'>支付认证费用￥{{rzfy}}</button>
 </form>

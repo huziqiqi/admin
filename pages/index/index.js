@@ -27,7 +27,7 @@ Page({
     objectMultiArray: city.data.objectMultiArray,
     userId: getApp().userId,
     pages: 1,
-    isShow: false
+    isShow: false,
   },
   onLoad: function (options) {
     wx.hideTabBar()
@@ -39,7 +39,7 @@ Page({
       this.fxjs(wx.getLaunchOptionsSync())
     }
     this.request()
-
+   
   },
   fxjs(){
     var e = wx.getLaunchOptionsSync() // var parentId = options.scene.split("&")[0].split("%3D")[1];
@@ -51,34 +51,8 @@ Page({
         let opt = {}
         opt.userid = pid
         opt.proid = proid
-        // optarr.push(opt)
         wx.setStorageSync('opt', opt);
 
-        // if (!wx.getStorageSync('optarr')[0]) {
-        //   var optarr =[]
-        //   let opt = {}
-        //   opt.userid = pid
-        //   opt.proid = proid
-        //   optarr.push(opt)
-        //   wx.setStorageSync('optarr', optarr);
-        // } else {
-        //   var optarr = wx.getStorageSync('optarr')
-        //   for (let i = 0; i < optarr.length; i++) {
-        //     const element = optarr[i];
-        //     if (element.proid == proid) {
-        //       console.log(element.proid);
-        //       console.log(proid);              
-        //       element.userid = pid
-        //       return false
-        //     } else {
-        //       let opt = {}
-        //       opt.userid = pid
-        //       opt.proid = proid
-        //       optarr.push(opt)
-        //       wx.setStorageSync('optarr', optarr);
-        //     }
-        //   }
-        // }
         wx.navigateTo({
           url: "../ptxq/ptxq?id=" + proid
         })
@@ -150,7 +124,6 @@ Page({
     }
   },
   onPullDownRefresh() {
-
     this.setData({
       // product: [],
       pages: 1
@@ -169,7 +142,6 @@ Page({
         icon: "none"
       })
     }
-
   },
   getUserInfo: function (e) {
     app.globalData.userInfo = e.detail.userInfo

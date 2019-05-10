@@ -53,9 +53,25 @@ Page({
   theGoods() {
     if (this.data.item.type == 1) {
       //自提接接口
+      wx.request({
+        url: getApp().url + "//user.used/okpro",
+        data: {
+          userid: wx.getStorageSync('user').id,
+          oid: this.data.oid
+        },
+        method: "POST",
+        success: (res) => {
+          wx.showModal({
+            title: '提示',
+            content: res.data.msg,
+            showCancel: false
+          })
 
+        }
+      })
       
     } else {
+      //确认收货接口
       wx.request({
         url: getApp().url + "//user.used/okpro",
         data: {

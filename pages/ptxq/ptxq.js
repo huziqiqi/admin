@@ -55,6 +55,7 @@ Page({
           userbuy: res.data.data.userBuy,
           isShow: true,
         })
+        console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
 
         wx.hideLoading();
       }
@@ -81,12 +82,15 @@ Page({
     })
   },
   onShareAppMessage(res) {
+    console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.item.id);
+
     if (res.from === 'button') {
       // 来自页面内转发按钮
+      
     }
     return {
       title: '自定义转发标题',
-      path: '/pages/index/index?userid=' + wx.getStorageSync('user').id+'proid='+this.item.id,
+      path: '/pages/index/index?userid=' + wx.getStorageSync('user').id+'&proid='+this.item.id,
       imageUrl: "https://ss3.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=2a5524e6e8cd7b89f66c3c833f244291/1e30e924b899a901b25a7f1a13950a7b0208f5ab.jpg"
     }
   },
@@ -267,7 +271,7 @@ Page({
         var temp = []
         ctx.setFontSize(16)
         for (var a = 0; a < chr.length; a++) {
-          if (ctx.measureText(temp).width < 370) {
+          if (ctx.measureText(temp).width < 220) {
             temp += chr[a];
           } else {
             a--;
@@ -281,7 +285,7 @@ Page({
           var rowPart = rowCut[1];
           var test = "";
           var empty = [];
-          for (var a = 0; a < rowPart.length; a++) {
+          for (var a = 0; a < rowPart.length; a++) {_
             if (ctx.measureText(test).width < 220) {
               test += rowPart[a];
             } else {

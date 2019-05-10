@@ -6,6 +6,11 @@ App({
     if (!wx.getStorageSync('openid')) {
       this.wxLogin();
     }
+console.log(123);
+
+    wx.switchTab({
+      url: "pages/personal/personal"
+    })
   },
   // 更新版本
   update: function () {
@@ -33,15 +38,14 @@ App({
     let that = this;
     wx.login({
       success: function (res) {
-        console.log(res.code);  
-
+        // console.log(res.code);  
           wx.request({
             url: 'https://wechat.mayituandui.vip/user.login/getOpenId',
             method: 'POST',
             data: {
               code: res.code
             },
-            success: function (res) {
+            success: function (res) {              
               if (res.data.code == 200) {
                 wx.setStorageSync('openid', res.data.data);
               } else {
@@ -53,7 +57,6 @@ App({
     })
   },
  
-
   ajax(obj) {
     wx.showLoading({
       title: "加载中，请稍等",
@@ -69,10 +72,12 @@ App({
       }
     })
   },
+ 
 
   shopImg: [],
   shopImgArr: [],
   globalData: {
+    isIphoneX: false,
     userInfo: null
   }
 })

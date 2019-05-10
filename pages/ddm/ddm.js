@@ -210,7 +210,12 @@ Page({
         }
       },
       fail: function (res) {
-        console.log(res);        
+        console.log(res);
+        wx.showModal({
+          title: '提示',
+          content: '支付失败',
+          showCancel: false
+        })        
         wx.hideLoading();
       }
     })
