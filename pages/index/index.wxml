@@ -87,4 +87,4 @@
  <!-- <view class='contentView' style='padding-bottom:{{btuBottom}}'></view> -->
  
 <footer curIndex="0"></footer>
-<dialog  id='dialog' cur='1' isLogin='{{isLogin}}' parentId="{{parentId}}"  bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>
+<dialog  id='dialog'   bind:reload='fxjs' cur='1' isLogin='{{isLogin}}' parentId="{{parentId}}"  bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>

@@ -86,8 +86,9 @@ Component({
                             that.setData({
                               isLogin: true
                             }) 
-                            that.fxjs()
-
+                            
+                            that.triggerEvent("reload")
+                             
                           }        
                         }
                       })                    

@@ -35,7 +35,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (opt) {
-
     this.setData({
       isLogin: wx.getStorageSync('user') ? true : false ,
     })
@@ -62,9 +61,10 @@ Page({
           })
           console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
           wx.hideLoading();
+          this.qrcode(opt)
+
         }
       })
-      this.qrcode(opt)
 
     } else {
       wx.request({
@@ -75,25 +75,26 @@ Page({
         },
         method: "POST",
         success: (res) => {
-          for (let j = 0; j < res.data.data.info.imgs.length; j++) {
-            res.data.data.info.imgs[j] = res.data.data.info.imgs[j].replace('http://yipin.xazbwl.com', getApp().url)
-          }
+          // for (let j = 0; j < res.data.data.info.imgs.length; j++) {
+          //   res.data.data.info.imgs[j] = res.data.data.info.imgs[j].replace('http://yipin.xazbwl.com', getApp().url)
+          // }
           this.setData({
             item: res.data.data.info,
             userbuy: res.data.data.userBuy,
             isShow: true,
             opt:opt
           })
+          this.qrcode(opt)
+
           console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
           wx.hideLoading();
         }
       })
-      this.qrcode(opt)
+      // this.qrcode(opt)
     }
   
     // console.log(this.timestampToTime(1557541669));
   },
- 
   qrcode(opt) {
     console.log(opt);    
     wx.request({
@@ -108,12 +109,12 @@ Page({
           qrcode: res.data
         })
         wx.hideLoading();
+      
       }
     })
   },
   onShareAppMessage(res) {
     console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.item.id);
-
     if (res.from === 'button') {
       // 来自页面内转发按钮
       
