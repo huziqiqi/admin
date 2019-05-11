@@ -5,7 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-
     showView: true,
     price: "126",
     oneprice: 100,
@@ -29,54 +28,83 @@ Page({
     id: "",
     userId: getApp().userId,
     isshow: 1
+    ,isLogin:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (opt) {
+    console.log(opt);
+    
+    console.log(wx.getLaunchOptionsSync())
     wx.showLoading({
       title: "加载中，请稍等",
       mask: true
     });
-    wx.request({
-      url: getApp().url + "//product/detail",
-      data: {
-        proid: opt.id,
-        userid: wx.getStorageSync('user').id
-      },
-      method: "POST",
-      success: (res) => {
-        for (let j = 0; j < res.data.data.info.imgs.length; j++) {
-          res.data.data.info.imgs[j] = res.data.data.info.imgs[j].replace('http://yipin.xazbwl.com', getApp().url)
-        }
-        this.setData({
-          item: res.data.data.info,
-          userbuy: res.data.data.userBuy,
-          isShow: true,
-        })
-        console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
+    if (wx.getLaunchOptionsSync().query.proid) {
+      console.log("您通过分享登陆，但是没有登录");
+      wx.request({
+        url: getApp().url + "/product/detail",
+        data: {
+          proid: wx.getLaunchOptionsSync().query.proid,
+          userid: wx.getLaunchOptionsSync().query.userid
+        },
+        method: "POST",
+        success: (res) => {     
+          this.setData({
+            item: res.data.data.info,
+            userbuy: res.data.data.userBuy,
+            isShow: true,
+          })
 
-        wx.hideLoading();
-      }
-    })
-    this.qrcode(opt.id)
+          console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
+          wx.hideLoading();
+        }
+      })
+      this.qrcode(opt)
+
+    } else {
+      wx.request({
+        url: getApp().url + "/product/detail",
+        data: {
+          proid: opt.proid,
+          userid: opt.userid
+        },
+        method: "POST",
+        success: (res) => {
+          for (let j = 0; j < res.data.data.info.imgs.length; j++) {
+            res.data.data.info.imgs[j] = res.data.data.info.imgs[j].replace('http://yipin.xazbwl.com', getApp().url)
+          }
+          this.setData({
+            item: res.data.data.info,
+            userbuy: res.data.data.userBuy,
+            isShow: true,
+          })
+          console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
+          wx.hideLoading();
+        }
+      })
+      this.qrcode(opt)
+    }
+  
+   
 
   },
-  qrcode(id) {
+  qrcode(opt) {
+    console.log(opt);
+    
     wx.request({
       url: getApp().url + "/Share",
       data: {
-        proid: id,
-        userid: wx.getStorageSync('user').id
+        proid: opt.proid,
+        userid:opt.userid
       },
       method: "POST",
       success: (res) => {
         this.setData({
           qrcode: res.data
         })
-
-
         wx.hideLoading();
       }
     })

@@ -33,11 +33,11 @@ Page({
     wx.hideTabBar()
     that = this
     this.setData({
-      isShow: wx.getStorageSync('user') ? true : false,
+      isLogin: wx.getStorageSync('user') ? true : false,
     })
-    if (wx.getStorageSync('user')) {
-      this.fxjs(wx.getLaunchOptionsSync())
-    }
+    // if (wx.getStorageSync('user')) {
+    //   this.fxjs(wx.getLaunchOptionsSync())
+    // }
     this.request()
    
   },
@@ -244,8 +244,9 @@ Page({
   toPtxq(e) {
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: "../ptxq/ptxq?id=" + id
+      url: "../ptxq/ptxq?proid=" + id + "&userid=" + wx.getStorageSync('user').id
     })
+    
   }
 })
 

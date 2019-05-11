@@ -132,3 +132,4 @@
   </view>
 </view>
 <canvas canvas-id="shareImg" class="canvas" style="width:375px;height:600px; "></canvas>
+<dialog id='dialog' isLogin='{{isLogin}}' parentId="{{parentId}}" bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>

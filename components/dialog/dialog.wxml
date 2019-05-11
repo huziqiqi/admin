@@ -1,4 +1,4 @@
-<view class='dialog-container' wx:if="{{!isShow}}">
+<view class='dialog-container' wx:if="{{!isLogin}}">
     <view class='dialog-mask'></view>
     <view class='dialog-info'>
         <view class='dialog-title'>登录提示</view>

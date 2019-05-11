@@ -6,11 +6,10 @@ App({
     if (!wx.getStorageSync('openid')) {
       this.wxLogin();
     }
-console.log(123);
 
-    wx.switchTab({
-      url: "pages/personal/personal"
-    })
+    // wx.switchTab({
+    //   url: "pages/personal/personal"
+    // })
   },
   // 更新版本
   update: function () {

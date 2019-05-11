@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -50,6 +50,13 @@
 					"name": "分享进入id=67",
 					"pathName": "pages/index/index",
 					"query": "userid=9&proid=67",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "url=ptxqproid=64",
+					"pathName": "pages/ptxq/ptxq",
+					"query": "userid=9&proid=64",
 					"scene": null
 				}
 			]
