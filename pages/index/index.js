@@ -31,7 +31,6 @@ Page({
   },
   onLoad: function (options) {
     wx.hideTabBar()
-    console.log(options);
     if (options.scene) {
       var parentId = options.scene.split("&")[0].split("%3D")[1];
       var flg = options.scene.split("%26%26")
@@ -52,22 +51,15 @@ Page({
       } 
     } 
     
-
-    console.log(opt);
-    // "userId%3D1%26%26proid%3D69"
-    
     that = this
     this.setData({
       isLogin: wx.getStorageSync('user') ? true : false,
-    })
-  
+    })  
     this.request()
-    this.testajax()
-    
+    // this.testajax()    
   },
   fxjs(opt){
 // var parentId = options.scene.split("&")[0].split("%3D")[1];
-    console.log(opt);   
     if (wx.getStorageSync('user')) {
       let opt = {}
       opt.userid = wx.getStorageSync('user').id
@@ -75,15 +67,12 @@ Page({
       // wx.setStorageSync('opt', opt);
       wx.navigateTo({
         url: "../ptxq/ptxq?proid=" + opt.proid + "&userid=" + opt.userid
-
       })
     } else {
       this.fxjs(e)
     }
   },
-  testfunc(){
-    console.log('嘤嘤嘤');
-  },
+
   testajax(){
     wx.request({
       url: "https://api.huziqiqi.top",
@@ -93,9 +82,7 @@ Page({
         password:"xasxaxsa"
       },
       method: "POST",
-      success: (res) => {
-       console.log(res);
-      
+      success: (res) => {      
       }
     })
   },
