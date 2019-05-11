@@ -7,7 +7,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    isShow: {
+    isLogin: {
       type: Boolean,
       value: true,
       observer: function (newVal, oldVal) {

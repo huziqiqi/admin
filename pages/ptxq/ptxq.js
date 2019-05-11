@@ -27,16 +27,18 @@ Page({
     isShow: false,
     id: "",
     userId: getApp().userId,
-    isshow: 1
-    ,isLogin:false
+    isshow: 1,
+    isLogin:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (opt) {
-    console.log(opt);
-    
+
+    this.setData({
+      isLogin: wx.getStorageSync('user') ? true : false ,
+    })
     console.log(wx.getLaunchOptionsSync())
     wx.showLoading({
       title: "加载中，请稍等",
@@ -56,8 +58,8 @@ Page({
             item: res.data.data.info,
             userbuy: res.data.data.userBuy,
             isShow: true,
+            opt: wx.getLaunchOptionsSync().query
           })
-
           console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
           wx.hideLoading();
         }
@@ -80,6 +82,7 @@ Page({
             item: res.data.data.info,
             userbuy: res.data.data.userBuy,
             isShow: true,
+            opt:opt
           })
           console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
           wx.hideLoading();
@@ -88,12 +91,11 @@ Page({
       this.qrcode(opt)
     }
   
-   
-
+    // console.log(this.timestampToTime(1557541669));
   },
+ 
   qrcode(opt) {
-    console.log(opt);
-    
+    console.log(opt);    
     wx.request({
       url: getApp().url + "/Share",
       data: {
@@ -139,6 +141,17 @@ Page({
     })
   },
   isShow(e) {
+const opt={
+  proid:this.data.opt.proid,
+  userid: wx.getStorageSync('user').id
+}
+if (this.data.isshow==1) {
+  console.log(opt);
+
+  this.qrcode(opt)
+}
+
+
     this.setData({
       isshow: e.target.dataset.is
     })
