@@ -85,10 +85,12 @@ Component({
                           if (res.data.code==200) {
                             that.setData({
                               isLogin: true
-                            }) 
-                            
-                            that.triggerEvent("reload")
+                            })      
+
+                              if(wx.getStorageSync('opt').proid) {
+                                that.triggerEvent("reload")
                              
+                           }
                           }        
                         }
                       })                    

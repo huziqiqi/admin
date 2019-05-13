@@ -261,7 +261,7 @@ Page({
   toPtxq(e) {
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: "../ptxq/ptxq?proid=" + id + "&userid=" + wx.getStorageSync('user').id
+      url: "../ptxq/ptxq?proid=" + id + "&userid=" + wx.getStorageSync('user').id + "&isjump=" + 1
     })
     
   }

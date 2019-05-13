@@ -43,7 +43,8 @@ Page({
       title: "加载中，请稍等",
       mask: true
     });
-    if (wx.getLaunchOptionsSync().query.proid) {
+    console.log(opt);
+    if (wx.getLaunchOptionsSync().query.proid&opt.isjump!=1) {
       console.log("您通过分享登陆，但是没有登录");
       wx.request({
         url: getApp().url + "/product/detail",
