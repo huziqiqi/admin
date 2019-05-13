@@ -40,23 +40,23 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "分享进入id=64",
+					"name": "分享进入id=69柠檬",
 					"pathName": "pages/index/index",
-					"query": "userid=9&proid=64",
+					"query": "userid=9&proid=69",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "分享进入id=67",
+					"name": "分享进入id=65橘子",
 					"pathName": "pages/index/index",
-					"query": "userid=9&proid=67",
+					"query": "userid=9&proid=65",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "url=ptxqproid=64",
+					"name": "分享进入id=58双面绒",
 					"pathName": "pages/ptxq/ptxq",
-					"query": "userid=9&proid=64",
+					"query": "userid=9&proid=58",
 					"scene": null
 				}
 			]

@@ -107,7 +107,7 @@ Page({
       opt.deck = this.data.unit[opt.deck].name
     }
     wx.setStorage({
-      key: "opt",
+      key: "optn",
       data: opt,
       success: () => {
         wx.navigateTo({
@@ -138,6 +138,7 @@ Page({
   onShow: function () {
     this.setData({
       shopImgArr: app.shopImgArr,
+      opt: wx.getStorageSync('optn')
     })
   },
   navion() {
@@ -159,6 +160,7 @@ Page({
     app.price = opt.price
     app.nums = opt.nums
     app.stock = opt.stock
+    
   },
   file: function (e) {
     let that = this;

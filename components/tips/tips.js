@@ -6,7 +6,7 @@ function init(ScopeAction){
       msg: ''
     })
     clearTimeout(timer);
-  }, 1000);
+  }, 2000);
 }
 
 Component({

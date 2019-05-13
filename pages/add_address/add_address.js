@@ -41,25 +41,15 @@ Page({
     let value = e.detail.value
     let reg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
     if (value.sname.length < 1) {
-      this.setData({
-        msg: '请填写联系人姓名！'
-      })
+      this.tips("请填写联系人姓名！")
     } else if (value.tel.length < 1) {
-      this.setData({
-        msg: '请填写联系电话！'
-      })
+      this.tips("请填写手机号码！")
     } else if (!reg.test(value.tel)) {
-      this.setData({
-        msg: '联系电话格式错误'
-      })
+      this.tips("手机号码格式错误！")
     } else if (this.data.region == '请选择收货地址') {
-      this.setData({
-        msg: '请选择商铺所在区域！'
-      })
+      this.tips("请选择所在地区！")
     } else if (e.detail.value.address.length < 1) {
-      this.setData({
-        msg: '请填写详细地址！'
-      })
+      this.tips("请填写详细地址！")
     } else {
       wx.showLoading({
         title: '请稍等',
@@ -71,13 +61,22 @@ Page({
         address: value.address,
         type: this.data.type
       }
-      if (this.data.addressId == 0) {
         this.addAddress(opt)
-      } else {
-        this.updataAddress(opt)
-      }
-
     }
+  },
+  tips(msg){
+    wx.showModal({
+      title: "提示",
+      content:msg,
+      showCancel: false,
+      //cancelText:"取消",
+      //confirmText:"确定",
+      //cancelColor:"#000",
+      //confirmColor:"#576B95",
+      //success:()=>{},
+      //fail: () => {},
+      //complete: () => {},
+    })
   },
   bindRegionChange: function (e) {
     this.setData({
@@ -150,9 +149,21 @@ Page({
             })
           }, 1000);
         } else {
-          wx.showToast({
-            title: res.data.msg
+          wx.showModal({
+            title: "提示",
+            content: res.data.msg,
+            showCancel: false,
+            //cancelText:"取消",
+            //confirmText:"确定",
+            //cancelColor:"#000",
+            //confirmColor:"#576B95",
+            //success:()=>{},
+            //fail: () => {},
+            //complete: () => {},
           })
+          // wx.showToast({
+          //   title: res.data.msg
+          // })
         }
 
       }

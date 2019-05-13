@@ -88,8 +88,7 @@ Component({
                             })      
 
                               if(wx.getStorageSync('opt').proid) {
-                                that.triggerEvent("reload")
-                             
+                                that.triggerEvent("reload")                             
                            }
                           }        
                         }

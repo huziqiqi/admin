@@ -89,7 +89,7 @@ Page({
     console.log( getApp());
     
     wx.getStorage({
-      key: "opt",
+      key: "optn",
       success: (res) => {
         if (e.detail.value.isshop==1) {
         var addressid=  this.data.addressId
@@ -119,23 +119,48 @@ Page({
           },
           method: "POST",
           success: (res) => {
-            if (res.data.code == 200) {
-              wx.setStorageSync('opt', {});
-              wx.setStorageSync('shdz', {});
-
-              wx.navigateTo({
-                url: "../launch/launch"
-              })
+            if (res.data.code == 200) {  
+              wx.showModal({
+                title: "提示",
+                content: "",
+                showCancel: false,
+                //cancelText:"取消",
+                //confirmText:"确定",
+                //cancelColor:"#000",
+                //confirmColor:"#576B95",
+                success: () => {
+                  wx.setStorageSync('opt', {});
+                  wx.setStorageSync('shdz', {});
+                  wx.switchTab({
+                    url: "../launch/launch"
+                  })
+                },
+                //fail: () => {},
+                //complete: () => {},
+              }) 
+              
+            }else{
+              this.tips(res.data.msg)
+            
             }
-            this.setData({
-              msg: res.data.msg
-            })
           }
         })
       }
     })
-
-
+  },
+  tips(msg) {
+    wx.showModal({
+      title: "提示",
+      content: msg,
+      showCancel: false,
+      //cancelText:"取消",
+      //confirmText:"确定",
+      //cancelColor:"#000",
+      //confirmColor:"#576B95",
+      success:()=>{},
+      //fail: () => {},
+      //complete: () => {},
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

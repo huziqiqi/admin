@@ -15,11 +15,12 @@ Page({
     userId: getApp().userId,
     groupId: "",
     isone: "",
-    type: ""
+    type: "",
+    addressId:-10
   },
   onLoad(opt) {
-    console.log(wx.getLaunchOptionsSync().query );
-    
+    console.log(wx.getLaunchOptionsSync().query);
+    wx.setStorageSync('shdz',{})
     let isone
     if (opt.isone == "true") {
       isone = true
