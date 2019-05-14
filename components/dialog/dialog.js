@@ -86,7 +86,6 @@ Component({
                             that.setData({
                               isLogin: true
                             })      
-
                               if(wx.getStorageSync('opt').proid) {
                                 that.triggerEvent("reload")                             
                            }

@@ -131,5 +131,5 @@
     <button catchtap="save">保存图片</button>
   </view>
 </view>
-<canvas canvas-id="shareImg" class="canvas" style="width:375px;height:600px; "></canvas>
+<canvas canvas-id="shareImg" class="canvas"  style="width:1875px;height:3000px; "></canvas>
 <dialog id='dialog' isLogin='{{isLogin}}' parentId="{{parentId}}" bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>

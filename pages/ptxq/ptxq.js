@@ -238,6 +238,8 @@ if (this.data.isshow==1) {
   share() {
     var that = this
     var text = that.data.item.title;
+    var k = 5
+    // 放大系数
     var promise = new Promise(function (resolve, reject) {
       wx.downloadFile({
         url: that.data.item.imgs[0],
@@ -298,23 +300,26 @@ if (this.data.isshow==1) {
         [promise1, promise2]
       ).then(res => {
         const ctx = wx.createCanvasContext('shareImg')
-        ctx.rect(0, 0, 376, 750)
+        ctx.rect(0-k, 0-k, (375+2)*k, 750*k)
+        // ctx.rect(-2, -2, 1129, 1804)
         ctx.setFillStyle('#fff')
         ctx.fill()
         ctx.setFillStyle('#000')
-        ctx.setFontSize(16)
-        ctx.fillText("爱蚁拼", 165, 33);
-        ctx.drawImage(res[0].path, 15, 55, 345, 345)
+        ctx.setFontSize(16*k)
+        ctx.fillText("爱蚁拼", 165*k, 33*k);
+     
+        ctx.drawImage(res[0].path, 15*k, 55*k, 345*k, 345*k)
+        // ctx.drawImage(res[0].path, 45, 165, 1035, 1035)
         ctx.setTextAlign('left')
         ctx.setTextBaseline("top")
         ctx.setFillStyle('#000')
-        ctx.setFontSize(16)
+        ctx.setFontSize(16 * k)
         var chr = text.split("");
         var row = [];
         var temp = []
-        ctx.setFontSize(16)
+        ctx.setFontSize(16 * k)
         for (var a = 0; a < chr.length; a++) {
-          if (ctx.measureText(temp).width < 220) {
+          if (ctx.measureText(temp).width < 220*k) {
             temp += chr[a];
           } else {
             a--;
@@ -329,7 +334,7 @@ if (this.data.isshow==1) {
           var test = "";
           var empty = [];
           for (var a = 0; a < rowPart.length; a++) {_
-            if (ctx.measureText(test).width < 220) {
+            if (ctx.measureText(test).width < 220 * k) {
               test += rowPart[a];
             } else {
               break;
@@ -341,43 +346,43 @@ if (this.data.isshow==1) {
           row = rowCut;
         }
         for (var b = 0; b < row.length; b++) {
-          ctx.fillText(row[b], 15, 425 + b * 25, 220);
+          ctx.fillText(row[b], 15 * k, 425 * k + b * 25 * k, 220 * k);
         }
         // ctx.setFillStyle('#af0d1d')
-        var x=250
-        var y=428
+        var x=250*k
+        var y = 428 * k
         
-        ctx.drawImage(res[1].path, x+5, y+5, 90, 90)  
+        ctx.drawImage(res[1].path, x + 5 * k, y + 5 * k, 90 * k, 90 * k)  
         ctx.setFillStyle('#f2001c')
-        ctx.setFontSize(9)   
-        ctx.fillText("扫描或长按二维码", x+14, y-8);
-
-        ctx.moveTo(x, y+10)
-        ctx.lineTo(x, y+10)
+        ctx.setFontSize(9 * k)           
+        ctx.fillText("扫描或长按二维码", x + 14 * k, y - 8 * k);
+        ctx.setLineWidth(k)
+        ctx.moveTo(x, y + 10 * k)
+        ctx.lineTo(x, y + 10 * k)
         ctx.lineTo(x, y)
-        ctx.lineTo(x+10,y)
+        ctx.lineTo(x + 10 * k,y)
 
-        ctx.moveTo(x+90, y)
-        ctx.lineTo(x+90, y)
-        ctx.lineTo(x+100, y)
-        ctx.lineTo(x + 100,y+10)
+        ctx.moveTo(x + 90 * k, y)
+        ctx.lineTo(x + 90 * k, y)
+        ctx.lineTo(x + 100 * k, y)
+        ctx.lineTo(x + 100 * k, y + 10 * k)
 
-        ctx.moveTo(x + 90, y + 100)
-        ctx.lineTo(x+90, y+100)
-        ctx.lineTo(x+100, y+100)
-        ctx.lineTo(x+100, y+90)
+        ctx.moveTo(x + 90 * k, y + 100 * k)
+        ctx.lineTo(x + 90 * k, y + 100 * k)
+        ctx.lineTo(x + 100 * k, y + 100 * k)
+        ctx.lineTo(x + 100 * k, y + 90 * k)
 
-        ctx.moveTo(x+10, y+100)
-        ctx.lineTo(x+10, y+100)
-        ctx.lineTo(x, y+100)
-        ctx.lineTo(x, y+90)
+        ctx.moveTo(x + 10 * k, y + 100 * k)
+        ctx.lineTo(x + 10 * k, y + 100 * k)
+        ctx.lineTo(x, y + 100 * k)
+        ctx.lineTo(x, y + 90 * k)
         ctx.setStrokeStyle('#f2001c')
         ctx.setFillStyle('#fdd501')
-        ctx.setFontSize(24)
-        ctx.fillText("团购价￥" + that.data.item.price, 15, 460 + (b - 1) * 25);       
+        ctx.setFontSize(24 * k)
+        ctx.fillText("团购价￥" + that.data.item.price, 15 * k, 460 * k + (b - 1) * 25 * k);       
         ctx.setFillStyle('#a5a5a5')
-        ctx.setFontSize(18)
-        ctx.fillText("单买价￥" + that.data.item.oneprice, 15,500 + (b - 1) * 25);
+        ctx.setFontSize(18 * k)
+        ctx.fillText("单买价￥" + that.data.item.oneprice, 15 * k, 500 * k + (b - 1) * 25 * k);
         ctx.stroke()
         ctx.draw()
       })
@@ -387,10 +392,10 @@ if (this.data.isshow==1) {
       wx.canvasToTempFilePath({
         x: 1,
         y: 1,
-        width: 375,
-        height: 600,
-        destWidth: 375,
-        destHeight: 600,
+        width: 375*k,
+        height: 600*k,
+        destWidth: 375*k,
+        destHeight: 600*k,
         canvasId: 'shareImg',
         success: function (res) {
           /* 这里 就可以显示之前写的 预览区域了 把生成的图片url给image的src */
