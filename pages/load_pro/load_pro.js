@@ -60,7 +60,7 @@ Page({
         }
         this.setData({
           array,
-        })
+        })      
       }
     }
     let objs = {
@@ -76,6 +76,7 @@ Page({
         })
       }
     }
+    
     app.ajax(obj)
     app.ajax(objs)
     wx.getStorage({

@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+
 const app = getApp()
 const city = require('../../data/data.js')
 var that
@@ -55,7 +56,7 @@ Page({
       isLogin: wx.getStorageSync('user') ? true : false,
     })  
     this.request()
-    // this.testajax()    
+    this.testajax()    
   },
   fxjs(opt){
 // var parentId = options.scene.split("&")[0].split("%3D")[1];
@@ -71,7 +72,10 @@ Page({
       this.fxjs(e)
     }
   },
-
+/**
+ * @
+ * @return xasx
+ */
   testajax(){
     var flg=1
     if (flg==1) {
@@ -79,7 +83,7 @@ Page({
         url: "https://api.huziqiqi.top",
         data: {
           s: "App.User.Login",
-          username: "xasxasx",
+          username: "liuqi123",
           password: "xasxaxsa"
         },
         method: "POST",

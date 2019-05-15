@@ -195,7 +195,6 @@
     background: #009966;
     border-color: #009966;
 }
-
 .item>view input {
     display: inline-block;
     vertical-align: middle;
@@ -309,7 +308,6 @@ button {
     color: #FFF;
 }
 
-.list .clear input.rt {}
 
 input {
     cursor: auto;

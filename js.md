@@ -107,3 +107,33 @@ Title:连接建立的过程
      控制器-->客户端:success 客户端
      Note left of 控制器:返回正确的提示，并跳转到审核第二步
      
+
+
+
+
+
+
+
+
+
+
+wx.switchTab({
+   url:"$1",
+   success:()=>{},
+   fail	:()=>{},
+   complete:()=>{},
+})
+跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
+
+
+
+
+
+
+
+
+
+
+
+
+
