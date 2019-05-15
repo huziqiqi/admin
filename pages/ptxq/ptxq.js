@@ -57,6 +57,7 @@ Page({
           this.setData({
             item: res.data.data.info,
             userbuy: res.data.data.userBuy,
+            fbr:res.data.data.user,
             isShow: true,
             opt: wx.getLaunchOptionsSync().query
           })
@@ -83,6 +84,7 @@ Page({
             item: res.data.data.info,
             userbuy: res.data.data.userBuy,
             isShow: true,
+            fbr: res.data.data.user,
             opt:opt
           })
           this.qrcode(opt)

@@ -43,10 +43,10 @@
       <image src='../../images/icon2.gif' mode='widthFix'></image>
       {{item.city+item.address}}
     </navigator>
-    <navigator>
+    <navigator wx:if="{{!fbr.name=='该会员未认证'}}">
       <image src='../../images/icon3.gif' mode='widthFix'></image>
       <view hover-class="weui-cell_active" data-reply-phone="18282957326" bindtap="phoneCall">
-        18282957326（王佳丽）
+       {{fbr.tel}}（{{fbr.name}}）
       </view>
       <!-- <image src="../../images/right.gif" class='rt' mode='widthFix'></image> -->
     </navigator>

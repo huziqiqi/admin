@@ -40,8 +40,8 @@ Component({
       var e = wx.getLaunchOptionsSync() 
       console.log(wx.getLaunchOptionsSync());
         // var parentId = options.scene.split("&")[0].split("%3D")[1];
-      if (e.query.proid) {
-       
+      if (e.query.proid) {  
+                  
         // console.log(1);
       }
       // else if (options.userId) {

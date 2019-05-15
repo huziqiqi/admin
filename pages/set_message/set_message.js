@@ -122,7 +122,7 @@ Page({
             if (res.data.code == 200) {  
               wx.showModal({
                 title: "提示",
-                content: "",
+                content: res.data.msg,
                 showCancel: false,
                 //cancelText:"取消",
                 //confirmText:"确定",
@@ -131,8 +131,8 @@ Page({
                 success: () => {
                   wx.setStorageSync('opt', {});
                   wx.setStorageSync('shdz', {});
-                  wx.switchTab({
-                    url: "../launch/launch"
+                  wx.navigateTo({
+                    url: "../launch/launch?num=1"
                   })
                 },
                 //fail: () => {},
@@ -141,6 +141,7 @@ Page({
               
             }else{
               this.tips(res.data.msg)
+            
             
             }
           }

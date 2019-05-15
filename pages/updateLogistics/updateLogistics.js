@@ -55,6 +55,18 @@ Page({
       },
       method: "POST",
       success: (res) => {
+        wx.showModal({
+          title: "提示",
+          content:res.data.msg,
+          showCancel: false,
+          //cancelText:"取消",
+          //confirmText:"确定",
+          //cancelColor:"#000",
+          //confirmColor:"#576B95",
+          //success:()=>{},
+          //fail: () => {},
+          //complete: () => {},
+        })
 
       }
     })

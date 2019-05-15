@@ -49,8 +49,7 @@ Page({
       if (wx.getStorageSync('user')) {
         this.fxjs(opt)
       } 
-    } 
-    
+    }     
     that = this
     this.setData({
       isLogin: wx.getStorageSync('user') ? true : false,
@@ -74,17 +73,38 @@ Page({
   },
 
   testajax(){
-    wx.request({
-      url: "https://api.huziqiqi.top",
-      data: {
-        s: "App.Login.Login",
-        username:"xasxasx",
-        password:"xasxaxsa"
-      },
-      method: "POST",
-      success: (res) => {      
-      }
-    })
+    var flg=1
+    if (flg==1) {
+      wx.request({
+        url: "https://api.huziqiqi.top",
+        data: {
+          s: "App.User.Login",
+          username: "xasxasx",
+          password: "xasxaxsa"
+        },
+        method: "POST",
+        success: (res) => {
+          console.log(res.data.data);
+          wx.request({
+            url: "https://api.huziqiqi.top",
+            data: {
+              s: "App.User.decryption",
+              token: res.data.data          
+            },
+            method: "POST",
+            success: (res) => {
+              console.log(res.data.data);
+              console.log(res.data.data.login_time*1000);
+              console.log(new Date().getTime());
+              console.log(new Date().getTime() - res.data.data.login_time * 1000);
+            }
+          })         
+        }
+      })
+    } else {
+      
+    }
+    
   },
   bindViewTap: function () {
     wx.navigateTo({
