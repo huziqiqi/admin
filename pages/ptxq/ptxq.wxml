@@ -39,7 +39,11 @@
       <image src='../../images/icon1.gif' mode='widthFix'></image>
       仅到店自提
     </navigator>
-    <navigator hover-class="no" style="line-height:50rpx;padding:20rpx 0;" >
+        <navigator hover-class="no" wx:else>
+      <image src='../../images/icon1.gif' mode='widthFix'></image>
+      物流配送
+    </navigator>
+    <navigator hover-class="no" bindtap="openmap" style="line-height:50rpx;padding:20rpx 0;" >
       <image src='../../images/icon2.gif' mode='widthFix'></image>
       {{item.city+item.address}}
     </navigator>
@@ -73,7 +77,7 @@
     <view class='tit'>参与记录</view>
     <view class='pm' wx:for="{{userbuy}}" wx:key="item">
       <text>{{item.NO}}</text>
-      <view>
+      <view style="width:200rpx;">
         <image src="{{item.headimgurl}}" mode='widthFix'></image>
         {{item.nickname}}
       </view>

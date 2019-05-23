@@ -20,7 +20,7 @@
         <radio-group name="isshop" bindchange="radioChange">
           到店自提
           <radio color='#FBDA01' value="1" checked="{{isshop}}"></radio>
-          物流额配送
+          物流配送
           <radio color='#FBDA01' value="2"></radio>
         </radio-group>
       </view>

@@ -94,7 +94,6 @@ Page({
     })
   },
   bindUnitPickerChange: function (e) {
-
     this.setData({
       uindex: e.detail.value,
       deck: this.data.unit[e.detail.value].name

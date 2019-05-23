@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/personal/personal",
     "pages/releaseCertification/releaseCertification",
     "pages/teamBuy/teamBuy",
     "pages/buy/buy",
@@ -8,9 +9,9 @@
     "pages/certification/certification",
     "pages/tgm/tgm",
     "pages/ptxq/ptxq",
-    "pages/personal/personal",
     "pages/orderManagement/orderManagement",
     "pages/orderDetail/orderDetail",
+    "pages/orderDetail/orderDetail2",
     "pages/helpCenter/helpCenter",
     "pages/webContainer/webContainer",
     "pages/paymentDetails/paymentDetails",

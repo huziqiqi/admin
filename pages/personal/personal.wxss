@@ -89,6 +89,7 @@
 .my-create-order-item {
     width: 25%;
     text-align: center;
+    position: relative;
 }
 
 .my-create-order-item-image {
@@ -101,6 +102,18 @@
 .my-create-order-item-text {
     font-size: 26rpx;
     color: #444;
+}
+
+.my-create-order-item-text1 {
+    font-size: 26rpx;
+    color: #666;
+    position: absolute;
+    top: -15rpx;
+    right: 40rpx;
+    background: #FDD901;
+    color: #fff;
+    width:40rpx;
+    border-radius: 100%;
 }
 
 .list {

@@ -28,18 +28,22 @@
   <navigator class="my-create-order-item lf" hover-class='none' open-type='navigate' url='../launch/launch?num=2'>
     <image class="my-create-order-item-image" mode='widthFix' src='../../images/icon09.jpg'></image>
     <text class="my-create-order-item-text">正在拼团</text>
+    <text class="my-create-order-item-text1">{{item.grouping}}</text>
   </navigator>
   <navigator class="my-create-order-item lf" hover-class='none' open-type='navigate' url='../launch/launch?num=3'>
     <image class="my-create-order-item-image" mode='widthFix' src='../../images/icon10.jpg'></image>
     <text class="my-create-order-item-text">满员完结</text>
+    <text class="my-create-order-item-text1">{{item.okgroup}}</text>
   </navigator>
   <navigator class="my-create-order-item lf" hover-class='none' open-type='navigate' url='../launch/launch?num=4'>
     <image class="my-create-order-item-image" mode='widthFix' src='../../images/icon11.jpg'></image>
     <text class="my-create-order-item-text">未满终止</text>
+        <text class="my-create-order-item-text1">{{item.nogroup}}</text>
   </navigator>
   <navigator class="my-create-order-item lf" hover-class='none' open-type='navigate' url='../launch/launch?num=1'>
     <image class="my-create-order-item-image" mode='widthFix' src='../../images/icon12.jpg'></image>
     <text class="my-create-order-item-text">全部拼团</text>
+        <text class="my-create-order-item-text1">{{item.allgroup}}</text>
   </navigator>
 </view>
 <view class='list'>

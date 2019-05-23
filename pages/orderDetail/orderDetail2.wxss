@@ -1,0 +1,60 @@
+/* pages/orderDetail/orderDetail.wxss */
+page{
+  box-sizing: border-box;
+  background: #f5f5f5;
+  padding: 20rpx;
+}
+.section{
+  background: #FFF;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+.title{
+  font-size: 28rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px dashed #f5f5f5;
+  margin-bottom: 20rpx;
+}
+.order-status{
+  color: #f2d309;
+}
+.flex{
+  align-items: center;
+}
+.text-wrapper{
+  width: calc(100% - 120rpx);
+}
+.name{
+  color: #444;
+  font-size: 26rpx;
+  margin-bottom: 15rpx;
+}
+.price{
+  color: #666;
+  font-size: 26rpx;
+  margin-bottom: 15rpx;
+}
+.money{
+  color: #222;
+  font-size: 28rpx;
+}
+.item{
+  font-size: 26rpx;
+  color: #999;
+  padding: 10rpx 0;
+}
+.item:last-of-type{
+  padding-bottom: 0;
+}
+.item view{
+  color: #444;
+}
+.btn{
+  background: #222;
+  color: #fbda00;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  margin-top: 40rpx;
+}

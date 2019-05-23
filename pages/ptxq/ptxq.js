@@ -98,6 +98,16 @@ Page({
   
     // console.log(this.timestampToTime(1557541669));
   },
+  openmap(){
+    console.log(123);
+      var that=this
+    console.log(that.data.item.lat);
+      
+    wx.openLocation({
+      latitude: parseFloat(that.data.item.lat) ,
+      longitude: parseFloat(that.data.item.lng)
+    })
+  },
   qrcode(opt) {
     console.log(opt);    
     wx.request({
@@ -149,11 +159,11 @@ const opt={
   proid:this.data.opt.proid,
   userid: wx.getStorageSync('user').id
 }
-if (this.data.isshow==1) {
-  console.log(opt);
+// if (this.data.isshow==1) {
+//   console.log(opt);
 
-  this.qrcode(opt)
-}
+//   this.qrcode(opt)
+// }
 
 
     this.setData({
@@ -238,15 +248,21 @@ if (this.data.isshow==1) {
     })
   },
   share() {
+    wx.showLoading({
+      title: '加载中',
+    })
     var that = this
     var text = that.data.item.title;
-    var k = 5
+    var k = 4
     // 放大系数
     var promise = new Promise(function (resolve, reject) {
+      
       wx.downloadFile({
         url: that.data.item.imgs[0],
         // url: getApp().url+"/public/static/images/ewm.jpg",
         success: (res) => {
+          console.log(res.tempFilePath);
+
           that.setData({
             localimgdata: res.tempFilePath
           })
@@ -259,6 +275,8 @@ if (this.data.isshow==1) {
       wx.downloadFile({
         url: that.data.qrcode,
         success: (res) => {
+          console.log(res.tempFilePath);
+
           that.setData({
             localimgdata1: res.tempFilePath
           })
@@ -306,12 +324,21 @@ if (this.data.isshow==1) {
         // ctx.rect(-2, -2, 1129, 1804)
         ctx.setFillStyle('#fff')
         ctx.fill()
-        ctx.setFillStyle('#000')
-        ctx.setFontSize(16*k)
-        ctx.fillText("爱蚁拼", 165*k, 33*k);
-     
-        ctx.drawImage(res[0].path, 15*k, 55*k, 345*k, 345*k)
+            
+        ctx.drawImage(res[0].path, 28*k, 28*k, 321*k, 321*k)
         // ctx.drawImage(res[0].path, 45, 165, 1035, 1035)
+        ctx.beginPath()
+        ctx.setFillStyle('#faa')
+        ctx.moveTo(0 * k,54 * k)
+        ctx.arc(80 * k, 74 * k, 20 * k, 1.5 * Math.PI, 0.5 * Math.PI)
+        ctx.lineTo(0, 94 * k)
+        ctx.lineTo(0,54 * k)
+        ctx.setFillStyle('#111')
+        ctx.fill()
+        ctx.beginPath()
+        ctx.setFillStyle('#fff')
+        ctx.setFontSize(20 * k)
+        ctx.fillText("爱蚁拼", 20 * k, 80 * k);
         ctx.setTextAlign('left')
         ctx.setTextBaseline("top")
         ctx.setFillStyle('#000')
@@ -335,7 +362,7 @@ if (this.data.isshow==1) {
           var rowPart = rowCut[1];
           var test = "";
           var empty = [];
-          for (var a = 0; a < rowPart.length; a++) {_
+          for (var a = 0; a < rowPart.length; a++) {
             if (ctx.measureText(test).width < 220 * k) {
               test += rowPart[a];
             } else {
@@ -348,7 +375,7 @@ if (this.data.isshow==1) {
           row = rowCut;
         }
         for (var b = 0; b < row.length; b++) {
-          ctx.fillText(row[b], 15 * k, 425 * k + b * 25 * k, 220 * k);
+          ctx.fillText(row[b], 28 * k, 375 * k + b * 25 * k, 220 * k);
         }
         // ctx.setFillStyle('#af0d1d')
         var x=250*k
@@ -379,7 +406,7 @@ if (this.data.isshow==1) {
         ctx.lineTo(x, y + 100 * k)
         ctx.lineTo(x, y + 90 * k)
         ctx.setStrokeStyle('#f2001c')
-        ctx.setFillStyle('#fdd501')
+        ctx.setFillStyle('#e31012')
         ctx.setFontSize(24 * k)
         ctx.fillText("团购价￥" + that.data.item.price, 15 * k, 460 * k + (b - 1) * 25 * k);       
         ctx.setFillStyle('#a5a5a5')
@@ -406,6 +433,9 @@ if (this.data.isshow==1) {
             hidden: false,
             isshow: 3,
           })
+          // setTimeout(function () {
+            wx.hideLoading()
+          // }, 2000)
         },
         fail: function (res) {}
       })

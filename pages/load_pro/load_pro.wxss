@@ -99,7 +99,13 @@
 
 
 
-
+.place-holder
+ {
+    padding: 0px;
+    background: #faa;
+    border: 0px;
+    margin: 0px;
+}
 
 
 
@@ -195,6 +201,7 @@
     background: #009966;
     border-color: #009966;
 }
+
 .item>view input {
     display: inline-block;
     vertical-align: middle;

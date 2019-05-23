@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -43,6 +43,12 @@
 					"name": "分享进入id=69柠檬",
 					"pathName": "pages/index/index",
 					"query": "userid=9&proid=69",
+					"scene": null
+				},{
+					"id": -1,
+					"name": "canvas",
+					"pathName": "pages/index/index",
+					"query": "userid=1&proid=2",
 					"scene": null
 				},
 				{

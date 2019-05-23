@@ -18,9 +18,7 @@
         <view class="seller-avatar flex">
           <image src='{{user.avatar}}'></image>
           <view>
-            {{user.userName}}-还差
-            <text>{{item.nums}}</text>
-            人成团
+            {{user.userName}}-{{item.msg}}
           </view>
         </view>
         <text class="item-status" wx:if="{{item.status == 0}}">参团中</text>

@@ -38,6 +38,19 @@ Page({
         })
       }
     })
+
+    wx.request({
+      url: getApp().url + "/user.index",
+      data: {
+        userid: wx.getStorageSync('user').id
+      },
+      method: "POST",
+      success: (res) => {
+        this.setData({
+          item:res.data.data
+        })
+      }
+    })
   },
   getUser(e) {
     wx.setStorage({
@@ -56,7 +69,8 @@ Page({
         }
       })
     }
-
+    wx.quest()
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

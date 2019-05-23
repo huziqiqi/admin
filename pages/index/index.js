@@ -56,7 +56,7 @@ Page({
       isLogin: wx.getStorageSync('user') ? true : false,
     })  
     this.request()
-    this.testajax()    
+     
   },
   fxjs(opt){
 // var parentId = options.scene.split("&")[0].split("%3D")[1];

@@ -141,7 +141,13 @@ Page({
               
             }else{
               this.tips(res.data.msg)
-            
+             
+              console.log(res.data.msg);
+              if (res.data.msg == "请认证后再发布拼团") {
+                wx.navigateTo({
+                  url: "../certification/certification"
+                })
+              }
             
             }
           }
@@ -158,7 +164,9 @@ Page({
       //confirmText:"确定",
       //cancelColor:"#000",
       //confirmColor:"#576B95",
-      success:()=>{},
+      success: ()=>{
+       
+      },
       //fail: () => {},
       //complete: () => {},
     })
