@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/personal/personal",
+    "pages/launchDetail/launchDetail",
+    "pages/certification/certification",
     "pages/releaseCertification/releaseCertification",
+    "pages/personal/personal",
     "pages/teamBuy/teamBuy",
     "pages/buy/buy",
     "pages/ckztd/ckztd",
-    "pages/certification/certification",
     "pages/tgm/tgm",
     "pages/ptxq/ptxq",
     "pages/orderManagement/orderManagement",
@@ -29,7 +30,6 @@
     "pages/withdrawal/withdrawal",
     "pages/zffy/zffy",
     "pages/address/address",
-    "pages/launchDetail/launchDetail",
     "pages/load_pro/load_pro",
     "pages/information/information",
     "pages/fans/fans",

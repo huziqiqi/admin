@@ -70,6 +70,21 @@ Page({
   timeFormat(param) { //小于10的格式化函数
     return param < 10 ? '0' + param : param;
   },
+  showmedio(){
+  
+    wx.showModal({
+      title	:"提示",
+      content:"您确认要终止订单吗",
+      success:(res)=>{
+        if (res.confirm) {
+          // console.log('用户点击确定')
+          this.stoppt()
+        } else if (res.cancel) {
+          // console.log('用户点击取消')
+        }
+      }
+    })
+  },
   stoppt() {
     wx.request({
       url: getApp().url + "//user.used/overGroup",

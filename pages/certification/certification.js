@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ischeck: false
+    ischeck: false,
+    infolink:"https://wechat.mayituandui.vip/index.php/user.help/helpinfo/id/2"
   },
 
   /**
@@ -32,6 +33,13 @@ Page({
       })
     }
 
+  },
+  jumpxy(){
+    wx.navigateTo({
+      
+      url: './webContainer?url='+this.data.infolink
+    })
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

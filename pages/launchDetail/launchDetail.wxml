@@ -123,7 +123,7 @@
     <image src='../../images/team.gif' mode='widthFix'></image>
     <text>修改团购</text>
   </navigator> -->
-  <navigator bindtap="stoppt" class='rt black'>
+  <navigator bindtap="showmedio" class='rt black'>
     <image src='../../images/team2.gif' mode='widthFix'></image>
     <text>终止团购</text>
   </navigator>

@@ -32,7 +32,7 @@
   <text class="order-status-item">退款</text>
 </view> -->
 <view class="order-wrapper">
-  <navigator class="order-item" open-type='navigate' url='../orderDetail/orderDetail?oid={{item.id}}' wx:for="{{list}}" wx:key="item">
+  <navigator class="order-item" open-type='navigate' url='../orderDetail/orderDetail2?oid={{item.id}}' wx:for="{{list}}" wx:key="item">
     <view class="order-seller flex">
       <view class="seller-avatar flex">
         <image src='{{item.headimgurl?item.headimgurl:"../../images/avan.gif"}}'></image>
@@ -54,8 +54,7 @@
     </view>
     <view class="orderNum-wrapper">
       <view>订单号：{{item.order_num}}</view>
-      <view>订单时间：{{item.addtime}}</view>
-     
+      <view>订单时间：{{item.addtime}}</view>   
       <view class="btn confirm" catchtap='navigate' data-url="../updateLogistics/updateLogistics?oid={{item.order_num}}" wx:if="{{item.lx == '物流快递'}}" wx:if="{{item.state=='待发货'}}">
         上传物流
       </view>

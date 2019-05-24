@@ -77,5 +77,4 @@
     </view>
   </view>
 </view>
-<view class="btn" wx:if="{{item.iszt==1}}" bindtap='theGoods'>确认已自提</view>
 <view class="btn" wx:if="{{item.msg=='待收货'}}" bindtap='theGoods'>确认已收货</view>

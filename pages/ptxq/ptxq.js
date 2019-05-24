@@ -88,7 +88,6 @@ Page({
             opt:opt
           })
           this.qrcode(opt)
-
           console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
           wx.hideLoading();
         }
@@ -249,7 +248,7 @@ const opt={
   },
   share() {
     wx.showLoading({
-      title: '加载中',
+      title: '正在生成海报',
     })
     var that = this
     var text = that.data.item.title;
@@ -439,6 +438,6 @@ const opt={
         },
         fail: function (res) {}
       })
-    }, 1000);
+    },2000);
   },
 })

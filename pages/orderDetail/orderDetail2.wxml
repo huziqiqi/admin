@@ -76,6 +76,6 @@
       <view>微信（在线支付）</view>
     </view>
   </view>
+<view class="btn" wx:if="{{item.msg=='待自提'}}" bindtap='theGoods'>确认已自提</view>
+
 </view>
-<view class="btn" wx:if="{{item.iszt==1}}" bindtap='theGoods'>确认已自提</view>
-<view class="btn" wx:if="{{item.iszt==0}}" bindtap='theGoods'>确认已收货</view>

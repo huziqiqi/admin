@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    tel:""
   },
 
   /**
@@ -34,6 +34,7 @@ console.log(e.detail.value);
       name: e.detail.value.name,
       cardnum: e.detail.value.cardnum,
       tel: e.detail.value.tel,
+      code: e.detail.value.code,
     },
     method: "POST",
     success: (res) => {
@@ -92,6 +93,31 @@ console.log(e.detail.value);
         wx.hideLoading();
       }
     })
+  },
+  printdend(e){
+    this.setData({
+      tel: e.detail.value
+    })
+    
+  },
+
+  getCode(e){
+    wx.request({
+      url: getApp().url + "/user.renzheng/ajaxcode",
+      data: {    
+        tel: this.data.tel,
+      },
+      method: "POST",
+      success: (res) => {
+        wx.showModal({
+          title: '提示',
+          content: res.data.msg,
+          showCancel: false,   
+        })
+        
+      }
+    })
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

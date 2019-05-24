@@ -102,9 +102,12 @@
       <image src='../../images/foot1.jpg' mode='widthFix'></image>
       <text>首页</text>
     </navigator>
-    <navigator open-type="navigate" url='../ddm/ddm?id={{item.id}}&type=1&address={{item.address}}&isone=false&isshop{{item.isshop}}&userId={{userId}}' class='rt black'>
+    <navigator wx:if="{{item.num!=item.nums}}" open-type="navigate" url='../ddm/ddm?id={{item.id}}&type=1&address={{item.address}}&isone=false&isshop{{item.isshop}}&userId={{userId}}' class='rt black'>
       ￥{{item.price}}
       <text>{{item.nums}}人团</text>
+    </navigator>
+    <navigator style="background:#414141" wx:else open-type="navigate"  class='rt black'>   
+      <text style="line-height:80rpx;">该团已满</text>
     </navigator>
     <navigator open-type="navigate" url='../ddm/ddm?id={{item.id}}&type=2&address={{item.address}}&isone=true&isshop{{item.isshop}}&userId={{userId}}' class='rt'>
       ￥{{item.oneprice}}

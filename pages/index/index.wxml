@@ -79,6 +79,7 @@
         </view>
       </view>
     </view>
+    <!-- <view class="" hover-class="none" style="height:300px" hover-stop-propagation="false"> </view> -->
   </view>
 </view>
 <!-- <view style="height:2rem;line-height:2rem;font-size:24rpx;text-align: center;">

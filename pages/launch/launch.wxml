@@ -17,7 +17,7 @@
     未满终止
   </view>
 </view>
-<view bindtouchstart="start" bindtouchend="end" data-s="1" data-e="4">
+<view bindtouchstart="start" bindtouchend="end" data-s="1" data-e="4" style="height:90%;">
  <view wx:if="{{!order[0]}}" style="height:990rpx; ;background:#fff; margin-top:20rpx;box-sizing:border-box">
    <image src='../../images/notData.png' mode="widthFix" style="width:100% ;margin-top:100rpx"></image>
  </view>
