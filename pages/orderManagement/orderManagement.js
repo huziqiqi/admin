@@ -5,9 +5,81 @@ Page({
    * 页面的初始数据
    */
   data: {
-    order: []
-    
+    order: [{
+        'sellerAvatar': '../../images/avan.gif',
+        'name': "张晓",
+        'sum': 3,
+        'status': 0,
+        'goodsImg': '../../images/ptxq.jpg',
+        'title': 'MINIPLUS鲜花包月生日礼物送女友爱人…',
+        'goodsNum': 1,
+        'price': 129,
+        'orderNum': '219182617',
+        'orderTime': '2019-01-20  09:31'
+      },
+      {
+        'sellerAvatar': '../../images/avan.gif',
+        'name': "张晓",
+        'sum': 3,
+        'status': 1,
+        'goodsImg': '../../images/ptxq.jpg',
+        'title': 'MINIPLUS鲜花包月生日礼物送女友爱人…',
+        'goodsNum': 1,
+        'price': 129,
+        'orderNum': '219182617',
+        'orderTime': '2019-01-20  09:31'
+      },
+      {
+        'sellerAvatar': '../../images/avan.gif',
+        'name': "张晓",
+        'sum': 3,
+        'status': 2,
+        'goodsImg': '../../images/ptxq.jpg',
+        'title': 'MINIPLUS鲜花包月生日礼物送女友爱人…',
+        'goodsNum': 1,
+        'price': 129,
+        'orderNum': '219182617',
+        'orderTime': '2019-01-20  09:31'
+      },
+      {
+        'sellerAvatar': '../../images/avan.gif',
+        'name': "张晓",
+        'sum': 3,
+        'status': 3,
+        'goodsImg': '../../images/ptxq.jpg',
+        'title': 'MINIPLUS鲜花包月生日礼物送女友爱人…',
+        'goodsNum': 1,
+        'price': 129,
+        'orderNum': '219182617',
+        'orderTime': '2019-01-20  09:31'
+      },
+      {
+        'sellerAvatar': '../../images/avan.gif',
+        'name': "张晓",
+        'sum': 3,
+        'status': 4,
+        'goodsImg': '../../images/ptxq.jpg',
+        'title': 'MINIPLUS鲜花包月生日礼物送女友爱人…',
+        'goodsNum': 1,
+        'price': 129,
+        'orderNum': '219182617',
+        'orderTime': '2019-01-20  09:31'
+      },
+      {
+        'sellerAvatar': '../../images/avan.gif',
+        'name': "张晓",
+        'sum': 5,
+        'status': 1,
+        'goodsImg': '../../images/ptxq.jpg',
+        'title': 'MINIPLUS鲜花包月生日礼物送女友爱人…',
+        'goodsNum': 1,
+        'price': 129,
+        'orderNum': '219182617',
+        'orderTime': '2019-01-20  09:31'
+      }
+    ]
   },
+
   navigate(e) {
     wx.navigateTo({
       url: e.currentTarget.dataset.url,
@@ -19,6 +91,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    *
+   * */
   onLoad: function (opt) {
     this.setData({
       gid: opt.proid
