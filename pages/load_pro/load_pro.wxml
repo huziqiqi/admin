@@ -30,7 +30,7 @@
   <view class='list'>
     <view class='clear'>
       <text class='lf'>拼团标题</text>
-      <input class='rt' type='text' style=""  placeholder='请填写拼团标题' value="{{opt.title}}" name="title"></input>
+      <input class='rt' type='text' style=""  placeholder='请填写拼团标题'  name="title"></input>
     </view>
     <view class='clear' style="line-height:100rpx;">
       <text class='lf'>拼团活动介绍</text>

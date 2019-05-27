@@ -76,8 +76,7 @@ Page({
         })
       }
     }
-    
-    app.ajax(obj)
+    app.request(obj)
     app.ajax(objs)
     wx.getStorage({
       key: "userId",

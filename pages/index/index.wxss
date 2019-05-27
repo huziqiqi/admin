@@ -9,6 +9,7 @@
 }
 
 .header {
+    
     background: #F1F4F6;
     border-radius: 10rpx;
     width: 94%;

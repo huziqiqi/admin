@@ -69,7 +69,7 @@
       已参团(人)
     </view>
     <view>
-      <text>1</text>
+      <text>{{proid}}</text>
       我带来的人
     </view>
   </view>

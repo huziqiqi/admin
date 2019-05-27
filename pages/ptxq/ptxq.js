@@ -28,7 +28,8 @@ Page({
     id: "",
     userId: getApp().userId,
     isshow: 1,
-    isLogin:false
+    isLogin:false,
+    proid:0
   },
 
   /**
@@ -38,12 +39,15 @@ Page({
     this.setData({
       isLogin: wx.getStorageSync('user') ? true : false ,
     })
-    console.log(wx.getLaunchOptionsSync())
+    
+    this.setData({
+      proid: wx.getStorageSync('opt').userid
+    })
+    console.log()
     wx.showLoading({
       title: "加载中，请稍等",
       mask: true
     });
-    console.log(opt);
     if (wx.getLaunchOptionsSync().query.proid&opt.isjump!=1) {
       console.log("您通过分享登陆，但是没有登录");
       wx.request({
@@ -59,7 +63,7 @@ Page({
             userbuy: res.data.data.userBuy,
             fbr:res.data.data.user,
             isShow: true,
-            opt: wx.getLaunchOptionsSync().query
+            opt: wx.getStorageSync('opt'),
           })
           console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
           wx.hideLoading();
@@ -126,15 +130,16 @@ Page({
     })
   },
   onShareAppMessage(res) {
-    console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.item.id);
+    
     if (res.from === 'button') {
       // 来自页面内转发按钮
+      console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
+      console.log(res);
       
     }
     return {
-      title: '自定义转发标题',
-      path: '/pages/index/index?userid=' + wx.getStorageSync('user').id+'&proid='+this.item.id,
-      imageUrl: "https://ss3.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=2a5524e6e8cd7b89f66c3c833f244291/1e30e924b899a901b25a7f1a13950a7b0208f5ab.jpg"
+      title: this.data.item.title,
+      path: '/pages/index/index?userid=' + wx.getStorageSync('user').id+'&proid='+this.data.item.id,
     }
   },
   phoneCall: function (e) {
@@ -215,7 +220,6 @@ const opt={
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
 
   showImg() {
     wx.previewImage({
@@ -247,12 +251,13 @@ const opt={
     })
   },
   share() {
+
     wx.showLoading({
       title: '正在生成海报',
     })
     var that = this
     var text = that.data.item.title;
-    var k = 4
+    var k = 1.5
     // 放大系数
     var promise = new Promise(function (resolve, reject) {
       
@@ -275,7 +280,6 @@ const opt={
         url: that.data.qrcode,
         success: (res) => {
           console.log(res.tempFilePath);
-
           that.setData({
             localimgdata1: res.tempFilePath
           })

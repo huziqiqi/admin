@@ -12,7 +12,7 @@
       <view class='title' style='font-size: 28rpx;color: #999;'>提现金额</view>
       <view class='money flex'>
         ￥
-        <input type='number' bindblur="mobileInput" name="meony"></input>
+        <input type='digit' bindblur="mobileInput" name="meony"></input>
       </view>
     </view>
     <view class='lines'>可提现金额￥{{amount}}</view>

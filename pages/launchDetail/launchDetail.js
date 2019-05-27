@@ -60,10 +60,8 @@ Page({
       // 来自页面内转发按钮
     }
     return {
-      title: '自定义转发标题',
-      
+      title: this.data.item.title,   
       path: '/pages/index/index?userid=' + wx.getStorageSync('user').id+'&proid='+this.data.item.id,
-      imageUrl: "https://ss3.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=2a5524e6e8cd7b89f66c3c833f244291/1e30e924b899a901b25a7f1a13950a7b0208f5ab.jpg"
     }
   },
 
@@ -205,9 +203,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
 
-  },
   countDown() { //倒计时函数
     // 获取当前时间，同时得到活动结束时间数组
     let newTime = new Date().getTime();

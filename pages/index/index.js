@@ -30,14 +30,17 @@ Page({
     pages: 1,
     isShow: false,
   },
-  onLoad: function (options) {
+  onLoad: function (options) {   
     wx.hideTabBar()
+    console.log(options);   
     if (options.scene) {
       var parentId = options.scene.split("&")[0].split("%3D")[1];
       var flg = options.scene.split("%26%26")
       var opt = {}
       opt.userid = flg[0].split("%3D")[1]
       opt.proid = flg[1].split("%3D")[1]
+      console.log(flg);        
+
       wx.setStorageSync('opt', opt);
       if (wx.getStorageSync('user')) {
         this.fxjs(opt)
@@ -46,11 +49,13 @@ Page({
       var opt = {}
       opt.userid = options.userid
       opt.proid = options.proid
+      console.log(opt);
+      
       wx.setStorageSync('opt', opt);
       if (wx.getStorageSync('user')) {
         this.fxjs(opt)
       } 
-    }     
+    }    
     that = this
     this.setData({
       isLogin: wx.getStorageSync('user') ? true : false,
@@ -194,7 +199,6 @@ Page({
   fd(e) {
     let pid = e.currentTarget.dataset.pid
     let sid = e.target.dataset.sid
-
     if (sid == undefined) {
       this.toPtxq(e)
     } else {
@@ -211,7 +215,6 @@ Page({
     })
     let city = this.data.multiArray[1][this.data.multiIndex[1]]
     city = " " ? city : null
-
     this.setData({
       city,
       pages: 1
@@ -270,6 +273,7 @@ Page({
           cate,
           allpage: res.data.data.allpage
         })
+      
         wx.hideLoading();
         wx.stopPullDownRefresh()
       }

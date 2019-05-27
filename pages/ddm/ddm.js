@@ -124,16 +124,31 @@ Page({
               showCancel: false
             })
           }
+          getApp().globalData.fundebug.notifyHttpError("分享功能测试", "parentid为分享者的id", 
+             {
+              method: "POST",
+               url: getApp().url + "/groupBuying",
+              data: {
+              userId: this.data.userId,
+              groupId: this.data.groupId,
+              num: this.data.num,
+              remark: e.detail.value.remark,
+              addressid,
+              type: this.data.type,
+              parentid
+            },
+            },
+            {
+              data:res.data
+            }
+          )
         }
       })
-
-
     } else {
       // console.log(this.data.addArr[0].id);  
       pick_up = this.data.addArr[0].id
       consignee = e.detail.value.consignee
-      consignee_phone = parseInt(e.detail.value.consignee_phone)
-    
+      consignee_phone = parseInt(e.detail.value.consignee_phone)    
       wx.request({
         url: getApp().url + "/groupBuying",
         data: {
@@ -161,6 +176,26 @@ Page({
               showCancel: false
             })
           }
+          getApp().globalData.fundebug.notifyHttpError(
+            {
+              method: "POST",
+              url: getApp().url + "/groupBuying",
+              data: {
+                userId: this.data.userId,
+                groupId: parseInt(this.data.groupId),
+                num: this.data.num,
+                remark: e.detail.value.remark,
+                pick_up,
+                consignee,
+                consignee_phone,
+                type: parseInt(this.data.type),
+                parentid
+              },
+            },
+            {
+              data: res.data
+            }
+          )
           // wx.navigateTo({
           //   url: '../myOrder/myOrder'
           // })
