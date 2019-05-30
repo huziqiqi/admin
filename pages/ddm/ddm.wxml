@@ -24,7 +24,7 @@
   <view class='ddm'>
     <view class='list'>
       小计：
-      <text class='rt yellow'>￥{{item.price*num}}</text>
+      <text class='rt yellow'>￥{{price}}</text>
     </view>
   </view>
   <view class='ddm'>
@@ -75,6 +75,6 @@
   </view>
   <view class="pay">
     <!-- <button bindtap="pay">￥{{item.price*num}} 微信支付</button> -->
-    <button form-type="submit">￥{{item.price*num}} 微信支付</button>
+    <button form-type="submit">￥{{price}} 微信支付</button>
   </view>
 </form>

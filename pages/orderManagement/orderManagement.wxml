@@ -36,11 +36,9 @@
     <view class="order-seller flex">
       <view class="seller-avatar flex">
         <image src='{{item.headimgurl?item.headimgurl:"../../images/avan.gif"}}'></image>
-        <!-- <view>
-          {{item.nickname}}-还差
-          <text>{{item.sum}}</text>
-          人成团
-        </view> -->
+        <view style="color:#000">
+          {{item.nickname}}-{{item.msg}}
+        </view>
       </view>
       <text class="item-status">{{item.state}}</text>
     </view>

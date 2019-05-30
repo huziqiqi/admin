@@ -1,0 +1,25 @@
+<view class="model">
+  <view class="top" bindtap="isShow" data-is="1"></view>
+  <view class="main clear">
+    <view class="btn">
+      <button open-type="share">
+        <image src="../../images/hy.png" mode="widthFix"></image>
+        <view>分享好友</view>
+      </button>
+    </view>
+    <view class="btn">
+      <button bindtap="share" data-is="3">
+        <image src="../../images/hb.png" mode="widthFix"></image>
+        <view>生成海报</view>
+      </button>
+    </view>
+  </view>
+</view>
+<view class="model1" wx:if="{{isshow==3}}" bindtap="isShow" data-is="5">
+  <view class="wrap">
+    <image src='{{prurl}}' mode="widthFix" catchtap="showImg"></image>
+    <button catchtap="save">保存图片</button>
+  </view>
+</view>
+<canvas canvas-id="shareImg" class="canvas" style="width:375px;height:600px; "></canvas>
+<dialog id='dialog' isLogin='{{isLogin}}' parentId="{{parentId}}" bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>

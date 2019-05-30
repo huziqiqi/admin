@@ -56,7 +56,7 @@ Component({
       let that = this;
       if (!wx.getStorageSync('user')) {
         wx.getUserInfo({
-          success: function (res) {         
+          success: function (res) {
                 that.hideDialog();
                 let userInfo = {};
                 userInfo.userName = res.userInfo.nickName;

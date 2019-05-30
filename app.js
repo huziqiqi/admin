@@ -1,4 +1,5 @@
 //app.js
+
 var fundebug = require('./libs/fundebug.1.2.1.min.js');
 var flg=1
 if (flg==1) {
@@ -11,6 +12,10 @@ if (flg==1) {
 fundebug.init(
   {
     apikey: '3011bf97f509533a48f598e96ce7a28c7293325580b7646ebb55c9f23a9ad2d7',
+    silentConsole: true,
+    silentApp: true,
+    silentPage: true,
+    setUserInfo: true,   
     releaseStage
   })
 App({
@@ -26,6 +31,13 @@ App({
     // wx.switchTab({
     //   url: "pages/personal/personal"
     // })
+    wx.getSystemInfo({
+        success: function (res) {
+          fundebug.systemInfo = res;
+        }
+      })
+  
+
   },
   // 更新版本
   update: function () {
@@ -77,23 +89,17 @@ App({
       title: "加载中，请稍等",
       mask: true
     });
-    if (flg==3) {
+    // 1 开发模式
+    // 2 测试模式
+    // 3 生产模式
+    obj.flg ? obj.flg:flg
+    if (obj.flg==3) {
       wx.request({
         url: obj.url,
         method: obj.method,
         data: obj.data,
         success(res) {
           wx.hideLoading();
-          fundebug.notifyHttpError(
-            {
-              url: obj.url,
-              method: obj.method,
-              data: obj.data,
-            },
-            {
-              data: res.data
-            }
-          );
           obj.callback && obj.callback(res);
         }
       })
@@ -112,29 +118,17 @@ App({
             },
             {
               data: res.data
-            }
+            },
+            {metaData:{
+              opt: obj.opt
+            }}
           );
           obj.callback && obj.callback(res);
         }
       })
     }
-    wx.request({
-      url: obj.url,
-      method: obj.method,
-      data: obj.data,
-      success(res) {
-        wx.hideLoading();
-        obj.callback && obj.callback(res);
-      }
-    })
   },
-  request(obj) {
-    wx.showLoading({
-      title: "加载中，请稍等",
-      mask: true
-    });
-   
-  },
+  
 
   shopImg: [],
   shopImgArr: [],

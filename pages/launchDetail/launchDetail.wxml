@@ -12,15 +12,15 @@
       <text>单买价￥{{item.oneprice}}</text>
     </view>
   </view>
-  <view class='tui-countdown-content rt' wx:for="{{countDownList}}" wx:key="countDownList">
+  <view class='tui-countdown-content rt' >
     <view>距结束仅剩</view>
-    <text class='tui-conutdown-box'>{{item.day}}</text>
+    <text class='tui-conutdown-box'>{{countDownList.day}}</text>
     天
-    <text class='tui-conutdown-box'>{{item.hou}}</text>
+    <text class='tui-conutdown-box'>{{countDownList.hou}}</text>
     :
-    <text class='tui-conutdown-box'>{{item.min}}</text>
+    <text class='tui-conutdown-box'>{{countDownList.min}}</text>
     :
-    <text class='tui-conutdown-box tui-countdown-bg'>{{item.sec}}</text>
+    <text class='tui-conutdown-box tui-countdown-bg'>{{countDownList.sec}}</text>
   </view>
 </view>
 <view class='share'>

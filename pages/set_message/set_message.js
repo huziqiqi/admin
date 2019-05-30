@@ -94,7 +94,7 @@ Page({
         if (e.detail.value.isshop==1) {
         var addressid=  this.data.addressId
         } 
-        wx.request({
+        let objs = {
           url: getApp().url + "//addPro",
           data: {
             user_id: wx.getStorageSync('user').id,
@@ -118,8 +118,11 @@ Page({
             addressid,
           },
           method: "POST",
-          success: (res) => {
-            if (res.data.code == 200) {  
+          opt:{
+            delivery:"1为自提,2为快递"
+          },
+          callback: (res) => {
+            if (res.data.code == 200) {
               wx.showModal({
                 title: "提示",
                 content: res.data.msg,
@@ -137,21 +140,22 @@ Page({
                 },
                 //fail: () => {},
                 //complete: () => {},
-              }) 
-              
-            }else{
+              })
+
+            } else {
               this.tips(res.data.msg)
-             
               console.log(res.data.msg);
               if (res.data.msg == "请认证后再发布拼团") {
                 wx.navigateTo({
                   url: "../certification/certification"
                 })
               }
-            
+
             }
           }
-        })
+        }
+        app.ajax(objs)
+        
       }
     })
   },

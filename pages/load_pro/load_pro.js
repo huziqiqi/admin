@@ -49,6 +49,7 @@ Page({
       url: getApp().url + "/proCate",
       data: {},
       method: "POST",
+      // flg: 3,
       callback: (res) => {
         var array = [{
           id: 0,
@@ -67,6 +68,7 @@ Page({
       url: getApp().url + "/deck",
       data: {},
       method: "POST",
+      // flg:3,
       callback: (res) => {
         var unit = [{
           name: "请选择"
@@ -76,7 +78,7 @@ Page({
         })
       }
     }
-    app.request(obj)
+    app.ajax(obj)
     app.ajax(objs)
     wx.getStorage({
       key: "userId",

@@ -2,6 +2,7 @@
 let goodsList = [{
   actEndTime: '2019-05-01 10:00:43'
 }, ]
+var app = getApp();
 Page({
 
   /**
@@ -11,7 +12,8 @@ Page({
     item: {},
     userId: "",
     proid: 0,
-    info:{}
+    info:{},
+  flag:0
   },
 
   /**
@@ -27,32 +29,22 @@ Page({
       },
       method: "POST",
       success: (res) => {
-        let data = res.data.data.info
-       
-       
-        
-        for (let j = 0; j < res.data.data.info.imgs.length; j++) {
-          data.imgs[j] = data.imgs[j].replace('http://yipin.xazbwl.com', getApp().url)
-        }
+        let data = res.data.data.info     
+       var endTime= Date.parse(data.end_time)
         this.setData({
           item: data,
           userId: opt.userid,
           proid: opt.proid,
-          actEndTimeList: [data.end_time]
         })
-        console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
+        this.countDown(endTime);
+
+        getApp().globalData.fundebug.notify("倒计时", "倒计时手机不显示!", {
+          metaData: {
+            endTime: endTime
+          }
+        });
       }
     })
-    let endTimeList = [];
-    // 将活动的结束时间参数提成一个单独的数组，方便操作
-    goodsList.forEach(o => {
-      endTimeList.push(o.actEndTime)
-    })
-    this.setData({
-      actEndTimeList: endTimeList
-    });
-    // 执行倒计时函数
-    this.countDown();
   },
 
  onShareAppMessage(res) {
@@ -106,46 +98,7 @@ Page({
       }
     })
   },
-  countDown() { //倒计时函数
-    // 获取当前时间，同时得到活动结束时间数组
-    let newTime = new Date().getTime();
-    let endTimeList = this.data.actEndTimeList;
-    let countDownArr = [];
-
-    // 对结束时间进行处理渲染到页面
-    endTimeList.forEach(o => {
-      let endTime = new Date(o).getTime();
-      let obj = null;
-      // 如果活动未结束，对时间进行处理
-      if (endTime - newTime > 0) {
-        let time = (endTime - newTime) / 1000;
-        // 获取天、时、分、秒
-        let day = parseInt(time / (60 * 60 * 24));
-        let hou = parseInt(time % (60 * 60 * 24) / 3600);
-        let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
-        let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
-        obj = {
-          day: this.timeFormat(day),
-          hou: this.timeFormat(hou),
-          min: this.timeFormat(min),
-          sec: this.timeFormat(sec)
-        }
-      } else { //活动已结束，全部设置为'00'
-        obj = {
-          day: '00',
-          hou: '00',
-          min: '00',
-          sec: '00'
-        }
-      }
-      countDownArr.push(obj);
-    })
-    // 渲染，然后每隔一秒执行一次倒计时函数
-    this.setData({
-      countDownList: countDownArr
-    })
-    setTimeout(this.countDown, 1000);
-  },
+  
   phoneCall: function (e) {
     wx.makePhoneCall({
       phoneNumber: '18282957326' //仅为示例，并非真实的电话号码
@@ -204,19 +157,15 @@ Page({
    * 用户点击右上角分享
    */
 
-  countDown() { //倒计时函数
-    // 获取当前时间，同时得到活动结束时间数组
+  countDown(endTime) { //倒计时函数  
     let newTime = new Date().getTime();
-    let endTimeList = this.data.actEndTimeList;
-    let countDownArr = [];
-
-    // 对结束时间进行处理渲染到页面
-    endTimeList.forEach(o => {
-      let endTime = new Date(o).getTime();
-      let obj = null;
-      // 如果活动未结束，对时间进行处理
-      if (endTime - newTime > 0) {
-        let time = (endTime - newTime) / 1000;
+    
+    console.log(endTime);
+ 
+    let time = (endTime - newTime) / 1000;
+    let obj = null;
+   
+    if (time > 0) {
         // 获取天、时、分、秒
         let day = parseInt(time / (60 * 60 * 24));
         let hou = parseInt(time % (60 * 60 * 24) / 3600);
@@ -236,12 +185,12 @@ Page({
           sec: '00'
         }
       }
-      countDownArr.push(obj);
-    })
+    // })
     // 渲染，然后每隔一秒执行一次倒计时函数
+    
     this.setData({
-      countDownList: countDownArr
+      countDownList:obj
     })
-    setTimeout(this.countDown, 1000);
+    setTimeout(this.countDown(endTime), 1000);
   }
 })

@@ -57,6 +57,7 @@ Page({
        if (res.data.code==200) {
          this.setData({
            item: res.data.data.pro,
+           price: res.data.data.pro.price,
            addArr: res.data.data.address,
            address: opt.address,
            groupId: opt.id
@@ -101,6 +102,34 @@ Page({
     }
     if (this.data.item.delivery == 2) {
       //物流
+
+    /**
+      * @name: 
+      * @test: test font
+      * @msg: 
+      * @param 
+      * {
+      *  userId: 1,
+      *  groupId: "9",
+      *  num: 1,
+      *  remark: "",
+      *  addressid: 49,
+      *  type: "2"
+      * }
+      * userId: 1
+        groupId: 8
+        num: 1
+        remark:
+      pick_up: 46
+      consignee: 刘奇
+      consignee_phone: 14120233222
+      type: 2
+      parentid: undefined
+      * 
+      * 
+      * 
+       * @return: 
+       */
       addressid = this.data.addressId
       wx.request({
         url: getApp().url + "/groupBuying",
@@ -124,24 +153,6 @@ Page({
               showCancel: false
             })
           }
-          getApp().globalData.fundebug.notifyHttpError("分享功能测试", "parentid为分享者的id", 
-             {
-              method: "POST",
-               url: getApp().url + "/groupBuying",
-              data: {
-              userId: this.data.userId,
-              groupId: this.data.groupId,
-              num: this.data.num,
-              remark: e.detail.value.remark,
-              addressid,
-              type: this.data.type,
-              parentid
-            },
-            },
-            {
-              data:res.data
-            }
-          )
         }
       })
     } else {
@@ -176,26 +187,7 @@ Page({
               showCancel: false
             })
           }
-          getApp().globalData.fundebug.notifyHttpError(
-            {
-              method: "POST",
-              url: getApp().url + "/groupBuying",
-              data: {
-                userId: this.data.userId,
-                groupId: parseInt(this.data.groupId),
-                num: this.data.num,
-                remark: e.detail.value.remark,
-                pick_up,
-                consignee,
-                consignee_phone,
-                type: parseInt(this.data.type),
-                parentid
-              },
-            },
-            {
-              data: res.data
-            }
-          )
+          
           // wx.navigateTo({
           //   url: '../myOrder/myOrder'
           // })
@@ -243,16 +235,42 @@ Page({
             content: '支付失败',
             showCancel: false
           })
+          console.log(res.order_num)
+          let obj = {
+            url: getApp().url + "/orderdel",
+            data: {
+              order_num: res.order_num
+            },
+            method: "POST",
+            // flg:3,
+            callback: (res) => {
+              
+            }
+          }
+          getApp().ajax(obj)
         }
       },
-      fail: function (res) {
-        console.log(res);
+      fail: function (rea) {
+        console.log(rea);
         wx.showModal({
           title: '提示',
           content: '支付失败',
           showCancel: false
         })        
         wx.hideLoading();
+        console.log(res.order_num)
+        let obj = {
+          url: getApp().url + "/orderdel",
+          data: {
+            order_num: res.order_num
+          },
+          method: "POST",
+          // flg:3,
+          callback: (res) => {
+
+          }
+        }
+        getApp().ajax(obj)
       }
     })
   },
@@ -285,9 +303,12 @@ Page({
     // 只有大于一件的时候，才能normal状态，否则disable状态
     var minusStatus = num <= 1 ? 'disabled' : 'normal';
     // 将数值与状态写回
+    var al = this.data.item.price * num
+
     this.setData({
       num: num,
-      minusStatus: minusStatus
+      minusStatus: minusStatus,
+      price: al.toFixed(2)
     });
   },
   /* 点击加号 */
@@ -298,17 +319,27 @@ Page({
     // 只有大于一件的时候，才能normal状态，否则disable状态
     var minusStatus = num < 1 ? 'disabled' : 'normal';
     // 将数值与状态写回
+   
+    var al = this.data.item.price * num
     this.setData({
       num: num,
-      minusStatus: minusStatus
+      minusStatus: minusStatus,
+      price: al.toFixed(2)
     });
+
+
+    
   },
   /* 输入框事件 */
   bindManual: function (e) {
     var num = e.detail.value;
+    var al = this.data.item.price * num
+
     // 将数值与状态写回
     this.setData({
-      num: num
+      num: num,
+      price: al.toFixed(2)
+
     });
   }
 })

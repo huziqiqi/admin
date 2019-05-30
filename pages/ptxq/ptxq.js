@@ -43,13 +43,12 @@ Page({
     this.setData({
       proid: wx.getStorageSync('opt').userid
     })
-    console.log()
     wx.showLoading({
       title: "加载中，请稍等",
       mask: true
     });
     if (wx.getLaunchOptionsSync().query.proid&opt.isjump!=1) {
-      console.log("您通过分享登陆，但是没有登录");
+      // console.log("您通过分享登陆，但是没有登录");
       wx.request({
         url: getApp().url + "/product/detail",
         data: {
@@ -65,7 +64,7 @@ Page({
             isShow: true,
             opt: wx.getStorageSync('opt'),
           })
-          console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
+          // console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
           wx.hideLoading();
           this.qrcode(opt)
 
@@ -92,7 +91,7 @@ Page({
             opt:opt
           })
           this.qrcode(opt)
-          console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
+          // console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
           wx.hideLoading();
         }
       })
@@ -102,9 +101,8 @@ Page({
     // console.log(this.timestampToTime(1557541669));
   },
   openmap(){
-    console.log(123);
       var that=this
-    console.log(that.data.item.lat);
+    // console.log(that.data.item.lat);
       
     wx.openLocation({
       latitude: parseFloat(that.data.item.lat) ,
@@ -112,7 +110,7 @@ Page({
     })
   },
   qrcode(opt) {
-    console.log(opt);    
+    // console.log(opt);    
     wx.request({
       url: getApp().url + "/Share",
       data: {
@@ -133,8 +131,8 @@ Page({
     
     if (res.from === 'button') {
       // 来自页面内转发按钮
-      console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
-      console.log(res);
+      // console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
+      // console.log(res);
       
     }
     return {
@@ -251,57 +249,29 @@ const opt={
     })
   },
   share() {
-
+    new Promise((resolve, reject) => {
+    }).then(res=>{
+      // console.log(res);
+       
+    })
     wx.showLoading({
       title: '正在生成海报',
     })
     var that = this
     var text = that.data.item.title;
-    var k = 1.5
-    // 放大系数
-    var promise = new Promise(function (resolve, reject) {
-      
-      wx.downloadFile({
-        url: that.data.item.imgs[0],
-        // url: getApp().url+"/public/static/images/ewm.jpg",
-        success: (res) => {
-          console.log(res.tempFilePath);
-
-          that.setData({
-            localimgdata: res.tempFilePath
-          })
-          resolve(res);
-        }
-      })
-    })
-
-    var promise0 = new Promise(function (resolve, reject) {
-      wx.downloadFile({
-        url: that.data.qrcode,
-        success: (res) => {
-          console.log(res.tempFilePath);
-          that.setData({
-            localimgdata1: res.tempFilePath
-          })
-          resolve(res);
-        }
-      })
-    })
-
-
-    Promise.all([promise, promise0]).then(res => {
+    // Promise.all([promise, promise0]).then(res => {
       var promise1 = new Promise(function (resolve, reject) {
-        let path = that.data.localimgdata
+        let path = that.data.item.imgs[0]
         wx.getImageInfo({
           src: path,
           success: function (res) {
+            // console.log(path);
             resolve(res);
           }
         })
       });
       let promise2 = new Promise(function (resolve, reject) {
-        let path = that.data.localimgdata1
-        let localpath = '../../images/ewm.jpg'
+        let path = that.data.qrcode
         wx.getImageInfo({
           // src: localpath,
           src: path,
@@ -309,33 +279,27 @@ const opt={
             resolve(res);
           }
         })
-        // let path = getApp().url+"/public/static/images/ewm.jpg"
-        // console.log(path[0]);
-        // wx.getImageInfo({
-        //   src: getApp().url+"/public/static/images/ewm.jpg",
-        //   success: function (res) {
-        //     console.log(res)
-        //     resolve(res);
-        //   }
-        // })
+       
       });
       Promise.all(
         [promise1, promise2]
       ).then(res => {
+        // console.log(res);
+        var k = 2
+
         const ctx = wx.createCanvasContext('shareImg')
-        ctx.rect(0-k, 0-k, (375+2)*k, 750*k)
+        ctx.rect(0 - k, 0 - k, (375 + 2) * k, 750 * k)
         // ctx.rect(-2, -2, 1129, 1804)
         ctx.setFillStyle('#fff')
         ctx.fill()
-            
-        ctx.drawImage(res[0].path, 28*k, 28*k, 321*k, 321*k)
-        // ctx.drawImage(res[0].path, 45, 165, 1035, 1035)
+
+        ctx.drawImage(res[0].path, 28 * k, 28 * k, 321 * k, 321 * k)
         ctx.beginPath()
         ctx.setFillStyle('#faa')
-        ctx.moveTo(0 * k,54 * k)
+        ctx.moveTo(0 * k, 54 * k)
         ctx.arc(80 * k, 74 * k, 20 * k, 1.5 * Math.PI, 0.5 * Math.PI)
         ctx.lineTo(0, 94 * k)
-        ctx.lineTo(0,54 * k)
+        ctx.lineTo(0, 54 * k)
         ctx.setFillStyle('#111')
         ctx.fill()
         ctx.beginPath()
@@ -351,7 +315,7 @@ const opt={
         var temp = []
         ctx.setFontSize(16 * k)
         for (var a = 0; a < chr.length; a++) {
-          if (ctx.measureText(temp).width < 220*k) {
+          if (ctx.measureText(temp).width < 220 * k) {
             temp += chr[a];
           } else {
             a--;
@@ -381,18 +345,18 @@ const opt={
           ctx.fillText(row[b], 28 * k, 375 * k + b * 25 * k, 220 * k);
         }
         // ctx.setFillStyle('#af0d1d')
-        var x=250*k
+        var x = 250 * k
         var y = 428 * k
-        
-        ctx.drawImage(res[1].path, x + 5 * k, y + 5 * k, 90 * k, 90 * k)  
+
+        ctx.drawImage(res[1].path, x + 5 * k, y + 5 * k, 90 * k, 90 * k)
         ctx.setFillStyle('#f2001c')
-        ctx.setFontSize(9 * k)           
+        ctx.setFontSize(9 * k)
         ctx.fillText("扫描或长按二维码", x + 14 * k, y - 8 * k);
         ctx.setLineWidth(k)
         ctx.moveTo(x, y + 10 * k)
         ctx.lineTo(x, y + 10 * k)
         ctx.lineTo(x, y)
-        ctx.lineTo(x + 10 * k,y)
+        ctx.lineTo(x + 10 * k, y)
 
         ctx.moveTo(x + 90 * k, y)
         ctx.lineTo(x + 90 * k, y)
@@ -411,37 +375,47 @@ const opt={
         ctx.setStrokeStyle('#f2001c')
         ctx.setFillStyle('#e31012')
         ctx.setFontSize(24 * k)
-        ctx.fillText("团购价￥" + that.data.item.price, 15 * k, 460 * k + (b - 1) * 25 * k);       
+        ctx.fillText("团购价￥" + that.data.item.price, 15 * k, 460 * k + (b - 1) * 25 * k);
         ctx.setFillStyle('#a5a5a5')
         ctx.setFontSize(18 * k)
         ctx.fillText("单买价￥" + that.data.item.oneprice, 15 * k, 500 * k + (b - 1) * 25 * k);
         ctx.stroke()
-        ctx.draw()
+        ctx.draw(false,function(){
+          // console.log("回调");
+          wx.canvasToTempFilePath({
+            x: 1,
+            y: 1,
+            width: 375 * k,
+            height: 600 * k,
+            destWidth: 375 * k,
+            destHeight: 600 * k,
+            canvasId: 'shareImg',
+            success: function (res) {
+              /* 这里 就可以显示之前写的 预览区域了 把生成的图片url给image的src */
+              that.setData({
+                prurl: res.tempFilePath,
+                hidden: false,
+                isshow: 3,
+              })
+              // console.log("生成海报");
+              wx.hideLoading()
+            },
+            fail: function (res) {
+              that.share()
+            }
+          }) 
+          setTimeout(() => {
+            if (that.data.prurl) {
+              // console.log("生成成功");
+            } else {
+              // console.log("生成失败");
+              that.share()
+            }  
+          }, 1000);   
+        })
       })
-    })
-
-    setTimeout(() => {
-      wx.canvasToTempFilePath({
-        x: 1,
-        y: 1,
-        width: 375*k,
-        height: 600*k,
-        destWidth: 375*k,
-        destHeight: 600*k,
-        canvasId: 'shareImg',
-        success: function (res) {
-          /* 这里 就可以显示之前写的 预览区域了 把生成的图片url给image的src */
-          that.setData({
-            prurl: res.tempFilePath,
-            hidden: false,
-            isshow: 3,
-          })
-          // setTimeout(function () {
-            wx.hideLoading()
-          // }, 2000)
-        },
-        fail: function (res) {}
-      })
-    },2000);
+    // })  
+    
+   
   },
 })

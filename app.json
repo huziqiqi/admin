@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/haibaotest/ptxq",  
     "pages/launchDetail/launchDetail",
     "pages/certification/certification",
     "pages/releaseCertification/releaseCertification",

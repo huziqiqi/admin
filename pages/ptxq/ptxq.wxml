@@ -9,7 +9,8 @@
     ￥
     <text>{{item.price}}</text>
     <text>{{item.nums}}人团</text>
-    <text>{{yd}}</text>
+    <text wx:if="{{item.delivery!=1}}" >包邮</text>   
+     <text style="border:0px;"></text>
     <text class='rt'>库存：{{item.stock}}</text>
   </view>
   <view class='share'>
@@ -138,5 +139,5 @@
     <button catchtap="save">保存图片</button>
   </view>
 </view>
-<canvas canvas-id="shareImg" class="canvas"  style="width:1875px;height:3000px; "></canvas>
+<canvas canvas-id="shareImg" class="canvas"  style="width:750px;height:1200px; "></canvas>
 <dialog id='dialog' isLogin='{{isLogin}}' parentId="{{parentId}}" bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>
