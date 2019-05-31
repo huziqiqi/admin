@@ -15,7 +15,7 @@
   </view>
   <view class='clear'>
     <view class='lf'>{{item.group_name}}</view>
-    <text class='rt'>+{{item.price}}</text>
+    <text class='rt'>{{item.price}}</text>
   </view>
   <text>{{item.create_time}}</text>
 </view>

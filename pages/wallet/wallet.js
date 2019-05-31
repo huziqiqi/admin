@@ -12,20 +12,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (opt) {
-    wx.request({
-      url: getApp().url + "//user.myprice",
-      data: {
-        userId: wx.getStorageSync('user').id
-      },
-      method: "POST",
-      success: (res) => {
-        this.setData({
-          item: res.data.data
-        })
-      }
-    })
   },
-
+request(){
+  wx.request({
+    url: getApp().url + "//user.myprice",
+    data: {
+      userId: wx.getStorageSync('user').id
+    },
+    method: "POST",
+    success: (res) => {
+      this.setData({
+        item: res.data.data
+      })
+    }
+  })
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -37,7 +38,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.request()
   },
 
   /**

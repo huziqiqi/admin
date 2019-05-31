@@ -40,9 +40,9 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "分享进入id=6 显卡",
+					"name": "分享进入id=58显卡",
 					"pathName": "pages/index/index",
-					"query": "userid=9&proid=6",
+					"query": "userid=58&proid=3",
 					"scene": null
 				},
 				{

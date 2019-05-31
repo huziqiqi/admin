@@ -28,10 +28,12 @@
     <text>已退款</text>
     <view style="height:22rpx"></view>
   </view>
-  <!-- <view class='item {{state==3?"item-active":""}}' data-state="3" bindtap='changeOil2'>
-    <view>230</view>
+  <view class='item {{state==3?"item-active":""}}' data-state="3" bindtap='changeOil2'>
+    <!-- <view>230</view> -->
+        <view style="height:22rpx"></view>
     <text>扣返佣</text>
-  </view> -->
+        <view style="height:22rpx"></view>
+  </view>
 </view>
 <view class='list-wrapper'>
 

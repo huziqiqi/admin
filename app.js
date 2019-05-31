@@ -61,6 +61,11 @@ App({
       })
     })
   },
+  debuginfo(obj){
+    fundebug.notify(obj.title, obj.content, {
+      metaData:obj.opt
+    })
+  },
   wxLogin: function () {
     let that = this;
     wx.login({

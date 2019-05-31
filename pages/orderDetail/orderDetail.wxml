@@ -39,14 +39,21 @@
     </view>
     <view class='item flex'>
       配送方式：
-      <view wx:if="{{item.iszt==1}}">到店自提</view>
-      <view wx:if="{{item.iszt==0}}">快递</view>
+      <view wx:if="{{item.type==1}}">到店自提</view>
+      <view wx:if="{{item.type==2}}">快递</view>
     </view>
     <view class='item flex'>
-      <view wx:if="{{item.iszt==1}}">自提地址：</view>
-      <view wx:if="{{item.iszt==0}}">快递地址：</view>
-      <view>{{item.consignee_address}}</view>
+    {{item.type==1?"自提地址：":"收货地址："}} 
+      <view style="width:540rpx">{{item.consignee_address}}</view>
     </view>
+    <view class='item flex'  wx:if="{{item.type==2}}">
+       快递公司：
+       <view>{{item.logistics_name}}</view>
+     </view>
+      <view class='item flex'  wx:if="{{item.type==2}}">
+       快递单号：
+        <view>{{item.logistics_num}}</view>
+      </view>
     <view class='item flex'>
       备注：
       <view>{{item.remark}}</view>

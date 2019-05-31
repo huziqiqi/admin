@@ -19,6 +19,7 @@ Page({
   changeOil(e) {
     this.setData({
       type: parseInt(e.target.dataset.type),
+      items:[]
     })
     this.request()
   },
@@ -33,10 +34,10 @@ Page({
       method: "POST",
       success: (res) => {
         if (res.data.data.num == 0) {
-          wx.showToast({
-            title: "暂无返佣记录",
-            icon: "none"
-          })
+          // wx.showToast({
+          //   title: "暂无返佣记录",
+          //   icon: "none"
+          // })
         } else {
           this.setData({
             items: res.data.data.orderlists

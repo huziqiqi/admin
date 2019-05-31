@@ -23,7 +23,8 @@ Page({
     wx.request({
       url: getApp().url + "/user.myprice/cashlist",
       data: {
-        userId: wx.getStorageSync('user').id
+        userId: wx.getStorageSync('user').id,
+        pages:this.data.pages
       },
       method: "POST",
       success: (res) => {
@@ -90,10 +91,14 @@ Page({
     this.request()
   },
   onReachBottom() {
-    this.setData({
-      pages: this.data.pages + 1
-    })
+    if (this.data.pages < this.data.allpage) {
+      this.setData({
+        pages: this.data.pages + 1
+      }) 
     this.request()
+
+    }
+   
   },
 
   /**

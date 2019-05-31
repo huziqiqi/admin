@@ -30,19 +30,27 @@ Page({
     pages: 1,
     isShow: false,
   },
-  onLoad: function (options) {   
+  onLoad: function (options) {  
     wx.hideTabBar()
+    console.log(options);        
+    if (JSON.stringify(options)!== "{}"){
+      let obj = {
+        title: "分享测试",
+        content: "分享二维码",
+        opt: options
+      }
+      getApp().debuginfo(obj) 
+    }
     if (options.scene) {
-      var parentId = options.scene.split("&")[0].split("%3D")[1];
       var flg = options.scene.split("%26%26")
       var opt = {}
       opt.userid = flg[0].split("%3D")[1]
       opt.proid = flg[1].split("%3D")[1]
-      console.log(flg);        
       wx.setStorageSync('opt', opt);
       if (wx.getStorageSync('user')) {
         this.fxjs(opt)
       }
+     
     } else if (options.userid) {
       var opt = {}
       opt.userid = options.userid
@@ -52,13 +60,15 @@ Page({
       if (wx.getStorageSync('user')) {
         this.fxjs(opt)
       } 
-    }    
+    } else{
+      
+    }   
     that = this
     this.setData({
       isLogin: wx.getStorageSync('user') ? true : false,
     })  
-    this.request()
-     
+    this.request()  
+    
   },
   fxjs(opt){
 // var parentId = options.scene.split("&")[0].split("%3D")[1];

@@ -23,11 +23,11 @@
   <navigator hover-class="no" url="../zffy/zffy">
     返佣金额
     <image src="../../images/right.gif" class='rt' mode='widthFix'></image>
-    <text class="price">{{item.price}}</text>
+    <!-- <text class="price">{{item.price}}</text> -->
   </navigator>
   <navigator hover-class="no" url='../cash/cash?id={{userId}}'>
     已提现
-    <text class="price">{{item.alreadyprice}}</text>
+    <!-- <text class="price">{{item.alreadyprice}}</text> -->
     <image src="../../images/right.gif" class='rt' mode='widthFix'></image>
   </navigator>
   <navigator url="../paymentDetails/paymentDetails">

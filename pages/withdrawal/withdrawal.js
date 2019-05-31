@@ -13,10 +13,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (opt) {
-    this.setData({
-      amount: opt.amount
-    })
+   
 
+  },
+
+
+  request() {
+    wx.request({
+      url: getApp().url + "//user.myprice",
+      data: {
+        userId: wx.getStorageSync('user').id
+      },
+      method: "POST",
+      success: (res) => {
+        this.setData({
+          item: res.data.data
+        })
+      }
+    })
   },
   mobileInput(e) {
 
@@ -30,12 +44,12 @@ Page({
   onReady: function () {
 
   },
-
+  
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.request()
   },
   submitForm(e) {
     wx.request({
@@ -50,6 +64,7 @@ Page({
           title: res.data.msg,
           icon: "none"
         })
+        this.request()
         // this.setData({
         //   item:
         // })

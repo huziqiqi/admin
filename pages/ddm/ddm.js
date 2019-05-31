@@ -117,6 +117,21 @@ Page({
           },
           method: "POST",
           success: (res) => {
+            let obj = {
+              title: "分享购买",
+              content: "分享购买，物流",
+              opt:{
+                userId: this.data.userId,
+                groupId: this.data.groupId,
+                num: this.data.num,
+                remark: e.detail.value.remark,
+                addressid,
+                type: this.data.type,
+                parentid
+              }
+            }
+            getApp().debuginfo(obj) 
+
             if (res.data.code == 200) {
               this.pay(res.data.data)
             } else {
@@ -170,6 +185,22 @@ Page({
         }, 
         method: "POST",
         success: (res) => {
+          let obj = {
+            title: "分享购买",
+            content: "分享购买，自提",
+            opt: {
+              userId: this.data.userId,
+              groupId: parseInt(this.data.groupId),
+              num: this.data.num,
+              remark: e.detail.value.remark,
+              pick_up,
+              consignee,
+              consignee_phone,
+              type: parseInt(this.data.type),
+              parentid
+            }
+          }
+          getApp().debuginfo(obj) 
           if (res.data.code==200) {
             this.pay(res.data.data)            
           } else {

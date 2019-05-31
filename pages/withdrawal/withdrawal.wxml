@@ -15,7 +15,7 @@
         <input type='digit' bindblur="mobileInput" name="meony"></input>
       </view>
     </view>
-    <view class='lines'>可提现金额￥{{amount}}</view>
+    <view class='lines'>可提现金额￥{{item.amount}}</view>
   </view>
   <button class="submitForm" form-type='submit'>提现</button>
 </form>
