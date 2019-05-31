@@ -285,14 +285,12 @@ const opt={
         [promise1, promise2]
       ).then(res => {
         // console.log(res);
-        var k = 2
 
         const ctx = wx.createCanvasContext('shareImg')
+        var k = 2
         ctx.rect(0 - k, 0 - k, (375 + 2) * k, 750 * k)
-        // ctx.rect(-2, -2, 1129, 1804)
         ctx.setFillStyle('#fff')
         ctx.fill()
-
         ctx.drawImage(res[0].path, 28 * k, 28 * k, 321 * k, 321 * k)
         ctx.beginPath()
         ctx.setFillStyle('#faa')

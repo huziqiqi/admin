@@ -41,13 +41,13 @@
     </view>
     <view class='list' wx:if="{{item.delivery==1}}"  style="line-height:50rpx;margin:15rpx 0;">自提地址：{{addArr[0].address}}</view>
       <navigator hover-class='none' wx:if="{{item.delivery==2}}" open-type='navigate' url='../address/address?type=1&userId={{userId}}'>
-        <view class="list list1" wx:if="{{add.tel}}">
-          <view>{{add.sname}}</view>
+        <view class="list list1" wx:if="{{addArr.tel}}">
+          <view>{{addArr.sname}}</view>
           <view>
-            {{add.tel?add.tel:"请选择您的地址 "}} 
+            {{addArr.tel}} 
             <image mode='widthFix' class="rt" style='width: 15rpx;margin-left: 10rpx; margin-top:20rpx;' src='../../images/right.gif'></image>
           </view>
-          <view>{{add.provinces+add.address}}</view>
+          <view>{{addArr.address}}</view>
         </view>
         <view class="list list1" wx:else>
           收货地址

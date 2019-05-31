@@ -88,15 +88,6 @@
     <view class='pm' wx:if="{{!userbuy}}">
       <text style="margin: 0 auto">暂无参团纪录</text>
     </view>
-    <!-- <view class='pm'>
-      <text>NO.01</text>
-      <view>
-        <image src="../../images/avan.gif" mode='widthFix'></image>
-        小丸子
-      </view>
-      <view>+1</view>
-      <text>2019-05-02 08:00</text>
-    </view> -->
   </view>
   <view class='gz clear'>
     <navigator url='../index/index' class='lf' open-type="switchTab">

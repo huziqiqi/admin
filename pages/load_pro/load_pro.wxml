@@ -10,7 +10,7 @@
       <view class="item">
         <view>
           <view class="box">
-            <block wx:for="{{shopImg}}" wx:key="index">
+            <block wx:for="{{shopImg}}"  wx:key="index">
               <view class="imgbox vertical-top" style="display:inline-block;vertical-align:top">
                 <image src="{{item}}" data-imgsrc="{{item}}" mode='widthFix' data-imgtype="shopImg" bindtap='removeImg'></image>
               </view>
@@ -30,12 +30,12 @@
   <view class='list'>
     <view class='clear'>
       <text class='lf'>拼团标题</text>
-      <input class='rt' type='text' style=""  placeholder='请填写拼团标题'  name="title"></input>
+      <input class='rt' type='text' style="" value="{{form_info}}"  placeholder='请填写拼团标题'  name="title"></input>
     </view>
     <view class='clear' style="line-height:100rpx;">
       <text class='lf'>拼团活动介绍</text>
       <view class='rt' style="line-height:40rpx;margin-left:-10rpx; margin-top:15rpx;">
-        <textarea  placeholder-class="place-holder" class='textarea' name="info" style="width:100%;left:-10rpx"  placeholder='请填写拼团标题'></textarea>      
+        <textarea    value="{{form_info}}" placeholder-class="place-holder" class='textarea' name="info" style="width:100%;left:-10rpx"  placeholder='请填写拼团标题'></textarea>      
       </view>
     </view>
   </view>
@@ -60,19 +60,19 @@
     </view>
     <view class='clear'>
       <text class='lf'>单买价格</text>
-      <input class='rt' type='digit' placeholder='请填写单独买价格（元）' name="oneprice"></input>
+      <input  value="{{form_info}}" class='rt' type='digit' placeholder='请填写单独买价格（元）' name="oneprice"></input>
     </view>
     <view class='clear'>
       <text class='lf'>拼团价格</text>
-      <input class='rt' type='digit' placeholder='请填写拼团买价格（元）' name="price"></input>
+      <input  value="{{form_info}}" class='rt' type='digit' placeholder='请填写拼团买价格（元）' name="price"></input>
     </view>
     <view class='clear'>
       <text class='lf'>成团人数</text>
-      <input class='rt' type='number' name="nums" placeholder='请填写成团人数（人）' name="nums"></input>
+      <input  value="{{form_info}}" class='rt' type='number' name="nums" placeholder='请填写成团人数（人）' name="nums"></input>
     </view>
     <view class='clear'>
       <text class='lf'>库存</text>
-      <input class='rt' type='number' placeholder='请填写库存量' name="stock"></input>
+      <input  value="{{form_info}}" class='rt' type='number' placeholder='请填写库存量' name="stock"></input>
     </view>
   </view>
   <view class='list'>

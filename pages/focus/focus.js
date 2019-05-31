@@ -26,6 +26,9 @@ request(){
     method: "POST",
     success: (res) => {
       if (res.data.code == 301) {
+        this.setData({
+          fans: [],
+        })
         //   wx.showToast({
         //     title: res.data.msg,
         //     icon: "none"

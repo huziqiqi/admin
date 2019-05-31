@@ -1,10 +1,11 @@
 <!-- pages/personal/personal.wxml -->
-<navigator class="user flex" hover-class='none' open-type='navigate' url='../information/information'>
+<navigator class="user flex" hover-class='none' open-type='navigate' url='../information/information?isrz={{item.isrz}}&phone={{item.phone}}'>
   <view class="user-information flex">
     <image class="user-avatar" mode='widthFix' src='{{user.avatar}}'></image>
     <view class="user-text-wrapper">
       <view class="user-name">{{user.userName}}</view>
-      <view class="certification" catchtap='navigate'>立即认证</view>
+      <view class="certification" wx:if="{{item.isrz==0}}" catchtap='navigate'>立即认证</view>      
+      <view class="certification" wx:else>已认证</view>
     </view>
   </view>
   <image class="icon" mode='widthFix' src='../../images/icon05.jpg'></image>

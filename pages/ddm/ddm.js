@@ -102,59 +102,51 @@ Page({
     }
     if (this.data.item.delivery == 2) {
       //物流
-
-    /**
-      * @name: 
-      * @test: test font
-      * @msg: 
-      * @param 
-      * {
-      *  userId: 1,
-      *  groupId: "9",
-      *  num: 1,
-      *  remark: "",
-      *  addressid: 49,
-      *  type: "2"
-      * }
-      * userId: 1
-        groupId: 8
-        num: 1
-        remark:
-      pick_up: 46
-      consignee: 刘奇
-      consignee_phone: 14120233222
-      type: 2
-      parentid: undefined
-      * 
-      * 
-      * 
-       * @return: 
-       */
-      addressid = this.data.addressId
-      wx.request({
-        url: getApp().url + "/groupBuying",
-        data: {
-          userId: this.data.userId,
-          groupId: this.data.groupId,
-          num: this.data.num,
-          remark: e.detail.value.remark,
-          addressid,
-          type: this.data.type,
-          parentid
-        },
-        method: "POST",
-        success: (res) => {
-          if (res.data.code == 200) {
-            this.pay(res.data.data)
-          } else {
-            wx.showModal({
-              title: '提示',
-              content: res.data.msg,
-              showCancel: false
-            })
+      addressid = this.data.addArr.addressid
+      if (addressid) {
+        wx.request({
+          url: getApp().url + "/groupBuying",
+          data: {
+            userId: this.data.userId,
+            groupId: this.data.groupId,
+            num: this.data.num,
+            remark: e.detail.value.remark,
+            addressid,
+            type: this.data.type,
+            parentid
+          },
+          method: "POST",
+          success: (res) => {
+            if (res.data.code == 200) {
+              this.pay(res.data.data)
+            } else {
+              wx.showModal({
+                title: '提示',
+                content: res.data.msg,
+                showCancel: false
+              })
+            }
           }
-        }
-      })
+        })
+      } else {
+        wx.showModal({
+          title: "提示",
+          content: "您暂无收货地址是否前往添加",
+          showCancel: false,
+          //cancelText:"取消",
+          //confirmText:"确定",
+          //cancelColor:"#000",
+          //confirmColor:"#576B95",
+          success: (res) => {
+            wx.navigateTo({
+              url: "../address/address?type=1&userId=" + this.data.userid
+            })
+          },
+          //fail: () => {},
+          //complete: () => {},
+        }) 
+      }
+    
     } else {
       // console.log(this.data.addArr[0].id);  
       pick_up = this.data.addArr[0].id
@@ -288,7 +280,7 @@ Page({
         this.setData({
           addressId: res.data.id,
           addressName: res.data.provinces + res.data.address,
-          add: res.data
+          addArr: res.data
         })
       }
     })

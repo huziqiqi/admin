@@ -134,17 +134,17 @@ Page({
                 success: () => {
                   wx.setStorageSync('opt', {});
                   wx.setStorageSync('shdz', {});
-                  wx.navigateTo({
+                  getApp().sumbSuccess=1
+                  wx.redirectTo({
                     url: "../launch/launch?num=1"
                   })
                 },
                 //fail: () => {},
                 //complete: () => {},
               })
-
             } else {
               this.tips(res.data.msg)
-              console.log(res.data.msg);
+              getApp().sumbSuccess =0
               if (res.data.msg == "请认证后再发布拼团") {
                 wx.navigateTo({
                   url: "../certification/certification"

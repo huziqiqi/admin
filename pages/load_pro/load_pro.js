@@ -36,7 +36,8 @@ Page({
     hidden: true,
     msg: '',
     curCityId: '',
-    userId: ""
+    userId: "",
+    form_info: ""
   },
 
   /**
@@ -105,16 +106,47 @@ Page({
     opt.imgs = this.data.shopImgArr.join(',')
     if (opt.cateid != "") {
       opt.cateid = this.data.array[opt.cateid].id
+    }
+    if (opt.deck != "") {
       opt.deck = this.data.unit[opt.deck].name
     }
+   
+    if (!this.data.shopImg[0]) {
+      this.tips("请上传图片");
+    } else if (opt.title == "") { 
+     this.tips("标题不能为空");      
+    } else if (opt.info == "") {
+     this.tips("请输入拼团活动介绍");
+    } else if (opt.cateid == "") {
+     this.tips("请选择拼团类目");
+    } else if (opt.deck == "") {
+     this.tips("请选择单位");
+    }else if (opt.oneprice == "") {
+     this.tips("请输入单买价格");
+    }else if (opt.price== "") {
+     this.tips("请输入团购价格");
+    }  else if (opt.nums== "") {
+     this.tips("请输入成团人数");
+    } else if (opt.stock == "") {
+     this.tips("请选择库存");
+    } else if (opt.end_time == "请选择") {
+     this.tips("请选择拼团截止时间");
+    }else {
     wx.setStorage({
       key: "optn",
       data: opt,
-      success: () => {
+      success: () => {    
         wx.navigateTo({
           url: "../set_message/set_message?userId=" + this.data.userId
         })
       }
+    })
+    }  
+  },
+  tips(msg){
+    wx.showToast({
+      title:msg,
+      icon: "none"
     })
   },
   bindPeopleChange: function (e) {
@@ -141,6 +173,19 @@ Page({
       shopImgArr: app.shopImgArr,
       opt: wx.getStorageSync('optn')
     })
+    console.log(getApp().sumbSuccess);
+    
+    if (getApp().sumbSuccess == 1) {
+      //重置表单
+      this.setData({
+        form_info: "",
+        uindex: 0,
+        index: 0,
+        date: "请选择",
+        shopImg: []
+      })
+    }
+    
   },
   navion() {
     wx.navigateTo({
@@ -212,6 +257,7 @@ Page({
   },
 
   removeImg: function (e) {
+    console.log(e);
     let that = this;
     wx.showModal({
       title: '删除提示',

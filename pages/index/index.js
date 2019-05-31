@@ -32,7 +32,6 @@ Page({
   },
   onLoad: function (options) {   
     wx.hideTabBar()
-    console.log(options);   
     if (options.scene) {
       var parentId = options.scene.split("&")[0].split("%3D")[1];
       var flg = options.scene.split("%26%26")
@@ -40,7 +39,6 @@ Page({
       opt.userid = flg[0].split("%3D")[1]
       opt.proid = flg[1].split("%3D")[1]
       console.log(flg);        
-
       wx.setStorageSync('opt', opt);
       if (wx.getStorageSync('user')) {
         this.fxjs(opt)
@@ -49,8 +47,7 @@ Page({
       var opt = {}
       opt.userid = options.userid
       opt.proid = options.proid
-      console.log(opt);
-      
+      console.log(opt); 
       wx.setStorageSync('opt', opt);
       if (wx.getStorageSync('user')) {
         this.fxjs(opt)
@@ -273,13 +270,11 @@ Page({
           cate,
           allpage: res.data.data.allpage
         })
-      
         wx.hideLoading();
         wx.stopPullDownRefresh()
       }
     })
   },
-
   fun(a, b) {
     this.data.pages > 1 ? a = this.data.a.concat(b) : a = b
     this.setData({

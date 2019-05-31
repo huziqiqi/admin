@@ -78,6 +78,9 @@ Page({
     })
   },
   chooseAddress(e) {
+    console.log(e.currentTarget.dataset.item);
+    var data = e.currentTarget.dataset.item
+    data.addressid=data.id
     wx.setStorage({
       key: "shdz",
       data: e.currentTarget.dataset.item,

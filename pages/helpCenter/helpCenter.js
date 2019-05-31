@@ -11,11 +11,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (opt) {
     wx.request({
       url: getApp().url + "//user.help/index",
       data: {
-
       },
       method: "POST",
       success: (res) => {

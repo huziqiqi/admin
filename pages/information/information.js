@@ -11,10 +11,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (opt) {
+    console.log(opt);
     this.setData({
-      user: wx.getStorageSync("userInfo")
+      user: wx.getStorageSync("userInfo"),
+      item:opt
     })
+
   },
 
   /**

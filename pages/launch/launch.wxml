@@ -5,6 +5,9 @@
     <input type='text' placeholder='输入拼团主题'></input>
   </view>
 </view> -->
+
+
+
 <view class="flex order-status" bindtap='changeOil'>
   <view class="order-status-item  {{num==1?' order-status-item-active':''}}" data-num='1'>全部</view>
   <view class="order-status-item   {{num==2?' order-status-item-active':''}}" data-num='2'>

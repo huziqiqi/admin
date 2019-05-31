@@ -12,7 +12,9 @@ if (flg==1) {
 fundebug.init(
   {
     apikey: '3011bf97f509533a48f598e96ce7a28c7293325580b7646ebb55c9f23a9ad2d7',
+    // apikey: '3011bf97f509533a48css8e96ce7a28c7293325580b7646ebb55c9f23a9ad2d7',
     silentConsole: true,
+    silentBehavior:true,
     silentApp: true,
     silentPage: true,
     setUserInfo: true,   
@@ -36,8 +38,6 @@ App({
           fundebug.systemInfo = res;
         }
       })
-  
-
   },
   // 更新版本
   update: function () {

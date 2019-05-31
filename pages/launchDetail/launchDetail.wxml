@@ -14,13 +14,13 @@
   </view>
   <view class='tui-countdown-content rt' >
     <view>距结束仅剩</view>
-    <text class='tui-conutdown-box'>{{countDownList.day}}</text>
+    <text class='tui-conutdown-box'>{{countDownList[0].day}}</text>
     天
-    <text class='tui-conutdown-box'>{{countDownList.hou}}</text>
+    <text class='tui-conutdown-box'>{{countDownList[0].hou}}</text>
     :
-    <text class='tui-conutdown-box'>{{countDownList.min}}</text>
+    <text class='tui-conutdown-box'>{{countDownList[0].min}}</text>
     :
-    <text class='tui-conutdown-box tui-countdown-bg'>{{countDownList.sec}}</text>
+    <text class='tui-conutdown-box tui-countdown-bg'>{{countDownList[0].sec}}</text>
   </view>
 </view>
 <view class='share'>
@@ -80,42 +80,36 @@
     已参团(人)
   </view>
   <view>
-    <text>1</text>
+    <text>{{item.single_num}}</text>
     单买人数
   </view>
   <view>
-    <text>1</text>
+    <text>{{item.share_num}}</text>
     分享人数
   </view>
   <view>
-    <text>92</text>
+    <text>{{item.share_money}}</text>
     分享佣金
   </view>
   <view>
-    <text>￥1</text>
+    <text>￥{{item.total_money?item.total_money:0}}</text>
     销售总额
   </view>
 </view>
 <view class='jl'>
-  <view class='tit'>参与记录</view>
-  <!-- <view class='pm'>
-    <text>NO.01</text>
-    <view>
-      <image src="../../images/avan.gif" mode='widthFix'></image>
-      小丸子
+    <view class='tit'>参与记录</view>
+  <view class='pm' wx:for="{{userbuy}}" wx:key="item">
+    <text>{{item.NO}}</text>
+    <view style="width:200rpx;">
+      <image src="{{item.headimgurl}}" mode='widthFix'></image>
+      {{item.nickname}}
     </view>
-    <view>+1</view>
-    <text>2019-01-17 12:37</text>
+    <view>+{{item.nums}}</view>
+    <text>{{item.times}}</text>
   </view>
-  <view class='pm'>
-    <text>NO.02</text>
-    <view>
-      <image src="../../images/avan.gif" mode='widthFix'></image>
-      小丸子
-    </view>
-    <view>+1</view>
-    <text>2019-01-17 12:37</text>
-  </view> -->
+  <view class='pm' wx:if="{{!userbuy}}">
+    <text style="margin: 0 auto">暂无参团纪录</text>
+  </view>
 </view>
 <view style='height:100rpx;'></view>
 <view class='gz clear'>

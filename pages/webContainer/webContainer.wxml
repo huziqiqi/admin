@@ -1,1 +1,7 @@
-<web-view src="{{url}}"></web-view>
+<!-- <web-view src="{{url}}"></web-view> -->
+<!-- <web-view src="https://www.baidu.com"></web-view> -->
+
+
+
+
+<rich-text nodes="{{info}}"></rich-text>

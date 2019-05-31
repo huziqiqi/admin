@@ -71,7 +71,8 @@ Component({
                   },
                   success: function (res) {
                     if (res.data.code == 200) {
-                      wx.setStorageSync('userInfo', userInfo);
+                      wx.setStorageSync('userInfo', userInfo);  
+                      // res.data.data.id = 58                   
                       wx.setStorageSync('user', res.data.data);
                       wx.request({
                         url: getApp().url + '/user.login/wxlogin',

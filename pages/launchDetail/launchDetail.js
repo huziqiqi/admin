@@ -1,6 +1,6 @@
 // pages/goodsDetail/goodsDetail.js
 let goodsList = [{
-  actEndTime: '2019-05-01 10:00:43'
+  actEndTime: '2019-06-01 10:00:43'
 }, ]
 var app = getApp();
 Page({
@@ -30,19 +30,16 @@ Page({
       method: "POST",
       success: (res) => {
         let data = res.data.data.info     
-       var endTime= Date.parse(data.end_time)
+        // var endTime = Date.parse(data.end_time)
+        var endTime = Date.parse("2019-06-01 10:00:43".replace(/-/g, '/'))
         this.setData({
           item: data,
           userId: opt.userid,
           proid: opt.proid,
+          users:res.data.data.users,
+          endTime
         })
-        this.countDown(endTime);
-
-        getApp().globalData.fundebug.notify("倒计时", "倒计时手机不显示!", {
-          metaData: {
-            endTime: endTime
-          }
-        });
+        this.countDown(); 
       }
     })
   },
@@ -136,7 +133,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    this.setData({
+     endTime:0
+    })
   },
 
   /**
@@ -156,17 +155,17 @@ Page({
   /**
    * 用户点击右上角分享
    */
-
-  countDown(endTime) { //倒计时函数  
+    countDown() { //倒计时函数 
+    // 获取当前时间，同时得到活动结束时间数组 
     let newTime = new Date().getTime();
-    
-    console.log(endTime);
- 
-    let time = (endTime - newTime) / 1000;
-    let obj = null;
-   
-    if (time > 0) {
-        // 获取天、时、分、秒
+    let endTimeList = this.data.actEndTimeList;
+    let countDownArr = [];
+      let endTime =this.data.endTime;
+      let obj = null;
+      // 如果活动未结束，对时间进行处理 
+      if (endTime - newTime > 0) {
+        let time = (endTime - newTime) / 1000;
+        // 获取天、时、分、秒 
         let day = parseInt(time / (60 * 60 * 24));
         let hou = parseInt(time % (60 * 60 * 24) / 3600);
         let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
@@ -177,7 +176,8 @@ Page({
           min: this.timeFormat(min),
           sec: this.timeFormat(sec)
         }
-      } else { //活动已结束，全部设置为'00'
+        setTimeout(this.countDown, 1000);
+      } else { //活动已结束，全部设置为'00' 
         obj = {
           day: '00',
           hou: '00',
@@ -185,12 +185,11 @@ Page({
           sec: '00'
         }
       }
+      countDownArr.push(obj);
     // })
-    // 渲染，然后每隔一秒执行一次倒计时函数
-    
+    // 渲染，然后每隔一秒执行一次倒计时函数 
     this.setData({
-      countDownList:obj
+      countDownList: countDownArr
     })
-    setTimeout(this.countDown(endTime), 1000);
-  }
+  },
 })
