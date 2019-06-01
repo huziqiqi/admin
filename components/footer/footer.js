@@ -18,7 +18,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    curIndex: '0'
+    curIndex: '0',
+    isiphonex: getApp().globalData.isiphonex
   },
 
   /**

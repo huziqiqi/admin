@@ -58,6 +58,7 @@ Page({
     onLoad: function (opt) {
         console.log(opt);
         this.request(opt.postedId)
+        
        
     },
     request(postedId){

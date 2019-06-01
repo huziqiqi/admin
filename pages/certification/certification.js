@@ -37,7 +37,7 @@ Page({
   jumpxy(){
     wx.navigateTo({
       
-      url: './webContainer?url='+this.data.infolink
+      url: '../webContainer/webContainer?id=3'
     })
     
   },

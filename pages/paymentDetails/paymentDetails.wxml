@@ -16,24 +16,24 @@
     <text>{{date[1]}}月</text>
     <image mode='widthFix' src='../../images/icon14.png'></image>
   </picker>
-  <view class='item {{state==4?"item-active":""}}' data-state="4" bindtap='changeOil2'>
+  <view class='item {{state==3?"item-active":""}}' data-state="3" bindtap='changeOil2'>
     <!-- <view style="height:44rpx">123</view>
     <text>销售额</text> -->
     <view style="height:22rpx"></view>
     <text>已成交</text>
     <view style="height:22rpx"></view>
   </view>
-  <view class='item {{state==6?"item-active":""}}' data-state="6" bindtap='changeOil2'>
+  <view class='item {{state==5?"item-active":""}}' data-state="5" bindtap='changeOil2'>
     <view style="height:22rpx"></view>
     <text>已退款</text>
     <view style="height:22rpx"></view>
   </view>
-  <view class='item {{state==3?"item-active":""}}' data-state="3" bindtap='changeOil2'>
-    <!-- <view>230</view> -->
+  <!-- <view class='item {{state==0?"item-active":""}}' data-state="0" bindtap='changeOil2'>
+    <view>230</view>
         <view style="height:22rpx"></view>
     <text>扣返佣</text>
         <view style="height:22rpx"></view>
-  </view>
+  </view> -->
 </view>
 <view class='list-wrapper'>
 

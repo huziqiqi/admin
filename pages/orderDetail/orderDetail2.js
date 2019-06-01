@@ -97,7 +97,11 @@ Page({
   onHide: function () {
 
   },
-
+  jump() {
+    wx.navigateTo({
+      url: "../ptxq/ptxq?proid=" + this.data.item.gid + "&userid=" + wx.getStorageSync('user').id
+    })
+  },
   /**
    * 生命周期函数--监听页面卸载
    */

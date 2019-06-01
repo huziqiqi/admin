@@ -10,7 +10,8 @@ Page({
     product: [],
     num: 0,
     allpage: 1,
-    allprice: 0
+    allprice: 0,
+    type:1
   },
 
   /**
@@ -18,13 +19,26 @@ Page({
    */
   onLoad: function (options) {
     this.request()
+    wx.request({
+      url: getApp().url + "/user.index",
+      data: {
+        userid: wx.getStorageSync('user').id
+      },
+      method: "POST",
+      success: (res) => {
+        this.setData({
+          item: res.data.data
+        })
+      }
+    })
   },
   request() {
     wx.request({
       url: getApp().url + "/user.myprice/cashlist",
       data: {
         userId: wx.getStorageSync('user').id,
-        pages:this.data.pages
+        pages:this.data.pages,
+        type:this.data.type
       },
       method: "POST",
       success: (res) => {
@@ -43,7 +57,7 @@ Page({
           this.data.pages > 1 ? product = this.data.product.concat(res.data.data.txlists) : product = res.data.data.txlists
           this.setData({
             product,
-            num: res.data.data.num,
+            num: res.data.data.success,
             allpage: res.data.data.allpage,
             allprice: res.data.data.allprice,
           })
@@ -52,6 +66,13 @@ Page({
 
       }
     })
+  },
+  changeOil(e) {
+    this.setData({
+      type: parseInt(e.target.dataset.type),
+      product:[]
+    })
+    this.request()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,6 +1,6 @@
 Page({
   data: {
-    url: "https://www.baidu.com"
+    
   },
   onLoad(opt) {
     console.log(opt);
@@ -14,9 +14,11 @@ Page({
       // flg:3,
       callback: (res) => {  
         console.log(res.data);
-        
         this.setData({
          info:res.data.data.info
+        })
+        wx.setNavigationBarTitle({
+          title: res.data.data.title
         })
       }
     }

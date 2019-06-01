@@ -36,8 +36,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (opt) {
+    console.log(opt);  
     this.setData({
       isLogin: wx.getStorageSync('user') ? true : false ,
+      isiphonex: getApp().globalData.isiphonex
     })
     
     this.setData({
@@ -60,9 +62,10 @@ Page({
           this.setData({
             item: res.data.data.info,
             userbuy: res.data.data.userBuy,
-            fbr:res.data.data.user,
+            fbr: res.data.data.user,
+            num:res.data.data.num,
             isShow: true,
-            opt: wx.getStorageSync('opt'),
+            opt: getApp().opt,
           })
           // console.log('/pages/index/index?userid=' + wx.getStorageSync('user').id + '&proid=' + this.data.item.id);
           wx.hideLoading();

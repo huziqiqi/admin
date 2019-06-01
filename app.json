@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/certification/certification",
     "pages/haibaotest/ptxq",  
     "pages/launchDetail/launchDetail",
-    "pages/certification/certification",
     "pages/releaseCertification/releaseCertification",
     "pages/personal/personal",
     "pages/teamBuy/teamBuy",

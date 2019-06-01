@@ -19,7 +19,7 @@
 </view>
 <view class="product">
   <view wx:for="{{product}}" wx:key="item">
-    <navigator hover-class="no" url="../ptxq/ptxq?id={{item.id}}">
+    <navigator hover-class="no" url="../ptxq/ptxq?userid={{userId}}&proid={{item.id}}">
       <text class='nr'>{{item.title}}</text>
       <view class='times'>
         <text>{{item.create_time}}</text>

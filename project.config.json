@@ -40,16 +40,16 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "分享进入id=58显卡",
+					"name": "二维码分享进入userid=1 pid=3",
 					"pathName": "pages/index/index",
-					"query": "userid=58&proid=3",
-					"scene": null
+					"query": null,
+					"scene": "userId%3D1%26%26proid%3D3"
 				},
 				{
 					"id": -1,
-					"name": "canvas",
+					"name": "好友分享进入userid=1 pid=3",
 					"pathName": "pages/index/index",
-					"query": "userid=1&proid=6",
+					"query": "userid=58&proid=3",
 					"scene": null
 				},
 				{

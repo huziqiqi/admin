@@ -130,7 +130,49 @@ Page({
   onShow: function () {
     this.request()
   },
+  sqtk(e){
 
+console.log(e);
+
+  
+
+   wx.showModal({
+     title: "提示",
+     content:"您确认给用户退款吗",
+     showCancel: true,
+     cancelText:"取消",
+     confirmText:"确定",
+     //cancelColor:"#000",
+     //confirmColor:"#576B95",
+     success:()=>{
+       wx.request({
+         url: getApp().url + "/user.used/refund",
+         data: {
+           id: e.currentTarget.dataset.id,
+           ordernum: e.currentTarget.dataset.ordernum
+         },
+         method: "POST",
+         success: (res) => {
+          wx.showModal({
+            title: "提示",
+            content:res.data.msg,
+            showCancel: false,
+            //cancelText:"取消",
+            //confirmText:"确定",
+            //cancelColor:"#000",
+            //confirmColor:"#576B95",
+            //success:()=>{},
+            //fail: () => {},
+            //complete: () => {},
+          })
+         }
+       })
+
+     },
+     //fail: () => {},
+     //complete: () => {},
+   })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

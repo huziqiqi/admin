@@ -14,14 +14,16 @@ Page({
     date: temp,
     type: 0,
     pages: 1,
-    state: 4,
+    state: 3,
     items:[]
   },
 
   bindChange(e) {
     const val = e.detail.value
     this.setData({
-      date: val.split('-')
+      date: val.split('-'),
+      items: []
+
     })
     this.request()
   },
@@ -35,12 +37,15 @@ Page({
   changeOil(e) {
     this.setData({
       type: parseInt(e.target.dataset.type),
+      items: []
+
     })
     this.request()
   },
   changeOil2(e) {
     this.setData({
       state: parseInt(e.currentTarget.dataset.state),
+      items:[]
     })
     this.request()
   },

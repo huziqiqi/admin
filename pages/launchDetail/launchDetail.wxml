@@ -97,8 +97,8 @@
   </view>
 </view>
 <view class='jl'>
-    <view class='tit'>参与记录</view>
-  <view class='pm' wx:for="{{userbuy}}" wx:key="item">
+    <view class='tit'>参团记录</view>
+  <view class='pm' wx:for="{{users}}" wx:key="item">
     <text>{{item.NO}}</text>
     <view style="width:200rpx;">
       <image src="{{item.headimgurl}}" mode='widthFix'></image>
@@ -107,12 +107,12 @@
     <view>+{{item.nums}}</view>
     <text>{{item.times}}</text>
   </view>
-  <view class='pm' wx:if="{{!userbuy}}">
+  <view class='pm' wx:if="{{!users}}">
     <text style="margin: 0 auto">暂无参团纪录</text>
   </view>
 </view>
 <view style='height:100rpx;'></view>
-<view class='gz clear'>
+<view class='gz clear'  style="{{isiphonex?'padding-bottom:34rpx':''}}">
   <!-- <navigator url='../index/index' class='lf' open-type="redirect">
     <image src='../../images/team.gif' mode='widthFix'></image>
     <text>修改团购</text>

@@ -97,8 +97,13 @@ Page({
     let pick_up = null
     let consignee = null
     let consignee_phone = null
-    if (this.data.groupId == wx.getLaunchOptionsSync().query.proid) {
-      var parentid = wx.getLaunchOptionsSync().query.userid     
+    // console.log( getApp().opt);
+    // console.log("购买商品ID=" + this.data.groupId);
+    // console.log("分享商品ID="+getApp().opt.proid);
+    // console.log("购买用户ID=" + this.data.userId);
+    // console.log("分享用户ID=" + getApp().opt.userid);   
+    if (this.data.groupId == getApp().opt.proid) {
+      var parentid = getApp().opt.userid     
     }
     if (this.data.item.delivery == 2) {
       //物流

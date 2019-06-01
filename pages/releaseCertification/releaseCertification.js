@@ -102,21 +102,26 @@ console.log(e.detail.value);
   },
 
   getCode(e){
-    wx.request({
-      url: getApp().url + "/user.renzheng/ajaxcode",
-      data: {    
-        tel: this.data.tel,
-      },
-      method: "POST",
-      success: (res) => {
-        wx.showModal({
-          title: '提示',
-          content: res.data.msg,
-          showCancel: false,   
-        })
-        
-      }
-    })
+    if (this.data.tel!="") {
+      wx.request({
+        url: getApp().url + "/user.renzheng/ajaxcode",
+        data: {
+          tel: this.data.tel,
+        },
+        method: "POST",
+        success: (res) => {
+          wx.showModal({
+            title: '提示',
+            content: res.data.msg,
+            showCancel: false,
+          })
+
+        }
+      })
+    } else {
+      this.getCode()
+    }
+    
 
   },
   /**

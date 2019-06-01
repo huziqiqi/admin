@@ -38,6 +38,24 @@ App({
           fundebug.systemInfo = res;
         }
       })
+
+
+      let _this = this;
+wx.getSystemInfo({
+    success(res) {
+      console.log(res);
+    fundebug.notify("手机型号", "手机型号!", {
+      metaData: {
+       phone:res
+      }
+    });
+        let deviceModel = 'iPhone X';
+        if (res.model.indexOf(deviceModel) > -1) {
+            console.log(res.model);
+            _this.globalData.isiphonex = true;
+        }
+    },
+});
   },
   // 更新版本
   update: function () {
@@ -138,7 +156,7 @@ App({
   shopImg: [],
   shopImgArr: [],
   globalData: {
-    isIphoneX: false,
+    isIphonex: false,
     userInfo: null,
     fundebug: fundebug
   }

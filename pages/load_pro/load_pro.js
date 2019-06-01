@@ -50,7 +50,7 @@ Page({
       url: getApp().url + "/proCate",
       data: {},
       method: "POST",
-      // flg: 3,
+      flg: 3,
       callback: (res) => {
         var array = [{
           id: 0,
@@ -69,7 +69,7 @@ Page({
       url: getApp().url + "/deck",
       data: {},
       method: "POST",
-      // flg:3,
+      flg:3,
       callback: (res) => {
         var unit = [{
           name: "请选择"
@@ -79,6 +79,7 @@ Page({
         })
       }
     }
+    
     app.ajax(obj)
     app.ajax(objs)
     wx.getStorage({
@@ -109,8 +110,7 @@ Page({
     }
     if (opt.deck != "") {
       opt.deck = this.data.unit[opt.deck].name
-    }
-   
+    } 
     if (!this.data.shopImg[0]) {
       this.tips("请上传图片");
     } else if (opt.title == "") { 
@@ -182,7 +182,6 @@ Page({
         uindex: 0,
         index: 0,
         date: "请选择",
-        shopImg: []
       })
     }
     

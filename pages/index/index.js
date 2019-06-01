@@ -32,11 +32,12 @@ Page({
   },
   onLoad: function (options) {  
     wx.hideTabBar()
+    that=this
     console.log(options);        
     if (JSON.stringify(options)!== "{}"){
       let obj = {
         title: "分享测试",
-        content: "分享二维码",
+        content: "获取分享参数",
         opt: options
       }
       getApp().debuginfo(obj) 
@@ -46,24 +47,43 @@ Page({
       var opt = {}
       opt.userid = flg[0].split("%3D")[1]
       opt.proid = flg[1].split("%3D")[1]
-      wx.setStorageSync('opt', opt);
+      // 将分项数据写入
+      // wx.setStorageSync('opt', opt);
+      getApp().opt = opt
+      let obj = {
+        title: "分享测试",
+        content: "分享二维码",
+        opt: opt
+      }
+      getApp().debuginfo(obj) 
+
       if (wx.getStorageSync('user')) {
         this.fxjs(opt)
       }
      
+     
     } else if (options.userid) {
+      
       var opt = {}
       opt.userid = options.userid
       opt.proid = options.proid
-      console.log(opt); 
-      wx.setStorageSync('opt', opt);
+
+      // 将分项数据写入
+      // wx.setStorageSync('opt', opt);
+      getApp().opt = opt
+      let obj = {
+        title: "分享测试",
+        content: "分享好友",
+        opt: opt
+      }
+      getApp().debuginfo(obj) 
       if (wx.getStorageSync('user')) {
+        // console.log(options);
+
         this.fxjs(opt)
       } 
-    } else{
-      
+     
     }   
-    that = this
     this.setData({
       isLogin: wx.getStorageSync('user') ? true : false,
     })  
@@ -71,17 +91,14 @@ Page({
     
   },
   fxjs(opt){
-// var parentId = options.scene.split("&")[0].split("%3D")[1];
     if (wx.getStorageSync('user')) {
-      let opt = {}
-      opt.userid = wx.getStorageSync('user').id
-      opt.proid = wx.getStorageSync('opt').proid
       // wx.setStorageSync('opt', opt);
+      console.log(opt.proid);
       wx.navigateTo({
-        url: "../ptxq/ptxq?proid=" + opt.proid + "&userid=" + opt.userid
+        url: "../ptxq/ptxq?proid=" + opt.proid + "&userid=" + wx.getStorageSync('user').id
       })
     } else {
-      this.fxjs(e)
+      this.fxjs(opt)
     }
   },
 /**
@@ -89,6 +106,17 @@ Page({
  * @return xasx
  */
   testajax(){
+     var a= {
+        nickName:"Huziqiqi",
+        gender:1,
+        language:"zh_CN",
+        city:"Weinan",
+        province:"Shaanxi",
+        country:"China",
+        avatarUrl:"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKeIMNbeGmsJJaMe5hg8NoicH2SkF0mONjOXDAvqjbMcX04iblspB5cga2lFCfxJkLY1xLTFfc1sr1g/132",  
+        openid: " "
+      }
+    
     var flg=1
     if (flg==1) {
       wx.request({

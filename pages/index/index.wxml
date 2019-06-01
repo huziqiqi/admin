@@ -42,9 +42,9 @@
    <image src='../../images/notData.png' mode="widthFix" style="width:100% ;margin-top:100rpx"></image>
  </view>
   <view wx:for="{{product}}" wx:key="item" class='clear'>
-    <image src="{{item.headimgurl?item.headimgurl:'../../images/avan.gif'}}" class='lf'></image>
+    <image src="{{item.headimgurl?item.headimgurl:'../../images/avan.gif'}}"  catchtap="hishome"  data-postedId="{{item.userid}}" class='lf'></image>
     <view class='rt' bindtap="toPtxq" data-id="{{item.id}}">
-      <view class='name'>
+      <view class='name'  catchtap="hishome"  data-postedId="{{item.userid}}">
         {{item.nickname}}
         <image src="../../images/vip.jpg" mode="widthFix"></image>
         <text class='rt' catchtap="hishome" data-postedId="{{item.userid}}">TA的主页</text>

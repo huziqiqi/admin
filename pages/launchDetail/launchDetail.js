@@ -26,17 +26,20 @@ Page({
         userid: wx.getStorageSync('user').id,
         proid: opt.proid,
 
+        // proid: 2,
+
       },
       method: "POST",
       success: (res) => {
         let data = res.data.data.info     
         // var endTime = Date.parse(data.end_time)
-        var endTime = Date.parse("2019-06-01 10:00:43".replace(/-/g, '/'))
+        var endTime = Date.parse(res.data.data.info.end_time.replace(/-/g, '/'))
         this.setData({
           item: data,
           userId: opt.userid,
           proid: opt.proid,
           users:res.data.data.users,
+          isiphonex: getApp().globalData.isiphonex,
           endTime
         })
         this.countDown(); 
@@ -61,7 +64,7 @@ Page({
   
     wx.showModal({
       title	:"提示",
-      content:"您确认要终止订单吗",
+      content:"您确认要终止团购吗？",
       success:(res)=>{
         if (res.confirm) {
           // console.log('用户点击确定')
@@ -81,7 +84,7 @@ Page({
       },
       method: "POST",
       success: (res) => {
-        if (res.data.code = 200) {
+        if (res.data.code == 200) {
           wx.showToast({
             title: res.data.msg
           })

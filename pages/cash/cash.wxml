@@ -1,4 +1,15 @@
 <!-- pages/cash/cash.wxml -->
+<view class="classification-wrapper flex" bindtap='changeOil'>
+  <view class="classification-item {{type==1?'  classification-item-active':''}}" data-type='1'>
+    全部
+  </view>
+  <view class="classification-item{{type==2?'  classification-item-active':''}}" data-type='2'>
+    拼团买
+  </view>
+  <view class="classification-item{{type==3?'  classification-item-active':''}}" data-type='3'>
+    单独买
+  </view>
+</view>
 <view class='tx'>
   <view>
     累计提现：
@@ -9,13 +20,14 @@
     <text>￥{{allprice}}元</text>
   </view>
 </view>
+
  <view wx:if="{{!product[0]}}" style="height:86%;background:#fff; margin-top:20rpx;box-sizing:border-box">
    <image src='../../images/notData.png' mode="widthFix" style="width:100% ;margin-top:100rpx"></image>
  </view>
 <view class='txtj'>
   <view wx:for="{{product}}" wx:key="item">
     <view>
-      提现到 - 微信号：18197246380
+      提现到 - 微信号：{{item.phone}}
       <text class='rt'>-{{item.price}}</text>
     </view>
     <text>{{item.create_time}}</text>

@@ -1,5 +1,6 @@
 <!-- pages/orderDetail/orderDetail.wxml -->
-<view class='goods section'>
+
+<view class='goods section' bindtap="jump">
   <view class='title order-status'>{{item.msg}}</view>
   <view class='flex'>
     <image style='width: 200rpx;margin-right: 20rpx;' mode='widthFix' src='{{item.img}}'></image>

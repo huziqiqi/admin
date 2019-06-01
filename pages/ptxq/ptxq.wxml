@@ -70,7 +70,8 @@
       已参团(人)
     </view>
     <view>
-      <text>{{proid}}</text>
+      <!-- <text>{{opt.userid}}</text>      -->
+       <text>{{num}}</text>
       我带来的人
     </view>
   </view>
@@ -89,7 +90,7 @@
       <text style="margin: 0 auto">暂无参团纪录</text>
     </view>
   </view>
-  <view class='gz clear'>
+  <view class='gz clear'  style="{{isiphonex?'padding-bottom:34rpx':''}}">
     <navigator url='../index/index' class='lf' open-type="switchTab">
       <image src='../../images/foot1.jpg' mode='widthFix'></image>
       <text>首页</text>
