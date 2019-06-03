@@ -4,10 +4,10 @@
     待审核
   </view>
   <view class="classification-item{{type==2?'  classification-item-active':''}}" data-type='2'>
-    已退款
+    已提现
   </view>
   <view class="classification-item{{type==3?'  classification-item-active':''}}" data-type='3'>
-    未退款
+    提现失败
   </view>
 </view>
 <view class='tx'>
