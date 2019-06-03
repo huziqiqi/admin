@@ -40,8 +40,7 @@ console.log(e.detail.value);
     success: (res) => {
       console.log(res.data.data);
       if (res.data.code == 200) {
-        this.pay(res.data.data)
-        
+        this.pay(res.data.data)        
       }else{
         wx.showModal({
           title: '提示',
@@ -89,7 +88,11 @@ console.log(e.detail.value);
         }
       },
       fail: function (res) {
-        console.log(res);
+        wx.showModal({
+          title: '提示',
+          content: '支付失败',
+          showCancel: false
+        })
         wx.hideLoading();
       }
     })
@@ -101,27 +104,64 @@ console.log(e.detail.value);
     
   },
 
-  getCode(e){
-    if (this.data.tel!="") {
-      wx.request({
-        url: getApp().url + "/user.renzheng/ajaxcode",
-        data: {
-          tel: this.data.tel,
-        },
-        method: "POST",
-        success: (res) => {
-          wx.showModal({
-            title: '提示',
-            content: res.data.msg,
-            showCancel: false,
-          })
-
-        }
+  timeend(){
+    if (this.data.time > 0) {
+      console.log(this.data.time);
+      this.setData({
+        time: this.data.time -= 1
       })
+      setTimeout(this.timeend, 1000);
     } else {
-      this.getCode()
+      console.log("可以发送了");
+      this.setData({
+        time:""
+      })
     }
+   
     
+  },
+  getCode(e){
+   console.log(123);  
+    if (!this.data.time) {
+      if (this.data.tel != "") {
+        wx.request({
+          url: getApp().url + "/user.renzheng/ajaxcode",
+          data: {
+            tel: this.data.tel,
+          },
+          method: "POST",
+          success: (res) => {
+            if (res.data.code == 200) {
+              this.setData({
+                time: 60
+              })
+              wx.showModal({
+                title: '提示',
+                content: res.data.msg,
+                showCancel: false,
+              })
+              setTimeout(this.timeend, 1000);
+            } else {
+              wx.showModal({
+                title: '提示',
+                content: res.data.msg,
+                showCancel: false,
+              })
+            }
+          }
+        })
+      } else {
+        this.getCode()
+      }
+    }else if (this.data.time>0) {
+      // wx.showModal({
+      //   title: '提示',
+      //   content: "请勿频繁发送",
+      //   showCancel: false,
+      // })
+    }
+   
+   
 
   },
   /**

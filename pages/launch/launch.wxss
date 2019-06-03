@@ -163,7 +163,8 @@ image {
 }
 
 .orderNum-wrapper image {
-  width: 30rpx;
+  width: 35rpx;
   vertical-align: middle;
-  margin-right: 10rpx;
+  margin: 0 10rpx;
+  line-height: 40rpx;
 }

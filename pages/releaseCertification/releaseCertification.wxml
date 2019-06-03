@@ -15,7 +15,7 @@
   <view class="input flex" style='margin-bottom: 50rpx;'>
     <text>验证码</text>
     <input type='text' name="code" placeholder='请输入验证码'></input>
-    <button class='getCode' bindtap='getCode'>获取验证码</button>
+    <button class='getCode' bindtap='getCode' style="{{time?'color:#aaa;':''}}">{{time}}获取验证码</button>
   </view>
   <button class="submitForm" form-type='submit'>支付认证费用￥{{rzfy}}</button>
 </form>

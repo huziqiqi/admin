@@ -77,6 +77,7 @@ Page({
       },
       method: "POST",
       success: (res) => {
+        res.data.data.isRz=0
         this.setData({
           item: res.data.data
         })

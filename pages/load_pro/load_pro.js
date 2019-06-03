@@ -177,6 +177,7 @@ Page({
     
     if (getApp().sumbSuccess == 1) {
       //重置表单
+      
       this.setData({
         form_info: "",
         uindex: 0,

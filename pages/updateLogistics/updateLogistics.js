@@ -55,18 +55,38 @@ Page({
       },
       method: "POST",
       success: (res) => {
-        wx.showModal({
-          title: "提示",
-          content:res.data.msg,
-          showCancel: false,
-          //cancelText:"取消",
-          //confirmText:"确定",
-          //cancelColor:"#000",
-          //confirmColor:"#576B95",
-          //success:()=>{},
-          //fail: () => {},
-          //complete: () => {},
-        })
+        if (res.data.code==200) {
+          wx.showModal({
+            title: "提示",
+            content: res.data.msg,
+            showCancel: false,
+            //cancelText:"取消",
+            //confirmText:"确定",
+            //cancelColor:"#000",
+            //confirmColor:"#576B95",
+            success:()=>{
+              wx.navigateBack({
+                detlta: 1
+              })
+            },
+            //fail: () => {},
+            //complete: () => {},
+          })
+        } else {
+          wx.showModal({
+            title: "提示",
+            content: res.data.msg,
+            showCancel: false,
+            //cancelText:"取消",
+            //confirmText:"确定",
+            //cancelColor:"#000",
+            //confirmColor:"#576B95",
+            //success:()=>{},
+            //fail: () => {},
+            //complete: () => {},
+          })
+        }
+       
 
       }
     })

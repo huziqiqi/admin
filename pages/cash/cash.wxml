@@ -1,13 +1,13 @@
 <!-- pages/cash/cash.wxml -->
 <view class="classification-wrapper flex" bindtap='changeOil'>
   <view class="classification-item {{type==1?'  classification-item-active':''}}" data-type='1'>
-    全部
+    待审核
   </view>
   <view class="classification-item{{type==2?'  classification-item-active':''}}" data-type='2'>
-    拼团买
+    已退款
   </view>
   <view class="classification-item{{type==3?'  classification-item-active':''}}" data-type='3'>
-    单独买
+    未退款
   </view>
 </view>
 <view class='tx'>

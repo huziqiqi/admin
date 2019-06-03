@@ -40,9 +40,10 @@
       <view class="orderNum-wrapper">
         <view>
           <image src='../../images/ren.gif' mode='widthFix'></image>
-          {{item.num}}人参团
+         <text class="" selectable="false" space="false" decode="false">{{item.num}}人参团</text>
           <image src='../../images/bag.gif' mode='widthFix'></image>
-          {{item.buynum}}人单买
+         <text class="" selectable="false" space="false" decode="false">{{item.buynum}}人单买</text>
+         
         </view>
         <view class="btn">{{item.msg}}</view>
       </view>
