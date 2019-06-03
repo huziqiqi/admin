@@ -12,31 +12,35 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-    wx.request({
-      url: getApp().url + "//user.used/GroupOrderDetail",
-      data: {
-        userid: wx.getStorageSync('user').id,
-        oid: options.oid
-      },
-      method: "POST",
-      success: (res) => {
-       if (res.data.code==200) {
-         this.setData({
-           item: res.data.data,
-           oid: options.oid
-         })
-       } else {
-         wx.showModal({
-           title: '提示',
-           content: res.data.msg,
-           showCancel: false
-         })
-       }
-      }
+    this.setData({
+      options: options 
     })
+   this.request()
   },
-
+request(){
+  wx.request({
+    url: getApp().url + "//user.used/GroupOrderDetail",
+    data: {
+      userid: wx.getStorageSync('user').id,
+      oid: this.data.options.oid
+    },
+    method: "POST",
+    success: (res) => {
+      if (res.data.code == 200) {
+        this.setData({
+          item: res.data.data,
+          oid: this.data.options.oid
+        })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: res.data.msg,
+          showCancel: false
+        })
+      }
+    }
+  })
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -66,7 +70,7 @@ Page({
             content: res.data.msg,
             showCancel: false
           })
-
+          this.request()
         }
       })
       
@@ -85,6 +89,7 @@ Page({
             content: res.data.msg,
             showCancel: false
           })
+          this.request()
 
         }
       })
@@ -101,7 +106,7 @@ Page({
     wx.navigateTo({
       url: "../ptxq/ptxq?proid=" + this.data.item.gid + "&userid=" + wx.getStorageSync('user').id
     })
-  },、
+  },
   /**
    * 生命周期函数--监听页面卸载
    */

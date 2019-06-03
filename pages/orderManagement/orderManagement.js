@@ -132,10 +132,6 @@ Page({
   },
   sqtk(e){
 
-console.log(e);
-
-  
-
    wx.showModal({
      title: "提示",
      content:"您确认给用户退款吗",
@@ -161,7 +157,9 @@ console.log(e);
             //confirmText:"确定",
             //cancelColor:"#000",
             //confirmColor:"#576B95",
-            //success:()=>{},
+            success:()=>{
+              this.request()
+            },
             //fail: () => {},
             //complete: () => {},
           })

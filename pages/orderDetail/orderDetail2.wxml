@@ -47,6 +47,14 @@
       <view wx:if="{{item.iszt==0}}">快递地址：</view>
       <view>{{item.consignee_address}}</view>
     </view>
+    <view class='item flex' wx:if="{{item.type==2&&item.logistics_num}}">
+      快递公司：
+      <view>{{item.logistics_name}}</view>
+    </view>
+    <view class='item flex' wx:if="{{item.type==2&&item.logistics_num}}">
+      快递单号：
+      <view>{{item.logistics_num}}</view>
+    </view>
     <view class='item flex'>
       备注：
       <view>{{item.remark}}</view>
@@ -76,6 +84,5 @@
       <view>微信（在线支付）</view>
     </view>
   </view>
-<view class="btn" wx:if="{{item.msg=='待自提'}}" bindtap='theGoods'>确认已自提</view>
-
+<view class="btn" wx:if="{{item.msg=='待自提'&&item.status!=5}}" bindtap='theGoods'>确认已自提</view>
 </view>

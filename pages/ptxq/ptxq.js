@@ -39,12 +39,9 @@ Page({
     console.log(opt);  
     this.setData({
       isLogin: wx.getStorageSync('user') ? true : false ,
-      isiphonex: getApp().globalData.isiphonex
-    })
-    
-    this.setData({
-      proid: wx.getStorageSync('opt').userid
-    })
+      isiphonex: getApp().globalData.isiphonex,
+
+    })  
     wx.showLoading({
       title: "加载中，请稍等",
       mask: true
@@ -164,17 +161,28 @@ const opt={
   proid:this.data.opt.proid,
   userid: wx.getStorageSync('user').id
 }
-// if (this.data.isshow==1) {
-//   console.log(opt);
+if (this.data.item.status!=1) {
+ wx.showModal({
+   title: "提示",
+   content:"该团购已下架，暂无法分享",
+   showCancel: false,
+   //cancelText:"取消",
+   //confirmText:"确定",
+   //cancelColor:"#000",
+   //confirmColor:"#576B95",
+   //success:()=>{},
+   //fail: () => {},
+   //complete: () => {},
+ })
+}else{
+  this.setData({
+    isshow: e.target.dataset.is
+  })
 
-//   this.qrcode(opt)
-// }
+}
 
 
-    this.setData({
-      isshow: e.target.dataset.is
-    })
-
+   
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -252,170 +260,203 @@ const opt={
     })
   },
   share() {
-    new Promise((resolve, reject) => {
-    }).then(res=>{
-      // console.log(res);
+    // new Promise((resolve, reject) => {
+    // }).then(res=>{
+    //   // console.log(res);
        
-    })
-    wx.showLoading({
-      title: '正在生成海报',
-    })
+    // })
     var that = this
-    var text = that.data.item.title;
-    // Promise.all([promise, promise0]).then(res => {
-      var promise1 = new Promise(function (resolve, reject) {
-        let path = that.data.item.imgs[0]
-        wx.getImageInfo({
-          src: path,
-          success: function (res) {
-            // console.log(path);
-            resolve(res);
-          }
-        })
-      });
-      let promise2 = new Promise(function (resolve, reject) {
-        let path = that.data.qrcode
-        wx.getImageInfo({
-          // src: localpath,
-          src: path,
-          success: function (res) {
-            resolve(res);
-          }
-        })
-       
-      });
-      Promise.all(
-        [promise1, promise2]
-      ).then(res => {
-        // console.log(res);
+    var k = 2
 
-        const ctx = wx.createCanvasContext('shareImg')
-        var k = 2
-        ctx.rect(0 - k, 0 - k, (375 + 2) * k, 750 * k)
-        ctx.setFillStyle('#fff')
-        ctx.fill()
-        ctx.drawImage(res[0].path, 28 * k, 28 * k, 321 * k, 321 * k)
-        ctx.beginPath()
-        ctx.setFillStyle('#faa')
-        ctx.moveTo(0 * k, 54 * k)
-        ctx.arc(80 * k, 74 * k, 20 * k, 1.5 * Math.PI, 0.5 * Math.PI)
-        ctx.lineTo(0, 94 * k)
-        ctx.lineTo(0, 54 * k)
-        ctx.setFillStyle('#111')
-        ctx.fill()
-        ctx.beginPath()
-        ctx.setFillStyle('#fff')
-        ctx.setFontSize(20 * k)
-        ctx.fillText("爱蚁拼", 20 * k, 80 * k);
-        ctx.setTextAlign('left')
-        ctx.setTextBaseline("top")
-        ctx.setFillStyle('#000')
-        ctx.setFontSize(16 * k)
-        var chr = text.split("");
-        var row = [];
-        var temp = []
-        ctx.setFontSize(16 * k)
-        for (var a = 0; a < chr.length; a++) {
-          if (ctx.measureText(temp).width < 220 * k) {
-            temp += chr[a];
-          } else {
-            a--;
-            row.push(temp);
-            temp = "";
-          }
-        }
-        row.push(temp);
-        if (row.length > 2) {
-          var rowCut = row.slice(0, 2);
-          var rowPart = rowCut[1];
-          var test = "";
-          var empty = [];
-          for (var a = 0; a < rowPart.length; a++) {
-            if (ctx.measureText(test).width < 220 * k) {
-              test += rowPart[a];
-            } else {
-              break;
-            }
-          }
-          empty.push(test);
-          var group = empty[0] + "..."
-          rowCut.splice(1, 1, group);
-          row = rowCut;
-        }
-        for (var b = 0; b < row.length; b++) {
-          ctx.fillText(row[b], 28 * k, 375 * k + b * 25 * k, 220 * k);
-        }
-        // ctx.setFillStyle('#af0d1d')
-        var x = 250 * k
-        var y = 428 * k
+    if (that.data.prurl) {
+     wx.canvasToTempFilePath({
+       x: 1,
+       y: 1,
+       width: 375 * k,
+       height: 600 * k,
+       destWidth: 375 * k,
+       destHeight: 600 * k,
+       canvasId: 'shareImg',
+       success: function (res) {
+         /* 这里 就可以显示之前写的 预览区域了 把生成的图片url给image的src */
+         that.setData({
+           prurl: that.data.prurl,
+           hidden: false,
+           isshow: 3,
+         })
+         console.log(that.prurl);
 
-        ctx.drawImage(res[1].path, x + 5 * k, y + 5 * k, 90 * k, 90 * k)
-        ctx.setFillStyle('#f2001c')
-        ctx.setFontSize(9 * k)
-        ctx.fillText("扫描或长按二维码", x + 14 * k, y - 8 * k);
-        ctx.setLineWidth(k)
-        ctx.moveTo(x, y + 10 * k)
-        ctx.lineTo(x, y + 10 * k)
-        ctx.lineTo(x, y)
-        ctx.lineTo(x + 10 * k, y)
+         // console.log("生成海报");
+         wx.hideLoading()
+       },
+       fail: function (res) {
+         that.share()
+       }
+     })
+   } else {
+     wx.showLoading({
+       title: '正在生成海报',
+     })
+     var text = that.data.item.title;
+     var promise1 = new Promise(function (resolve, reject) {
+       let path = that.data.item.imgs[0]
+       wx.getImageInfo({
+         src: path,
+         success: function (res) {
+           // console.log(path);
+           resolve(res);
+         }
+       })
+     });
+     let promise2 = new Promise(function (resolve, reject) {
+       let path = that.data.qrcode
+       wx.getImageInfo({
+         // src: localpath,
+         src: path,
+         success: function (res) {
+           resolve(res);
+         }
+       })
 
-        ctx.moveTo(x + 90 * k, y)
-        ctx.lineTo(x + 90 * k, y)
-        ctx.lineTo(x + 100 * k, y)
-        ctx.lineTo(x + 100 * k, y + 10 * k)
+     });
+     Promise.all(
+       [promise1, promise2]
+     ).then(res => {
+       // console.log(res);
 
-        ctx.moveTo(x + 90 * k, y + 100 * k)
-        ctx.lineTo(x + 90 * k, y + 100 * k)
-        ctx.lineTo(x + 100 * k, y + 100 * k)
-        ctx.lineTo(x + 100 * k, y + 90 * k)
+       const ctx = wx.createCanvasContext('shareImg')
+       var k = 2
+       ctx.rect(0 - k, 0 - k, (375 + 2) * k, 750 * k)
+       ctx.setFillStyle('#fff')
+       ctx.fill()
+       ctx.drawImage(res[0].path, 28 * k, 28 * k, 321 * k, 321 * k)
+       ctx.beginPath()
+       ctx.setFillStyle('#faa')
+       ctx.moveTo(0 * k, 54 * k)
+       ctx.arc(80 * k, 74 * k, 20 * k, 1.5 * Math.PI, 0.5 * Math.PI)
+       ctx.lineTo(0, 94 * k)
+       ctx.lineTo(0, 54 * k)
+       ctx.setFillStyle('#111')
+       ctx.fill()
+       ctx.beginPath()
+       ctx.setFillStyle('#fff')
+       ctx.setFontSize(40)
+       ctx.fillText("爱蚁拼", 40, 160);
+       ctx.setTextAlign('left')
+       ctx.setTextBaseline("top")
+       ctx.setFillStyle('#000')
+       ctx.setFontSize(16 * k)
+       var chr = text.split("");
+       var row = [];
+       var temp = []
+       ctx.setFontSize(16 * k)
+       for (var a = 0; a < chr.length; a++) {
+         if (ctx.measureText(temp).width < 220 * k) {
+           temp += chr[a];
+         } else {
+           a--;
+           row.push(temp);
+           temp = "";
+         }
+       }
+       row.push(temp);
+       if (row.length > 2) {
+         var rowCut = row.slice(0, 2);
+         var rowPart = rowCut[1];
+         var test = "";
+         var empty = [];
+         for (var a = 0; a < rowPart.length; a++) {
+           if (ctx.measureText(test).width < 220 * k) {
+             test += rowPart[a];
+           } else {
+             break;
+           }
+         }
+         empty.push(test);
+         var group = empty[0] + "..."
+         rowCut.splice(1, 1, group);
+         row = rowCut;
+       }
+       for (var b = 0; b < row.length; b++) {
+         ctx.fillText(row[b], 28 * k, 375 * k + b * 25 * k, 220 * k);
+       }
+       // ctx.setFillStyle('#af0d1d')
+       var x = 250 * k
+       var y = 428 * k
 
-        ctx.moveTo(x + 10 * k, y + 100 * k)
-        ctx.lineTo(x + 10 * k, y + 100 * k)
-        ctx.lineTo(x, y + 100 * k)
-        ctx.lineTo(x, y + 90 * k)
-        ctx.setStrokeStyle('#f2001c')
-        ctx.setFillStyle('#e31012')
-        ctx.setFontSize(24 * k)
-        ctx.fillText("团购价￥" + that.data.item.price, 15 * k, 460 * k + (b - 1) * 25 * k);
-        ctx.setFillStyle('#a5a5a5')
-        ctx.setFontSize(18 * k)
-        ctx.fillText("单买价￥" + that.data.item.oneprice, 15 * k, 500 * k + (b - 1) * 25 * k);
-        ctx.stroke()
-        ctx.draw(false,function(){
-          // console.log("回调");
-          wx.canvasToTempFilePath({
-            x: 1,
-            y: 1,
-            width: 375 * k,
-            height: 600 * k,
-            destWidth: 375 * k,
-            destHeight: 600 * k,
-            canvasId: 'shareImg',
-            success: function (res) {
-              /* 这里 就可以显示之前写的 预览区域了 把生成的图片url给image的src */
-              that.setData({
-                prurl: res.tempFilePath,
-                hidden: false,
-                isshow: 3,
-              })
-              // console.log("生成海报");
-              wx.hideLoading()
-            },
-            fail: function (res) {
-              that.share()
-            }
-          }) 
-          setTimeout(() => {
-            if (that.data.prurl) {
-              // console.log("生成成功");
-            } else {
-              // console.log("生成失败");
-              that.share()
-            }  
-          }, 1000);   
-        })
-      })
-    // })  
+       ctx.drawImage(res[1].path, x + 5 * k, y + 5 * k, 90 * k, 90 * k)
+       ctx.setFillStyle('#f2001c')
+       ctx.setFontSize(9 * k)
+       ctx.fillText("扫描或长按二维码", x + 14 * k, y - 8 * k);
+       ctx.setLineWidth(k)
+       ctx.moveTo(x, y + 10 * k)
+       ctx.lineTo(x, y + 10 * k)
+       ctx.lineTo(x, y)
+       ctx.lineTo(x + 10 * k, y)
+
+       ctx.moveTo(x + 90 * k, y)
+       ctx.lineTo(x + 90 * k, y)
+       ctx.lineTo(x + 100 * k, y)
+       ctx.lineTo(x + 100 * k, y + 10 * k)
+
+       ctx.moveTo(x + 90 * k, y + 100 * k)
+       ctx.lineTo(x + 90 * k, y + 100 * k)
+       ctx.lineTo(x + 100 * k, y + 100 * k)
+       ctx.lineTo(x + 100 * k, y + 90 * k)
+
+       ctx.moveTo(x + 10 * k, y + 100 * k)
+       ctx.lineTo(x + 10 * k, y + 100 * k)
+       ctx.lineTo(x, y + 100 * k)
+       ctx.lineTo(x, y + 90 * k)
+       ctx.setStrokeStyle('#f2001c')
+       ctx.setFillStyle('#e31012')
+       ctx.setFontSize(24 * k)
+       ctx.fillText("团购价￥" + that.data.item.price, 15 * k, 460 * k + (b - 1) * 25 * k);
+       ctx.setFillStyle('#a5a5a5')
+       ctx.setFontSize(18 * k)
+       ctx.fillText("单买价￥" + that.data.item.oneprice, 15 * k, 500 * k + (b - 1) * 25 * k);
+       ctx.stroke()
+       // 延迟200s进行绘制防止自提错位
+       setTimeout(() => {
+         ctx.draw(false, function () {
+           // console.log("回调");
+           wx.canvasToTempFilePath({
+             x: 1,
+             y: 1,
+             width: 375 * k,
+             height: 600 * k,
+             destWidth: 375 * k,
+             destHeight: 600 * k,
+             canvasId: 'shareImg',
+             success: function (res) {
+               /* 这里 就可以显示之前写的 预览区域了 把生成的图片url给image的src */
+               that.setData({
+                 prurl: res.tempFilePath,
+                 hidden: false,
+                 isshow: 3,
+               })
+               console.log(that.prurl);
+
+               // console.log("生成海报");
+               wx.hideLoading()
+             },
+             fail: function (res) {
+               that.share()
+             }
+           })
+           setTimeout(() => {
+             if (that.data.prurl) {
+               // console.log("生成成功");
+             } else {
+               // console.log("生成失败");
+               that.share()
+             }
+           }, 1000);
+         })
+       }, 200);
+
+     })
+   }
     
    
   },

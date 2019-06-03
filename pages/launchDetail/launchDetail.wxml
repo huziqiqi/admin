@@ -117,9 +117,13 @@
     <image src='../../images/team.gif' mode='widthFix'></image>
     <text>修改团购</text>
   </navigator> -->
-  <navigator bindtap="showmedio" class='rt black'>
+  <navigator bindtap="showmedio" class='rt black' wx:if="{{item.status==1}}">
     <image src='../../images/team2.gif' mode='widthFix'></image>
     <text>终止团购</text>
+  </navigator>
+    <navigator  class='rt black' wx:else style="background:rgba(80,80,80,0.1)">
+    <image src='../../images/team2.gif' mode='widthFix'></image>
+    <text>该团购已下架</text>
   </navigator>
   <navigator open-type="navigate" url='../orderManagement/orderManagement?proid={{proid}}' class='rt'>
     <image src='../../images/team3.gif' mode='widthFix'></image>

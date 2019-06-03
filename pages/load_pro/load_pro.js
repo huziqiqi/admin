@@ -182,7 +182,10 @@ Page({
         uindex: 0,
         index: 0,
         date: "请选择",
+        shopImg:[],
+        imgtypeArr:[]
       })
+      getApp().sumbSuccess == 0
     }
     
   },

@@ -10,7 +10,6 @@ Page({
     item: "",
     address: "",
     isAddressid: false,
-    addressId: "",
     addressName: "",
     userId: getApp().userId,
     groupId: "",
@@ -101,14 +100,20 @@ Page({
     // console.log("购买商品ID=" + this.data.groupId);
     // console.log("分享商品ID="+getApp().opt.proid);
     // console.log("购买用户ID=" + this.data.userId);
-    // console.log("分享用户ID=" + getApp().opt.userid);   
-    if (this.data.groupId == getApp().opt.proid) {
-      var parentid = getApp().opt.userid     
-    }
+    // console.log("分享用户ID=" + getApp().opt.userid); 
+    console.log(getApp().opt);
+    
+    if (getApp().opt) {
+      if (this.data.groupId == getApp().opt.proid) {
+        var parentid = getApp().opt.userid
+      }
+    }  
+    
     if (this.data.item.delivery == 2) {
       //物流
-      addressid = this.data.addArr.addressid
-      if (addressid) {
+      if (this.data.addArr.addressid) {
+        addressid = this.data.addArr.addressid
+
         wx.request({
           url: getApp().url + "/groupBuying",
           data: {
@@ -136,6 +141,7 @@ Page({
               }
             }
             getApp().debuginfo(obj) 
+            getApp().ajax(obj) 
 
             if (res.data.code == 200) {
               this.pay(res.data.data)
@@ -190,6 +196,17 @@ Page({
         }, 
         method: "POST",
         success: (res) => {
+          console.log(res);
+          
+          if (res.data.code == 200) {
+            this.pay(res.data.data)
+          } else {
+            wx.showModal({
+              title: '提示',
+              content: res.data.msg,
+              showCancel: false
+            })
+          }
           let obj = {
             title: "分享购买",
             content: "分享购买，自提",
@@ -206,15 +223,7 @@ Page({
             }
           }
           getApp().debuginfo(obj) 
-          if (res.data.code==200) {
-            this.pay(res.data.data)            
-          } else {
-            wx.showModal({
-              title: '提示',
-              content: res.data.msg,
-              showCancel: false
-            })
-          }
+         
           
           // wx.navigateTo({
           //   url: '../myOrder/myOrder'
@@ -313,11 +322,14 @@ Page({
     wx.getStorage({
       key: "shdz",
       success: (res) => {
-        this.setData({
-          addressId: res.data.id,
-          addressName: res.data.provinces + res.data.address,
-          addArr: res.data
-        })
+        if (res.data.id) {
+          this.setData({
+            addressId: res.data.id,
+            addressName: res.data.provinces + res.data.address,
+            addArr: res.data
+          })
+        }
+       
       }
     })
   },

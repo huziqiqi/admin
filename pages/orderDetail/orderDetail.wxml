@@ -47,11 +47,11 @@
     {{item.type==1?"自提地址：":"收货地址："}} 
       <view style="width:540rpx">{{item.consignee_address}}</view>
     </view>
-    <view class='item flex'  wx:if="{{item.type==2}}">
+    <view class='item flex'  wx:if="{{item.type==2&&item.logistics_num}}">
        快递公司：
        <view>{{item.logistics_name}}</view>
      </view>
-      <view class='item flex'  wx:if="{{item.type==2}}">
+      <view class='item flex'  wx:if="{{item.type==2&&item.logistics_num}}">
        快递单号：
         <view>{{item.logistics_num}}</view>
       </view>

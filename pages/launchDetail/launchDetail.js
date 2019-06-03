@@ -20,33 +20,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(opt) {
+    this.setData({
+      opt:opt
+    })
+    this.request()
+  },
+  request(){
     wx.request({
       url: getApp().url + "//user.used/detail",
       data: {
         userid: wx.getStorageSync('user').id,
-        proid: opt.proid,
-
+        proid: this.data.opt.proid,
         // proid: 2,
-
       },
       method: "POST",
       success: (res) => {
-        let data = res.data.data.info     
+        let data = res.data.data.info
         // var endTime = Date.parse(data.end_time)
         var endTime = Date.parse(res.data.data.info.end_time.replace(/-/g, '/'))
         this.setData({
           item: data,
-          userId: opt.userid,
-          proid: opt.proid,
-          users:res.data.data.users,
+          userId: this.data.opt.userid,
+          proid: this.data.opt.proid,
+          users: res.data.data.users,
           isiphonex: getApp().globalData.isiphonex,
           endTime
         })
-        this.countDown(); 
+        this.countDown();
       }
     })
   },
-
  onShareAppMessage(res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
@@ -60,8 +63,7 @@ Page({
   timeFormat(param) { //小于10的格式化函数
     return param < 10 ? '0' + param : param;
   },
-  showmedio(){
-  
+  showmedio(){  
     wx.showModal({
       title	:"提示",
       content:"您确认要终止团购吗？",
@@ -88,6 +90,7 @@ Page({
           wx.showToast({
             title: res.data.msg
           })
+          this.request()
         } else {
           wx.showToast({
             title: res.data.msg,
