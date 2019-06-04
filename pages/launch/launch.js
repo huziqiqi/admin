@@ -43,7 +43,6 @@ Page({
       clientX: e.touches[0].clientX
     })
     // console.log(e.touches[0].clientY);
-
   },
   end(e) {
     let val = e.changedTouches[0].clientX - this.data.clientX

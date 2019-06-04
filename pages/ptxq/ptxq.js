@@ -123,7 +123,6 @@ Page({
           qrcode: res.data
         })
         wx.hideLoading();
-      
       }
     })
   },
@@ -161,6 +160,7 @@ const opt={
   proid:this.data.opt.proid,
   userid: wx.getStorageSync('user').id
 }
+    this.qrcode(opt) 
 if (this.data.item.status!=1) {
  wx.showModal({
    title: "提示",
@@ -351,7 +351,7 @@ if (this.data.item.status!=1) {
        var temp = []
        ctx.setFontSize(16 * k)
        for (var a = 0; a < chr.length; a++) {
-         if (ctx.measureText(temp).width < 220 * k) {
+         if (ctx.measureText(temp).width < 300 * k) {
            temp += chr[a];
          } else {
            a--;
@@ -366,7 +366,7 @@ if (this.data.item.status!=1) {
          var test = "";
          var empty = [];
          for (var a = 0; a < rowPart.length; a++) {
-           if (ctx.measureText(test).width < 220 * k) {
+           if (ctx.measureText(test).width < 300 * k) {
              test += rowPart[a];
            } else {
              break;
@@ -403,7 +403,6 @@ if (this.data.item.status!=1) {
        ctx.lineTo(x + 90 * k, y + 100 * k)
        ctx.lineTo(x + 100 * k, y + 100 * k)
        ctx.lineTo(x + 100 * k, y + 90 * k)
-
        ctx.moveTo(x + 10 * k, y + 100 * k)
        ctx.lineTo(x + 10 * k, y + 100 * k)
        ctx.lineTo(x, y + 100 * k)
@@ -411,10 +410,10 @@ if (this.data.item.status!=1) {
        ctx.setStrokeStyle('#f2001c')
        ctx.setFillStyle('#e31012')
        ctx.setFontSize(24 * k)
-       ctx.fillText("团购价￥" + that.data.item.price, 15 * k, 460 * k + (b - 1) * 25 * k);
+       ctx.fillText("团购价￥" + that.data.item.price, 28 * k, 420 * k + (b - 1) * 25 * k);
        ctx.setFillStyle('#a5a5a5')
        ctx.setFontSize(18 * k)
-       ctx.fillText("单买价￥" + that.data.item.oneprice, 15 * k, 500 * k + (b - 1) * 25 * k);
+       ctx.fillText("单买价￥" + that.data.item.oneprice, 28 * k, 460 * k + (b - 1) * 25 * k);
        ctx.stroke()
        // 延迟200s进行绘制防止自提错位
        setTimeout(() => {
@@ -453,7 +452,7 @@ if (this.data.item.status!=1) {
              }
            }, 1000);
          })
-       }, 200);
+       }, 400);
 
      })
    }

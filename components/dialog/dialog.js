@@ -96,6 +96,7 @@ Component({
                       })                    
                     }
                     else{
+                      getApp().wxLogin()
                      that.bindGetUserInfo()
                     }
                   }

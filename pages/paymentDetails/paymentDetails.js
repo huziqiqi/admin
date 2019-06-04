@@ -37,6 +37,7 @@ Page({
   changeOil(e) {
     this.setData({
       type: parseInt(e.target.dataset.type),
+      state:3,
       items: []
 
     })

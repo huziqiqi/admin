@@ -114,6 +114,6 @@ Page({
    */
   onShow: function () {
     this.request()
-
   },
 })
+

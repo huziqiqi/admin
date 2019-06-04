@@ -170,14 +170,10 @@ Page({
    */
   onShow: function () {
     this.setData({
-      shopImgArr: app.shopImgArr,
       opt: wx.getStorageSync('optn')
-    })
-    console.log(getApp().sumbSuccess);
-    
+    })    
     if (getApp().sumbSuccess == 1) {
-      //重置表单
-      
+      //重置表单     
       this.setData({
         form_info: "",
         uindex: 0,

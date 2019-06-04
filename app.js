@@ -27,9 +27,7 @@ App({
     if (!wx.getStorageSync('openid')) {
       this.wxLogin();
     }    
-    // fundebug.test(
-    //   "debug","一个BUG"
-    // );
+ 
     // wx.switchTab({
     //   url: "pages/personal/personal"
     // })
@@ -44,11 +42,12 @@ App({
 wx.getSystemInfo({
     success(res) {
       console.log(res);
-    fundebug.notify("手机型号", "手机型号!", {
-      metaData: {
-       phone:res
-      }
-    });
+    // fundebug.notify("手机型号", "手机型号!", {
+    //   metaData: {
+    //    phone:res
+    //   }
+    // });
+    // 把手机型号发往服务器，仅用于测试
         let deviceModel = 'iPhone X';
         if (res.model.indexOf(deviceModel) > -1) {
             console.log(res.model);

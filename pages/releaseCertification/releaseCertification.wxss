@@ -1,39 +1,49 @@
 /* pages/releaseCertification/releaseCertification.wxss */
-page{
-  padding: 20rpx;
-  background: #f5f5f5;
-  box-sizing: border-box;
+page {
+    padding: 20rpx;
+    background: #f5f5f5;
+    box-sizing: border-box;
 }
-.input{
-  align-items: center;
-  background: #FFF;
-  font-size: 28rpx;
-  padding: 0 20rpx;
-  line-height: 80rpx;
-  border-bottom: 1px solid #f5f5f5;
+
+.input {
+    display: flex;
+    align-items: center;
+    background: #FFF;
+    font-size: 28rpx;
+    padding: 0 20rpx;
+    line-height: 80rpx;
+    border-bottom: 1px solid #f5f5f5;
 }
-.input text{
-  color: #606060;
-  flex: 0 0 180rpx;
+
+.input text {
+    color: #606060;
+    /* flex: 0 0 180rpx; */
+    width: 180rpx;
 }
-input{
-  display: block;
-  height: 80rpx;
-  color: #606060;
+
+input {
+    display: block;
+    flex: 1;
+    height: 80rpx;
+    color: #606060;
+
 }
-.getCode{
-  display: block;
-  color: #fbda00;
-  font-size: 28rpx;
-  background: none;
-  padding: 0;
+
+.getCode {
+    display: block;
+    color: #fbda00;
+    font-size: 28rpx;
+    background: none;
+    padding: 0;
 }
-.getCode::after{
-  border: none;
+
+.getCode::after {
+    border: none;
 }
-.submitForm{
-  background: #222;
-  color: #fbda00;
-  line-height: 100rpx;
-  font-size: 32rpx;
+
+.submitForm {
+    background: #222;
+    color: #fbda00;
+    line-height: 100rpx;
+    font-size: 32rpx;
 }

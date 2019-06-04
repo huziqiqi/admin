@@ -12,7 +12,7 @@
   <view wx:if="{{!items[0]}}" style="height:100%; ;background:#fff; margin-top:20rpx;box-sizing:border-box">
     <image src='../../images/notData.png' mode="widthFix" style="width:100% ;margin-top:100rpx"></image>
   </view>
-  <view class="order-wrapper">
+  <view class="order-wrapper" style="padding-bottom:20rpx;">
     <navigator class="order-item" open-type='navigate' url='../orderDetail/orderDetail?oid={{item.id}}' wx:for="{{items}}" wx:key="item">
       <view class="order-seller flex">
         <view class="seller-avatar flex">
@@ -27,7 +27,7 @@
         <text class="item-status" wx:if="{{item.status == 3}}">待收货</text>
         <text class="item-status" wx:if="{{item.status == 4}}">已完成</text>
         <text class="item-status" wx:if="{{item.status == 5}}">退款</text>
-                 <!-- <text class="item-status" wx:if="{{num == 1}}">参团中</text>
+         <!-- <text class="item-status" wx:if="{{num == 1}}">参团中</text>
          <text class="item-status" wx:if="{{num == 2}}">代发货</text>
          <text class="item-status" wx:if="{{num == 3}}">待自提</text>
          <text class="item-status" wx:if="{{num == 4}}">待收货</text>

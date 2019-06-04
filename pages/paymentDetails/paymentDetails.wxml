@@ -23,7 +23,7 @@
     <text>已成交</text>
     <view style="height:22rpx"></view>
   </view>
-  <view class='item {{state==5?"item-active":""}}' data-state="5" bindtap='changeOil2'>
+  <view class='item {{state==5?"item-active":""}}'wx:if="{{type!=2}}" data-state="5" bindtap='changeOil2'>
     <view style="height:22rpx"></view>
     <text>已退款</text>
     <view style="height:22rpx"></view>

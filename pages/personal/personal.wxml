@@ -1,5 +1,6 @@
 <!-- pages/personal/personal.wxml -->
-<navigator class="user flex" hover-class='none' open-type='navigate' url='../information/information?isrz={{item.isrz}}&phone={{item.phone}}'>
+<!-- <navigator class="user flex" hover-class='none' open-type='navigate' url='../information/information?isrz={{item.isrz}}&phone={{item.phone}}'> -->
+<navigator class="user flex" hover-class='none' open-type='navigate'>
   <view class="user-information flex">
     <image class="user-avatar" mode='widthFix' src='{{user.avatar}}'></image>
     <view class="user-text-wrapper">
@@ -8,7 +9,7 @@
       <view class="certification" wx:else>已认证</view>
     </view>
   </view>
-  <image class="icon" mode='widthFix' src='../../images/icon05.jpg'></image>
+  <!-- <image class="icon" mode='widthFix' src='../../images/icon05.jpg'></image> -->
 </navigator>
 <view class="my-list-wrapper flex">
   <navigator class="my-list-item" hover-class='none' open-type='navigate' url='../wallet/wallet?userId={{userId}}'>

@@ -56,7 +56,7 @@
       <view class="btn confirm" catchtap='navigate' data-url="../updateLogistics/updateLogistics?oid={{item.order_num}}" wx:if="{{item.lx == '物流快递'}}" wx:if="{{item.state=='待发货'}}">
         上传物流
       </view>
-      <view class="btn confirm" catchtap='sqtk'data-id="{{item.id}}" data-ordernum="{{item.order_num}}" wx:if="{{item.state=='拼团失败'}}">
+      <view class="btn confirm" catchtap='sqtk'  data-id="{{item.id}}" data-ordernum="{{item.order_num}}" wx:if="{{item.state=='拼团失败'&&item.refund==1}}">
        退款
       </view>
     </view>

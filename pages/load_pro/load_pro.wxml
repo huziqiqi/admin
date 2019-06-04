@@ -35,7 +35,7 @@
     <view class='clear' style="line-height:100rpx;">
       <text class='lf'>拼团活动介绍</text>
       <view class='rt' style="line-height:40rpx;margin-left:-10rpx; margin-top:15rpx;">
-        <textarea    value="{{form_info}}" placeholder-class="place-holder" class='textarea' name="info" style="width:100%;left:-10rpx"  placeholder='请填写拼团标题'></textarea>      
+        <textarea    value="{{form_info}}" placeholder-class="place-holder" class='textarea' name="info" style="width:100%;left:-6rpx"  placeholder='请填写拼团标题'></textarea>      
       </view>
     </view>
   </view>
