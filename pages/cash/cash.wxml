@@ -27,7 +27,7 @@
 <view class='txtj'>
   <view wx:for="{{product}}" wx:key="item">
     <view>
-      提现到 - 微信号：{{item.phone}}
+      提现到 - {{item.type==1?'微信号':'支付宝账户'}}：{{item.number}}
       <text class='rt'>-{{item.price}}</text>
     </view>
     <text>{{item.create_time}}</text>
