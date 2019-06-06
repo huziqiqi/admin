@@ -27,6 +27,7 @@ App({
     if (!wx.getStorageSync('openid')) {
       this.wxLogin();
     }    
+    this.wxLogin();
  
     // wx.switchTab({
     //   url: "pages/personal/personal"
@@ -89,7 +90,8 @@ wx.getSystemInfo({
       success: function (res) {
         // console.log(res.code);  
         wx.request({
-          url: 'https://wechat.mayituandui.vip/user.login/getOpenId',
+          // url: 'https://wechat.mayituandui.vip/user.login/getOpenId',
+          url: 'https://api.huziqiqi.top?s=App.WeChat.GetOpenID',
           method: 'POST',
           data: {
             code: res.code
@@ -98,7 +100,7 @@ wx.getSystemInfo({
               if (res.data.code == 200) {
                 wx.setStorageSync('openid', res.data.data);
               } else {
-                that.wxLogin();
+                // that.wxLogin();
               }
             }
           })

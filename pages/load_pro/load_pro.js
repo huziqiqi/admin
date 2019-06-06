@@ -170,7 +170,7 @@ Page({
    */
   onShow: function () {
     this.setData({
-      opt: wx.getStorageSync('optn')
+        opt: wx.getStorageSync('optn')
     })    
     if (getApp().sumbSuccess == 1) {
       //重置表单     
@@ -183,8 +183,7 @@ Page({
         imgtypeArr:[]
       })
       getApp().sumbSuccess == 0
-    }
-    
+    }    
   },
   navion() {
     wx.navigateTo({

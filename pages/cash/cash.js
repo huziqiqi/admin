@@ -70,7 +70,7 @@ Page({
   changeOil(e) {
     this.setData({
       type: parseInt(e.target.dataset.type),
-      product:[]
+      product:[],pages:1
     })
     this.request()
   },

@@ -14,8 +14,50 @@
         ￥
         <input type='digit' bindblur="mobileInput" name="meony"></input>
       </view>
+    
     </view>
     <view class='lines'>可提现金额￥{{item.amount}}</view>
+  </view>
+  <view style="margin:20rpx 0rpx;background:#fff;" class="" hover-class="none" hover-stop-propagation="false">
+        <view class="txfs">
+      
+      <text style="font-size: 14px;color: #999;">提现方式</text>
+    
+      <view class="fs clear" bindtap='changeOil'>
+        <button data-num='1' class="{{num==1?'redborder':''}}">
+          <image src="../../images/wx.png" mode="widthFix"></image>
+          <text>微信</text>
+        </button>
+        <button data-num='2' class="{{num==2?'redborder':''}}">
+          <image src="../../images/zfb.png" mode="widthFix"></image>
+          <text>支付宝</text>
+        </button>
+        <!-- <button data-num='2' class="{{num==2?'redborder':''}}">
+      <image src="../../images/yl.png" mode="widthFix"></image>
+      <text>银行卡</text>
+    </button> -->
+      </view>
+    </view>
+    <view class="addresses" wx:if="{{num==1}}">
+      <view class="clear  view">
+        <text class="lf">姓名：</text>
+        <input type="text" placeholder="请输入正确的姓名" name="truename1" class="rt" />
+      </view>
+      <view class="clear  view">
+        <text class="lf">账号：</text>
+        <input type="text" placeholder="请输入您的微信账号" name="number1" class="rt" />
+      </view>
+    </view>
+    <view class="addresses " wx:else>
+      <view class="clear  view">
+        <text class="lf">姓名：</text>
+        <input type="text" placeholder="请输入正确的姓名" name="truename2" class="rt" />
+      </view>
+      <view class="clear  view">
+        <text class="lf">账号：</text>
+        <input type="text" placeholder="请输入您的支付宝账号" name="number2" class="rt" />
+      </view>
+    </view>
   </view>
   <button class="submitForm" form-type='submit'>提现</button>
 </form>

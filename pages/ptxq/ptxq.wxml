@@ -48,7 +48,7 @@
       <image src='../../images/icon2.gif' mode='widthFix'></image>
       {{item.city+item.address}}
     </navigator>
-    <navigator wx:if="{{!fbr.name=='该会员未认证'}}">
+    <navigator wx:if="{{fbr.name!='该会员未认证'}}">
       <image src='../../images/icon3.gif' mode='widthFix'></image>
       <view hover-class="weui-cell_active" data-reply-phone="18282957326" bindtap="phoneCall">
        {{fbr.tel}}（{{fbr.name}}）
@@ -76,7 +76,7 @@
     </view>
   </view>
   <view class='jl'>
-    <view class='tit'>参与记录</view>
+    <view class='tit'>参团记录</view>
     <view class='pm' wx:for="{{userbuy}}" wx:key="item">
       <text>{{item.NO}}</text>
       <view style="width:200rpx;">

@@ -15,7 +15,8 @@ Page({
     groupId: "",
     isone: "",
     type: "",
-    addressId:-10
+    addressId:-10,
+    iszf:false
   },
   onLoad(opt) {
     console.log(wx.getLaunchOptionsSync().query);
@@ -222,7 +223,7 @@ Page({
               parentid
             }
           }
-          getApp().debuginfo(obj) 
+          // getApp().debuginfo(obj) 
          
           
           // wx.navigateTo({
@@ -234,44 +235,71 @@ Page({
    
   },
   pay: function (res) {
-    const that = this;
-    wx.showLoading({
-      title: '支付中',
-    })
-    console.log(res);    
-    wx.requestPayment({
-      timeStamp: '' + res.timeStamp,
-      nonceStr: res.nonceStr,
-      package: res.package,
-      signType: 'MD5',
-      paySign: res.paySign,
-      success: function (res) {
-        wx.hideLoading();
-        if (res.errMsg == 'requestPayment:ok') {
-          wx.showToast({
-            title: '支付成功',
-            mask: true,
-            duration: 1000,
-            icon: 'success'
-          })
-          let timer = setTimeout(function () {
-            if (that.data.isone) {
-              wx.redirectTo({
-                url: "../myOrder/myOrder"
-              })
-            } else {
-              wx.switchTab({
-                url: "../order/order"
-              })
-            }  
-            clearTimeout(timer);
-          }, 1000);
-        } else {
+    if (!this.data.iszf) {
+      const that = this;
+      wx.showLoading({
+        title: '支付中',
+      })
+      console.log(res);
+      wx.requestPayment({
+        timeStamp: '' + res.timeStamp,
+        nonceStr: res.nonceStr,
+        package: res.package,
+        signType: 'MD5',
+        paySign: res.paySign,
+        success: function (res) {
+          wx.hideLoading();
+          if (res.errMsg == 'requestPayment:ok') {
+            wx.showToast({
+              title: '支付成功',
+              mask: true,
+              duration: 1000,
+              icon: 'success'
+            })
+            let timer = setTimeout(function () {
+              if (that.data.isone) {
+                wx.redirectTo({
+                  url: "../myOrder/myOrder"
+                })
+              } else {
+                wx.switchTab({
+                  url: "../order/order"
+                })
+              }
+              clearTimeout(timer);
+            }, 1000);
+          } else {
+            wx.showModal({
+              title: '提示',
+              content: '支付失败',
+              showCancel: false
+            })
+            console.log(res.order_num)
+            let obj = {
+              url: getApp().url + "/orderdel",
+              data: {
+                order_num: res.order_num
+              },
+              method: "POST",
+              // flg:3,
+              callback: (res) => {
+                this.setData({
+                  iszf:true
+                })
+
+              }
+            }
+            getApp().ajax(obj)
+          }
+        },
+        fail: function (rea) {
+          console.log(rea);
           wx.showModal({
             title: '提示',
             content: '支付失败',
             showCancel: false
           })
+          wx.hideLoading();
           console.log(res.order_num)
           let obj = {
             url: getApp().url + "/orderdel",
@@ -281,35 +309,15 @@ Page({
             method: "POST",
             // flg:3,
             callback: (res) => {
-              
+              this.setData({
+                iszf: true
+              })
             }
           }
           getApp().ajax(obj)
         }
-      },
-      fail: function (rea) {
-        console.log(rea);
-        wx.showModal({
-          title: '提示',
-          content: '支付失败',
-          showCancel: false
-        })        
-        wx.hideLoading();
-        console.log(res.order_num)
-        let obj = {
-          url: getApp().url + "/orderdel",
-          data: {
-            order_num: res.order_num
-          },
-          method: "POST",
-          // flg:3,
-          callback: (res) => {
-
-          }
-        }
-        getApp().ajax(obj)
-      }
-    })
+      })
+    }
   },
   radioChange(e) {
     let isAddressid

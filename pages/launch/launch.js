@@ -77,7 +77,6 @@ Page({
       success: (res) => {
         let order
         this.data.pages > 1 ? order = this.data.order.concat(res.data.data.product) : order = res.data.data.product
-       console.log(order);
        
         for (let i = 0; i < order.length; i++) {
           order[i].img= order[i].img.replace('http://yipin.xazbwl.com', getApp().url)     

@@ -97,7 +97,7 @@
   </view>
 </view>
 <view class='jl'>
-    <view class='tit'>参团记录</view>
+    <view class='tit'>参与记录</view>
   <view class='pm' wx:for="{{users}}" wx:key="item">
     <text>{{item.NO}}</text>
     <view style="width:200rpx;">
@@ -108,7 +108,7 @@
     <text>{{item.times}}</text>
   </view>
   <view class='pm' wx:if="{{!users}}">
-    <text style="margin: 0 auto">暂无参团纪录</text>
+    <text style="margin: 0 auto">暂无参与纪录</text>
   </view>
 </view>
 <view style='height:100rpx;'></view>

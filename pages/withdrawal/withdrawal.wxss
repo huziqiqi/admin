@@ -1,64 +1,178 @@
 /* pages/withdrawal/withdrawal.wxss */
 page {
-  background: #f5f5f5;
-  padding: 20rpx;
-  box-sizing: border-box;
+    background: #f5f5f5;
+    padding: 20rpx;
+    box-sizing: border-box;
 }
 
 .section {
-  display: block;
-  background: #FFF;
-  padding: 20rpx;
+    display: block;
+    background: #FFF;
+    padding: 20rpx;
 }
 
 .history {
-  font-size: 26rpx;
-  justify-content: space-between;
-  padding-bottom: 20rpx;
+    font-size: 26rpx;
+    justify-content: space-between;
+    padding-bottom: 20rpx;
 }
 
 .history text {
-  color: #999;
+    color: #999;
 }
 
 .box {
-  border-top: 1px solid #f5f5f5;
-  border-bottom: 1px solid #f5f5f5;
-  padding: 30rpx 0;
+    border-top: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+    padding: 30rpx 0;
 }
 
 .money {
-  font-size: 30rpx;
-  color: #333;
-  align-items: center;
-  margin-top: 50rpx;
+    font-size: 30rpx;
+    color: #333;
+    align-items: center;
+    margin-top: 50rpx;
 }
 
 .money input {
-  display: block;
-  flex: 1;
-  font-size: 50rpx;
-  color: #333;
-  margin-left: 10rpx;
+    display: block;
+    flex: 1;
+    font-size: 50rpx;
+    color: #333;
+    margin-left: 10rpx;
 }
 
 .lines {
-  font-size: 30rpx;
-  color: #999;
-  padding-top: 20rpx;
+    font-size: 30rpx;
+    color: #999;
+    padding-top: 20rpx;
 }
 
 .submitForm {
-  background: #222;
-  color: #fbda00;
-  line-height: 90rpx;
-  font-size: 32rpx;
-  width: 100%;
-  margin: 40rpx 0 20rpx;
+    background: #222;
+    color: #fbda00;
+    line-height: 90rpx;
+    font-size: 32rpx;
+    width: 100%;
+    margin: 40rpx 0 20rpx;
 }
 
 .tips {
-  font-size: 28rpx;
-  color: #333;
-  margin-top: 30rpx;
+    font-size: 28rpx;
+    color: #333;
+    margin-top: 30rpx;
+}
+
+
+
+.syje {
+    font-size: 45rpx;
+    margin: 40rpx 25rpx;
+    color: #5d5d5d;
+    background: #fff;
+}
+
+.zdtx {
+    margin: 30rpx 25rpx;
+    font-size: 30rpx;
+    color: #aaa;
+}
+
+.srje {
+    display: flex;
+    margin: 38rpx 25rpx;
+
+}
+
+.srje text {
+    margin-top: 10rpx;
+    color: #fbda00;
+    font-size: 45rpx;
+
+}
+
+.srje input {
+    height: 64rpx;
+    margin-top: 10rpx;
+    margin-left: 18rpx;
+    font-size: 35rpx;
+}
+
+.tips {
+    padding: 40rpx 25rpx;
+    
+}
+
+.txfs {
+    padding: 25rpx;
+}
+
+.fs {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30rpx;
+}
+
+.fs button {
+    font-size: 24rpx;
+    height: 80rpx;
+    width: 30%;
+}
+
+.fs button image {
+    margin-top: 20rpx;
+    width: 40rpx;
+    float: left;
+}
+
+.fs button text {
+    margin-top: -48rpx;
+    float: left;
+    margin-left: 65rpx;
+}
+
+.addresses {
+    display: block;
+    background-color: #efeff2
+}
+
+.addresses text {
+    color: #333;
+    margin-left: 25rpx;
+    font-size: 35rpx;
+}
+
+.addresses .rt {
+    margin-top: 15rpx;
+}
+
+.addresses .view {
+    display: flex;
+    margin-top: 20rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    background-color: #FFFFFF;
+}
+
+.addresses input {
+    border: 0;
+    line-height: 55rpx;
+    color: #999;
+    font-size: 35rpx;
+}
+
+.redborder {
+    border: 1rpx solid #fbda00;
+}
+
+.sumb {
+    padding-top: 100rpx;
+    padding-bottom: 20rpx;
+    background: #fff;
+}
+
+.sumb button {
+    background: #D42E22;
+    margin: 0 25rpx;
+    color: #FFFFFF;
 }

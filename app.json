@@ -1,10 +1,12 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/withdrawal/withdrawal",
     "pages/releaseCertification/releaseCertification",
     "pages/certification/certification",
     "pages/haibaotest/ptxq",  
     "pages/launchDetail/launchDetail",
+    "pages/personal/orderManagement",
     "pages/personal/personal",
     "pages/teamBuy/teamBuy",
     "pages/buy/buy",
@@ -28,7 +30,6 @@
     "pages/set_message/set_message",
     "pages/updateLogistics/updateLogistics",
     "pages/wallet/wallet",
-    "pages/withdrawal/withdrawal",
     "pages/zffy/zffy",
     "pages/address/address",
     "pages/load_pro/load_pro",

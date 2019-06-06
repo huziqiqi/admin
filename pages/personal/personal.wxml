@@ -49,6 +49,11 @@
   </navigator>
 </view>
 <view class='list'>
+  <navigator class="list-item flex" wx:if="{{item.isrz!==0}}" hover-class='none' open-type='navigate' url='../personal/orderManagement'>
+    <text>待处理订单</text>
+    <image mode='widthFix' class="vertical-middle" src='../../images/icon13.jpg'></image>
+  </navigator>
+  
   <navigator class="list-item flex" hover-class='none' open-type='navigate' url='../zffy/zffy'>
     <text>我的转发返佣</text>
     <view class="flex" style='align-items: center;'>
@@ -58,6 +63,7 @@
       <image mode='widthFix' class="vertical-middle" src='../../images/icon13.jpg'></image>
     </view>
   </navigator>
+      
   <navigator class="list-item flex" hover-class='none' open-type='switchTab' url='../order/order'>
     <text>我参与的拼团</text>
     <image mode='widthFix' class="vertical-middle" src='../../images/icon13.jpg'></image>

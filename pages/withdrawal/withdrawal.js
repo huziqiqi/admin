@@ -6,7 +6,8 @@ Page({
    */
   data: {
     amount: 0,
-    price: 0
+    price: 0,
+    num:1
   },
 
   /**
@@ -32,12 +33,7 @@ Page({
       }
     })
   },
-  mobileInput(e) {
 
-    this.setData({
-      price: e.detail.value
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -52,11 +48,24 @@ Page({
     this.request()
   },
   submitForm(e) {
+    console.log(e);
+    if (this.data.num==1) {
+      //微信提现
+      var truename = e.detail.value.truename1 
+      var number = e.detail.value.number1 
+    }else{
+      //支付宝提现
+
+      var truename = e.detail.value.truename2
+      var number = e.detail.value.number2
+    }
     wx.request({
       url: getApp().url + "//user.myprice/cash",
       data: {
         userId: wx.getStorageSync('user').id,
-        price: e.detail.value.meony
+        price: e.detail.value.meony,
+        type:this.data.num,
+        truename, number
       },
       method: "POST",
       success: (res) => {
@@ -69,6 +78,11 @@ Page({
         //   item:
         // })
       }
+    })
+  },
+  changeOil(e){
+    this.setData({
+      num: e.target.dataset.num
     })
   },
   /**

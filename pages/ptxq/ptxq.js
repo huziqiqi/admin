@@ -141,7 +141,7 @@ Page({
   },
   phoneCall: function (e) {
     wx.makePhoneCall({
-      phoneNumber: '18282957326' //仅为示例，并非真实的电话号码
+      phoneNumber: this.data.fbr.tel //仅为示例，并非真实的电话号码
     })
   },
   show: function () {
@@ -284,8 +284,6 @@ if (this.data.item.status!=1) {
            hidden: false,
            isshow: 3,
          })
-         console.log(that.prurl);
-
          // console.log("生成海报");
          wx.hideLoading()
        },
@@ -317,33 +315,44 @@ if (this.data.item.status!=1) {
            resolve(res);
          }
        })
-
      });
+      let promise3 = new Promise(function (resolve, reject) {
+        wx.getImageInfo({
+          // src: localpath,
+          src: "../../images/ayp.png",
+          success: function (res) {
+            console.log(res);
+            
+            resolve(res);
+          }
+        })
+      });
      Promise.all(
-       [promise1, promise2]
+       [promise1, promise2, promise3]
      ).then(res => {
        // console.log(res);
-
        const ctx = wx.createCanvasContext('shareImg')
        var k = 2
+       console.log(res[2].path);       
        ctx.rect(0 - k, 0 - k, (375 + 2) * k, 750 * k)
        ctx.setFillStyle('#fff')
        ctx.fill()
        ctx.drawImage(res[0].path, 28 * k, 28 * k, 321 * k, 321 * k)
        ctx.beginPath()
        ctx.setFillStyle('#faa')
-       ctx.moveTo(0 * k, 54 * k)
-       ctx.arc(80 * k, 74 * k, 20 * k, 1.5 * Math.PI, 0.5 * Math.PI)
-       ctx.lineTo(0, 94 * k)
-       ctx.lineTo(0, 54 * k)
-       ctx.setFillStyle('#111')
-       ctx.fill()
-       ctx.beginPath()
-       ctx.setFillStyle('#fff')
-       ctx.setFontSize(40)
-       ctx.fillText("爱蚁拼", 40, 160);
-       ctx.setTextAlign('left')
-       ctx.setTextBaseline("top")
+       ctx.drawImage("/"+res[2].path, 0 * k, 54 * k,100 * k,40 * k)
+      //  ctx.moveTo(0 * k, 54 * k)
+      //  ctx.arc(80 * k, 74 * k, 20 * k, 1.5 * Math.PI, 0.5 * Math.PI)
+      //  ctx.lineTo(0, 94 * k)
+      //  ctx.lineTo(0, 54 * k)
+      //  ctx.setFillStyle('#111')
+      //  ctx.fill()
+      //  ctx.beginPath()
+      //  ctx.setFillStyle('#fff')
+      //  ctx.setFontSize(40)
+      //  ctx.fillText("爱蚁拼", 40, 160);
+      //  ctx.setTextAlign('left')
+      //  ctx.setTextBaseline("top")
        ctx.setFillStyle('#000')
        ctx.setFontSize(16 * k)
        var chr = text.split("");
