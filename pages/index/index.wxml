@@ -5,7 +5,7 @@
 </view> -->
 <swiper class="banner" indicator-dots="true" indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="#FFF" autoplay="true" circular="true">
   <swiper-item wx:for="{{banner}}" wx:key="{{item}}">
-    <image mode="widthFix" src="{{item.img}}"></image>
+    <image mode="widthFix" src="{{item.img}}"  data-link="{{item.link}}" data-id="{{item.id}}" data-url="{{item.url}}" bindtap="jumpurl"></image>
   </swiper-item>
 </swiper>
 <view class="select">
@@ -19,10 +19,11 @@
   </view>
   <view class="section">
     <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-      <view class="picker">
-        {{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}
+      <view class="picker" wx:if="{{iscity}}">
+      {{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}
         <image src="../../images/sj.jpg"style="right:80rpx;"  mode="widthFix"></image>
       </view>
+      
     </picker>
   </view>
   <view>
@@ -58,7 +59,7 @@
         <text class='nr'>{{item.title}}</text>
         <!-- <view data-pid="{{index}}" data-id="{{item.id}}" class='nr_img' catchtap="fd">        -->
         <view data-pid="{{index}}" data-id="{{item.id}}" class='nr_img' >
-          <view wx:for="{{item.img}}" wx:key="{{item}}" wx:if="{{index<9}}">
+          <view wx:for="{{item.img}}" wx:key="{{item}}" wx:if="{{index<3}}">
             <image src='{{item}}' data-sid="{{index}}" mode="widthFix"></image>
           </view>
         </view>

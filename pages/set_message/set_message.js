@@ -55,20 +55,25 @@ Page({
   address() {
     wx.chooseLocation({
       success: (res) => {
-        let region = res.address
-        let reg = /(.*省|.*市|.*区|.*县)/
-        region = region.split(reg);
-        let city = region[3]
-        let address = region[5] + region[6] + res.name
+        console.log(res);
+        if (res.address) {
+          let region = res.address
+          let reg = /(.*省|.*市|.*区|.*县)/
+          region = region.split(reg);
+          let city = region[3]
+          let address = res.address
+          this.setData({
+            city,
+            address,
+            lat: res.latitude,
+            lng: res.longitude,
+            isAddress: false,
+          }) 
+        }else{
+          console.log("未选择地址");
 
-        this.setData({
-          city,
-          address,
-          lat: res.latitude,
-          lng: res.longitude,
-          isAddress: false,
-          type: this.data.type
-        })
+        }
+        
       }
     })
   },

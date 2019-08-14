@@ -296,25 +296,25 @@ Page({
           console.log(rea);
           wx.showModal({
             title: '提示',
-            content: '支付失败',
+            content: '支付出错，请稍后查看',
             showCancel: false
           })
           wx.hideLoading();
           console.log(res.order_num)
-          let obj = {
-            url: getApp().url + "/orderdel",
-            data: {
-              order_num: res.order_num
-            },
-            method: "POST",
-            // flg:3,
-            callback: (res) => {
-              this.setData({
-                iszf: true
-              })
-            }
-          }
-          getApp().ajax(obj)
+          // let obj = {
+          //   url: getApp().url + "/orderdel",
+          //   data: {
+          //     order_num: res.order_num
+          //   },
+          //   method: "POST",
+          //   // flg:3,
+          //   callback: (res) => {
+          //     this.setData({
+          //       iszf: true
+          //     })
+          //   }
+          // }
+          // getApp().ajax(obj)
         }
       })
     }

@@ -90,8 +90,7 @@ wx.getSystemInfo({
       success: function (res) {
         // console.log(res.code);  
         wx.request({
-          // url: 'https://wechat.mayituandui.vip/user.login/getOpenId',
-          url: 'https://api.huziqiqi.top?s=App.WeChat.GetOpenID',
+          url: 'https://wechat.mayituandui.vip/user.login/getOpenId',
           method: 'POST',
           data: {
             code: res.code

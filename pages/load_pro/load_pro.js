@@ -30,7 +30,7 @@ Page({
 
     shopImg: [],
     certificatesImg: [],
-    shopImgArr: '',
+  
     certificatesImgArr: [],
     subleaseType: 1,
     hidden: true,

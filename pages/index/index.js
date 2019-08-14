@@ -29,6 +29,7 @@ Page({
     userId: getApp().userId,
     pages: 1,
     isShow: false,
+    iscity:true
   },
   onLoad: function (options) {  
     wx.hideTabBar()
@@ -101,55 +102,7 @@ Page({
       this.fxjs(opt)
     }
   },
-/**
- * @
- * @return xasx
- */
-  testajax(){
-     var a= {
-        nickName:"Huziqiqi",
-        gender:1,
-        language:"zh_CN",
-        city:"Weinan",
-        province:"Shaanxi",
-        country:"China",
-        avatarUrl:"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKeIMNbeGmsJJaMe5hg8NoicH2SkF0mONjOXDAvqjbMcX04iblspB5cga2lFCfxJkLY1xLTFfc1sr1g/132",  
-        openid: " "
-      }
-    
-    var flg=1
-    if (flg==1) {
-      wx.request({
-        url: "https://api.huziqiqi.top",
-        data: {
-          s: "App.User.Login",
-          username: "liuqi123",
-          password: "xasxaxsa"
-        },
-        method: "POST",
-        success: (res) => {
-          console.log(res.data.data);
-          wx.request({
-            url: "https://api.huziqiqi.top",
-            data: {
-              s: "App.User.decryption",
-              token: res.data.data          
-            },
-            method: "POST",
-            success: (res) => {
-              console.log(res.data.data);
-              console.log(res.data.data.login_time*1000);
-              console.log(new Date().getTime());
-              console.log(new Date().getTime() - res.data.data.login_time * 1000);
-            }
-          })         
-        }
-      })
-    } else {
-      
-    }
-    
-  },
+
   bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
@@ -170,6 +123,18 @@ Page({
     })
     let mi = this.data.dist[this.data.dindex].match(/\b\d{1,4}\d/g);
     mi = mi != null ? mi[0] : null
+    if (e.detail.value!=0) {
+    let  multiArray = this.data.multiArray
+      multiArray[1]=[]
+      this.setData({
+        multiArray,
+        multiIndex:[0,0],
+        city:null,
+        mi,
+        page: 1,
+        product:[]
+      })
+    } 
     this.setData({
       mi,
       page: 1
@@ -249,6 +214,16 @@ Page({
       "multiIndex[1]": e.detail.value[1]
     })
     let city = this.data.multiArray[1][this.data.multiIndex[1]]
+    if (e.detail.value[0]!=0) {
+    let  dindex=0
+    this.setData({
+      dindex,
+      mi:null,
+      city,
+      pages: 1,
+      product: []
+    })
+    }
     city = " " ? city : null
     this.setData({
       city,
@@ -286,7 +261,7 @@ Page({
         lat: this.data.lat,
         lng: this.data.lng,
         mi: this.data.mi,
-        city: this.data.city
+        city: this.data.city,
       },
       method: "POST",
       success: (res) => {
@@ -318,6 +293,22 @@ Page({
     this.setData({
       a
     })
+  },
+  jumpurl(e) {
+    console.log();
+    // link==2 外链
+    if (e.currentTarget.dataset.link==2) {
+      const obj = {
+        url: "../webContainer/webContainer?url=" + e.currentTarget.dataset.url,
+      }
+      wx.navigateTo(obj)
+    } else if (e.currentTarget.dataset.link == 1){
+     this.toPtxq(e) 
+    }else{
+      console.log("不跳转");
+      
+    }
+
   },
   toPtxq(e) {
     let id = e.currentTarget.dataset.id

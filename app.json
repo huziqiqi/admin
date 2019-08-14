@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/myOrder/myOrder",
+    "pages/index/webContainer",
+    "pages/set_message/set_message",
     "pages/withdrawal/withdrawal",
     "pages/releaseCertification/releaseCertification",
     "pages/certification/certification",
@@ -25,9 +28,7 @@
     "pages/cash/cash",
     "pages/ddm/ddm",
     "pages/goodsImg/goodsImg",
-    "pages/myOrder/myOrder",
     "pages/seller/seller",
-    "pages/set_message/set_message",
     "pages/updateLogistics/updateLogistics",
     "pages/wallet/wallet",
     "pages/zffy/zffy",

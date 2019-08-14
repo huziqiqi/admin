@@ -3,7 +3,7 @@
 <view class="foot" style="{{isiphonex?'padding-bottom:34rpx':''}}">
   <view>
     <navigator url="../index/index" open-type="switchTab" hover-class="other-navigator-hover">
-      <image src="../../images/{{curIndex == '0' ? 'foot1_1' : 'foot1'}}.jpg" mode='widthFix'></image>
+ <image src="../../images/{{curIndex == '0' ? 'foot1_1' : 'foot1'}}.jpg" mode='widthFix'></image>     
       <text>首页</text>
     </navigator>
   </view>

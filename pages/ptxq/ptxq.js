@@ -97,7 +97,6 @@ Page({
       })
       // this.qrcode(opt)
     }
-  
     // console.log(this.timestampToTime(1557541669));
   },
   openmap(){
@@ -260,14 +259,9 @@ if (this.data.item.status!=1) {
     })
   },
   share() {
-    // new Promise((resolve, reject) => {
-    // }).then(res=>{
-    //   // console.log(res);
-       
-    // })
+
     var that = this
     var k = 2
-
     if (that.data.prurl) {
      wx.canvasToTempFilePath({
        x: 1,
@@ -327,8 +321,19 @@ if (this.data.item.status!=1) {
           }
         })
       });
+      let promise4 = new Promise(function (resolve, reject) {
+        wx.getImageInfo({
+          // src: localpath,
+          src: "../../images/bg.jpg",
+          success: function (res) {
+            console.log(res);
+
+            resolve(res);
+          }
+        })
+      });
      Promise.all(
-       [promise1, promise2, promise3]
+       [promise1, promise2, promise3, promise4]
      ).then(res => {
        // console.log(res);
        const ctx = wx.createCanvasContext('shareImg')
@@ -337,10 +342,12 @@ if (this.data.item.status!=1) {
        ctx.rect(0 - k, 0 - k, (375 + 2) * k, 750 * k)
        ctx.setFillStyle('#fff')
        ctx.fill()
-       ctx.drawImage(res[0].path, 28 * k, 28 * k, 321 * k, 321 * k)
+      //  ctx.setShadow(10, 50, 50, '#eee')
+      
+      //  ctx.clearRect(0, 0, (375 + 2) * k, 750 * k);
+      //  ctx.draw()
        ctx.beginPath()
        ctx.setFillStyle('#faa')
-       ctx.drawImage("/"+res[2].path, 0 * k, 54 * k,100 * k,40 * k)
       //  ctx.moveTo(0 * k, 54 * k)
       //  ctx.arc(80 * k, 74 * k, 20 * k, 1.5 * Math.PI, 0.5 * Math.PI)
       //  ctx.lineTo(0, 94 * k)
@@ -353,12 +360,12 @@ if (this.data.item.status!=1) {
       //  ctx.fillText("爱蚁拼", 40, 160);
       //  ctx.setTextAlign('left')
       //  ctx.setTextBaseline("top")
-       ctx.setFillStyle('#000')
+       ctx.setFillStyle('#000000')
        ctx.setFontSize(16 * k)
        var chr = text.split("");
        var row = [];
        var temp = []
-       ctx.setFontSize(16 * k)
+       ctx.setFontSize(20 * k)
        for (var a = 0; a < chr.length; a++) {
          if (ctx.measureText(temp).width < 300 * k) {
            temp += chr[a];
@@ -387,43 +394,114 @@ if (this.data.item.status!=1) {
          row = rowCut;
        }
        for (var b = 0; b < row.length; b++) {
-         ctx.fillText(row[b], 28 * k, 375 * k + b * 25 * k, 220 * k);
+         ctx.fillText(row[b],30 * k, 375 * k + b * 25 * k, 300* k);
        }
-       // ctx.setFillStyle('#af0d1d')
+
+      //  副标题折行
+     let w2=400;
+       var text2 = that.data.item.info
+       var chr2 = text2.split("");
+       var row2 = [];
+       var temp2 = []
+      //  ctx.setFontSize(20 * k)
+       for (var a = 0; a < chr.length; a++) {
+         if (ctx.measureText(temp2).width < w2 * k) {
+           temp2 += chr2[a];
+         } else {
+           a--;
+           row2.push(temp2);
+           temp2 = "";
+         }
+       }
+       row2.push(temp2);
+       if (row2.length > 2) {
+         var rowCut2 = row2.slice(0, 2);
+         var rowPart2 = rowCut2[1];
+         var test2 = "";
+         var empty2 = [];
+         for (var a = 0; a < rowPart2.length; a++) {
+           if (ctx.measureText(test2).width < w2 * k) {
+             test2 += rowPart2[a];
+           } else {
+             break;
+           }
+         }
+         empty2.push(test2);
+         var group2 = empty2[0] + "..."
+         rowCut2.splice(1, 1, group2);
+         row2 = rowCut2;
+       }
+       ctx.setFillStyle('#888888')
+       ctx.setFontSize(16 * k)
+       console.log(row2);
+       
+       for (var d = 0; d < row2.length; d++) {
+         ctx.fillText(row2[d], 28 * k, 375 * k + b * 25 * k+ d*k*20, w2* k);
+       }   
+      //  副标题这行后的高度
+       let h2 = (d-1) * k * 20;
+    
        var x = 250 * k
        var y = 428 * k
 
        ctx.drawImage(res[1].path, x + 5 * k, y + 5 * k, 90 * k, 90 * k)
-       ctx.setFillStyle('#f2001c')
-       ctx.setFontSize(9 * k)
-       ctx.fillText("扫描或长按二维码", x + 14 * k, y - 8 * k);
+       ctx.setFillStyle('#333333')
+       ctx.setFontSize(12 * k)
+       ctx.fillText("扫描或长按识别", x + 10 * k, y + 120 * k);
        ctx.setLineWidth(k)
-       ctx.moveTo(x, y + 10 * k)
-       ctx.lineTo(x, y + 10 * k)
-       ctx.lineTo(x, y)
-       ctx.lineTo(x + 10 * k, y)
+      //  ctx.moveTo(x, y + 10 * k)
+      //  ctx.lineTo(x, y + 10 * k)
+      //  ctx.lineTo(x, y)
+      //  ctx.lineTo(x + 10 * k, y)
 
-       ctx.moveTo(x + 90 * k, y)
-       ctx.lineTo(x + 90 * k, y)
-       ctx.lineTo(x + 100 * k, y)
-       ctx.lineTo(x + 100 * k, y + 10 * k)
+      //  ctx.moveTo(x + 90 * k, y)
+      //  ctx.lineTo(x + 90 * k, y)
+      //  ctx.lineTo(x + 100 * k, y)
+      //  ctx.lineTo(x + 100 * k, y + 10 * k)
 
-       ctx.moveTo(x + 90 * k, y + 100 * k)
-       ctx.lineTo(x + 90 * k, y + 100 * k)
-       ctx.lineTo(x + 100 * k, y + 100 * k)
-       ctx.lineTo(x + 100 * k, y + 90 * k)
-       ctx.moveTo(x + 10 * k, y + 100 * k)
-       ctx.lineTo(x + 10 * k, y + 100 * k)
-       ctx.lineTo(x, y + 100 * k)
-       ctx.lineTo(x, y + 90 * k)
+      //  ctx.moveTo(x + 90 * k, y + 100 * k)
+      //  ctx.lineTo(x + 90 * k, y + 100 * k)
+      //  ctx.lineTo(x + 100 * k, y + 100 * k)
+      //  ctx.lineTo(x + 100 * k, y + 90 * k)
+      //  ctx.moveTo(x + 10 * k, y + 100 * k)
+      //  ctx.lineTo(x + 10 * k, y + 100 * k)
+      //  ctx.lineTo(x, y + 100 * k)
+      //  ctx.lineTo(x, y + 90 * k)
        ctx.setStrokeStyle('#f2001c')
-       ctx.setFillStyle('#e31012')
+       ctx.setFillStyle('#f26f37')
+       ctx.fillRect(28 * k, 430 * k + (b - 1) * 25 * k+h2, 72 * k, 24 * k)
+
+      
+       ctx.setFillStyle('#fff')
+       ctx.setFontSize(16 * k)
+       ctx.fillText("团购价", 40 * k, 448 * k + (b - 1) * 25 * k + h2);
+       ctx.setFillStyle('#333333')
        ctx.setFontSize(24 * k)
-       ctx.fillText("团购价￥" + that.data.item.price, 28 * k, 420 * k + (b - 1) * 25 * k);
-       ctx.setFillStyle('#a5a5a5')
-       ctx.setFontSize(18 * k)
-       ctx.fillText("单买价￥" + that.data.item.oneprice, 28 * k, 460 * k + (b - 1) * 25 * k);
-       ctx.stroke()
+       ctx.fillText("￥" + that.data.item.price, 100 * k, 450 * k + (b - 1) * 25 * k + h2);
+       ctx.setFillStyle('#a2a2a2')
+       ctx.setFontSize(16 * k)
+       ctx.fillText("单买价￥" + that.data.item.oneprice, 28 * k, 490 * k + h2+ (b - 1) * 25 * k);
+       ctx.stroke();
+    let info= wx.getSystemInfoSync()
+    console.log(info);
+       if (info.system=="IOS") {
+        //  ctx.setShadow(0, 0, 20, '#999');
+        //  ctx.drawImage(res[0].path, 28 * k, 28 * k, 321 * k, 321 * k);
+      
+    } else {
+      //  ctx.shadowOffsetX = 0;
+      //  ctx.shadowOffsetY=0;
+      //  ctx.shadowColor='#999';
+      //  ctx.shadowBlur=20;
+      //  ctx.drawImage(res[0].path, 28 * k, 28 * k, 321 * k, 321 * k);
+    }
+       let c = 8
+    let c1=14
+      //  ctx.setShadow(0, 0, 20, '#999');
+       ctx.drawImage("/" + res[3].path, (28-c) * k, (28-c) * k, (321+c1) * k, (321+c1) * k);
+       ctx.drawImage(res[0].path, (28) * k, (28) * k, (321) * k, (321) * k);
+       ctx.drawImage("/" + res[2].path, 0 * k, 54 * k, 100 * k, 40 * k)
+
        // 延迟200s进行绘制防止自提错位
        setTimeout(() => {
          ctx.draw(false, function () {
@@ -432,9 +510,9 @@ if (this.data.item.status!=1) {
              x: 1,
              y: 1,
              width: 375 * k,
-             height: 600 * k,
+             height: 560 * k,
              destWidth: 375 * k,
-             destHeight: 600 * k,
+             destHeight: 560 * k,
              canvasId: 'shareImg',
              success: function (res) {
                /* 这里 就可以显示之前写的 预览区域了 把生成的图片url给image的src */
@@ -464,8 +542,32 @@ if (this.data.item.status!=1) {
        }, 400);
 
      })
-   }
-    
-   
+   } 
   },
+
+ compareVersion(v1, v2) {
+  v1 = v1.split('.')
+  v2 = v2.split('.')
+  const len = Math.max(v1.length, v2.length)
+  while(v1.length < len) {
+  v1.push('0')
+}
+while (v2.length < len) {
+  v2.push('0')
+}
+
+for (let i = 0; i < len; i++) {
+  const num1 = parseInt(v1[i])
+  const num2 = parseInt(v2[i])
+
+  if (num1 > num2) {
+    return 1
+  } else if (num1 < num2) {
+    return -1
+  }
+}
+
+return 0
+}
+
 })

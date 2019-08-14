@@ -55,13 +55,13 @@
               {{add.tel?add.tel:"请选择您的地址 "}}
             <image mode='widthFix' class="rt" style='width: 15rpx;margin-left: 10rpx; margin-top:20rpx;' src='../../images/right.gif'></image>
           </view>
-        </view>    
+        </view>
       </navigator>
   </view>
   <view class='ddm'>
     <view class='list' wx:if="{{item.delivery==1}}">
       姓名：
-      <input class=' bz rt' type="text" name="consignee" placeholder="请输入用户名" />
+      <input class=' bz rt' type="text" name="consignee" placeholder="请输入姓名" />
     </view>
     <view class='list' wx:if="{{item.delivery==1}}">
       手机：

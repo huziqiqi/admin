@@ -16,7 +16,8 @@ Page({
       options: options
     })
 
-    this.request()
+    this.request();
+
   },
 request(){
   wx.request({
@@ -32,6 +33,11 @@ request(){
           item: res.data.data,
           oid: this.data.options.oid
         })
+        console.log(res.data.data.wuliu);
+        if (res.data.data.type==2) {
+          this.kdrequest();
+          
+        }
       } else {
         wx.showModal({
           title: '提示',
@@ -42,6 +48,35 @@ request(){
     }
   })
 },
+
+  kdrequest() {
+    wx.request({
+      url: getApp().url + "/user.wl",
+      data: {
+        uid: wx.getStorageSync('user').id,
+        oid: this.data.options.oid
+      },
+      method: "POST",
+      success: (res) => {
+        if (res.data.code == 200) {
+          console.log(res.data.data);
+          
+          console.log(JSON.parse(res.data.data.wuliu));
+          
+          this.setData({
+          kd: JSON.parse(res.data.data.wuliu) ,
+            // oid: this.data.options.oid
+          })
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: res.data.msg,
+            showCancel: false
+          })
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

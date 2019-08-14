@@ -7,7 +7,8 @@ Page({
   data: {
     amount: 0,
     price: 0,
-    num:1
+    num:1,
+    issdtx:false
   },
 
   /**
@@ -18,7 +19,10 @@ Page({
 
   },
 
-
+stop(){
+  console.log("阻止冒泡");
+  
+},
   request() {
     wx.request({
       url: getApp().url + "//user.myprice",
@@ -47,38 +51,70 @@ Page({
   onShow: function () {
     this.request()
   },
-  submitForm(e) {
+/**
+* 自动提现
+*/
+  zdtx(e){
     console.log(e);
-    if (this.data.num==1) {
+    if (this.data.num == 1) {
       //微信提现
-      var truename = e.detail.value.truename1 
-      var number = e.detail.value.number1 
-    }else{
+      var truename = e.detail.value.truename1
+      var number = e.detail.value.number1
+    } else {
       //支付宝提现
 
       var truename = e.detail.value.truename2
       var number = e.detail.value.number2
     }
-    wx.request({
+   const obj ={
       url: getApp().url + "//user.myprice/cash",
       data: {
         userId: wx.getStorageSync('user').id,
         price: e.detail.value.meony,
-        type:this.data.num,
+        type: this.data.num,
         truename, number
       },
       method: "POST",
       success: (res) => {
-        wx.showToast({
-          title: res.data.msg,
-          icon: "none"
-        })
-        this.request()
-        // this.setData({
-        //   item:
-        // })
+        if (res.data.code==200) {
+          this.setData({ issdtx: true })
+          this.request()
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: "none"
+          })
+        }
+    
       }
+    }
+    console.log(e.detail.value.meony);
+    
+    if (e.detail.value.meony<100) {
+      wx.showToast({
+        title: "提现额度必须大于100",
+        icon: "none"
+      })
+    } else {
+      wx.request(obj)
+    }
+  },
+  submitForm(e) {
+    console.log(e.detail.value.meony);
+
+    this.zdtx(e)
+   
+  },
+  isShow(){
+    this.setData({
+      issdtx:false
     })
+  },
+  txend(){
+     const obj={
+       delta: 1
+     }
+     wx.navigateBack(obj) 
   },
   changeOil(e){
     this.setData({

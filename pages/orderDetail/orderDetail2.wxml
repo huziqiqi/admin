@@ -84,5 +84,20 @@
       <view>微信（在线支付）</view>
     </view>
   </view>
+    <view class='section' wx:if="{{item.type==2}}">
+    <!-- <view class='title' style='color: #333;padding-bottom: 10rpx;'>已成团-待自提</view> -->
+    <view class='order-information-wrapper'>
+      <view class='item flex'>
+        物流信息：
+        <!-- <view>{{item.order_num}}</view> -->
+      </view>
+      <view class='item flex' wx:for="{{kd.Traces}}">
+        <view class="time" style="width:180rpx;font-size:20rpx;">{{item.AcceptTime}}</view>
+        <view style="width:700rpx;word-break: break-all;word-wrap: break-word">
+          {{item.AcceptStation}}
+        </view>
+      </view>
+    </view>
+  </view>
 <view class="btn" wx:if="{{item.msg=='待自提'&&item.status!=5}}" bindtap='theGoods'>确认已自提</view>
 </view>

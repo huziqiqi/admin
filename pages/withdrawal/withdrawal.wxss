@@ -176,3 +176,115 @@ page {
     margin: 0 25rpx;
     color: #FFFFFF;
 }
+.model {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+}
+
+.model1 {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(9, 9, 9, 0.5);
+    z-index: 19909999999;
+    /* border: #444 solid 4rpx; */
+}
+
+.model1 image {
+    width: 100%;
+}
+
+.top {
+    height: 88%;
+    background: rgba(99, 99, 99, 0.1)
+}
+
+.main {
+    height: 12%;
+    background: #fff;
+}
+
+.main .btn {
+    width: 50%;
+    height: 100%;
+    float: left;
+    background: #fff;
+}
+
+.main .btn button {
+    background: #fff;
+    height: 100%;
+    border: 0rpx solid #fff;
+}
+
+.main .btn button view {
+    margin-top: -10rpx;
+    font-size: 28rpx;
+}
+
+.main .btn image {
+    width: 50rpx;
+    margin: -30rpx auto;
+}
+
+.wrap {
+    /* width: 600rpx; */
+    margin: 30rpx auto;
+    background: rgba(0, 0, 0, 0);
+}
+.wrap button{
+  width: 400rpx;
+  margin: 20rpx auto;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background: #f26f37;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.canvas {
+    position: absolute;
+    top: -100000px;
+    left: -100000px;
+}
+
+.share view text {
+    font-size: 28rpx;
+    color: #222;
+}
+
+.share view {
+    width:49.3%;
+    color: #333;
+    font-size: 20rpx;
+    /* text-align: center; */
+
+}
+.ewm{
+    width:650rpx;
+    background: #fff;
+    text-align: center;
+    padding:30rpx 50rpx ;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 20%;
+
+}
+
+.ewm image{
+    display: inline-block;
+}
+.close{
+    color: chartreuse;
+    border-top: 1rpx solid #222;
+    margin-top: 20rpx;
+    padding-top: 20rpx;
+}

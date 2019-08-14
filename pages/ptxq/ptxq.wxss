@@ -205,6 +205,10 @@ swiper {
 
 .pm>view {
     color: #666;
+     display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp:1;
+overflow: hidden;
 }
 
 .pm image {
@@ -331,7 +335,17 @@ swiper {
 .wrap {
     width: 600rpx;
     margin: 30rpx auto;
-    background: #fff;
+    background: rgba(0, 0, 0, 0);
+}
+.wrap button{
+  width: 400rpx;
+  margin: 20rpx auto;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background: #f26f37;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
 }
 
 .canvas {

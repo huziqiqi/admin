@@ -79,7 +79,7 @@
     <view class='tit'>参团记录</view>
     <view class='pm' wx:for="{{userbuy}}" wx:key="item">
       <text>{{item.NO}}</text>
-      <view style="width:200rpx;">
+      <view style="width:270rpx;">
         <image src="{{item.headimgurl}}" mode='widthFix'></image>
         {{item.nickname}}
       </view>
@@ -137,7 +137,7 @@
 <view class="model1" wx:if="{{isshow==3}}" bindtap="isShow" data-is="5">
   <view class="wrap">
     <image src='{{prurl}}' mode="widthFix" catchtap="showImg"></image>
-    <button catchtap="save">保存图片</button>
+    <button catchtap="save">一键保存图片</button>
   </view>
 </view>
 <canvas canvas-id="shareImg" class="canvas"  style="width:750px;height:1200px; "></canvas>
