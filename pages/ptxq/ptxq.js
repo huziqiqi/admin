@@ -259,7 +259,6 @@ if (this.data.item.status!=1) {
     })
   },
   share() {
-
     var that = this
     var k = 2
     if (that.data.prurl) {

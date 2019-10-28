@@ -48,6 +48,8 @@
     "navigationBarTitleText": "蚁拼",
     "navigationBarTextStyle": "black"
   },
+ 
+
   "tabBar": {
     "color": "#593A25",
     "selectedColor": "#FFD45A",
